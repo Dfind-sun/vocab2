@@ -12,6 +12,7 @@
   --danger:#C0564B; --line:#E8E6E1; --shadow:0 1px 3px rgba(31,41,55,.06), 0 6px 18px rgba(31,41,55,.05);
   --chart-track:#E8E6E1; --chart-bar:#9FC4BB; --picker:#ECEAE4;
   --half-bg:#F5EBD3; --half-ink:#8A6D3B;
+  --fg:#1F2937; --mut:#8A90A6;
 }
 html.dark{
   --bg:#17181C; --card:#232429; --ink:#ECEDEF; --ink2:#9CA3AF;
@@ -19,6 +20,7 @@ html.dark{
   --danger:#D97E72; --line:#33353C; --shadow:0 1px 3px rgba(0,0,0,.35), 0 6px 18px rgba(0,0,0,.3);
   --chart-track:#3A3C44; --chart-bar:#3F6B62; --picker:#30323A;
   --half-bg:#3A3626; --half-ink:#D8C08A;
+  --fg:#ECEDEF; --mut:#9CA3AF;
 }
 html.dark .book-picker button.on{box-shadow:none}
 html.dark nav.tabbar{background:rgba(35,36,41,.96);border-top-color:var(--line)}
@@ -276,6 +278,8 @@ html.dark .modal-mask{background:rgba(0,0,0,.6)}
 .review-banner{margin:0 0 14px;width:100%;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #E7E9F0;border-radius:14px;background:#fff;cursor:pointer;text-align:left;transition:transform .15s,box-shadow .15s}
 .review-banner:active{transform:scale(.98)}
 html.dark .review-banner{background:#1E2130;border-color:#2C3042}
+html.dark .review-banner .rb-go{color:#8FA6FF}
+html.dark .review-banner .rb-t{color:#F1F3F8}
 .review-banner .rb-ic{width:34px;height:34px;border-radius:10px;background:#E8EDFF;color:#4F6BFF;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 html.dark .review-banner .rb-ic{background:rgba(79,107,255,.16);color:#8FA6FF}
 .review-banner .rb-main{flex:1;min-width:0}
@@ -289,6 +293,11 @@ html.dark .review-banner .rb-ic{background:rgba(79,107,255,.16);color:#8FA6FF}
 html.dark .review-banner.empty{background:#171A24;border-color:#262A38}
 html.dark .review-banner.empty .rb-ic{background:#222635;color:#5A6072}
 html.dark .review-banner.empty .rb-t{color:#6C7288}
+.key-wrap{display:flex;align-items:center;gap:6px;flex:1}
+.key-wrap .set-input{flex:1;min-width:0}
+.key-eye{width:32px;height:32px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--ink2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex:0 0 auto;padding:0}
+.key-eye:active{transform:scale(.96)}
+.key-eye svg{display:block}
 .ai-extract-btn{margin:0 0 12px;width:100%;display:flex;align-items:center;gap:9px;padding:11px 14px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--fg);cursor:pointer;text-align:left;transition:transform .15s}
 .ai-extract-btn:active{transform:scale(.98)}
 .ai-extract-btn .ae-ic{width:30px;height:30px;border-radius:9px;background:#FFF4E0;color:#B7791F;display:flex;align-items:center;justify-content:center;flex:0 0 auto}
@@ -498,6 +507,8 @@ html.dark .qz-explain{border-color:#3A3158;background:rgba(124,92,252,.08)}
 .store-fill.danger{background:#E5484D}
 .mini-btn{border:1px solid var(--brand);color:var(--brand);background:transparent;border-radius:10px;padding:8px 16px;font-size:14px;cursor:pointer;flex:none}
 .mini-btn:active{opacity:.7}
+input[type=number]{-moz-appearance:textfield}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}
 .cbook-row{display:flex;align-items:center;gap:8px;padding:10px 2px;border-bottom:1px solid var(--line)}
 .cbook-name{flex:1;font-size:14px;color:var(--ink);font-weight:600;min-width:0}
 .cbook-cnt{font-size:12px;color:var(--mut);flex:none}
@@ -1382,9 +1393,15 @@ html.dark .review-badge{background:rgba(61,176,156,.16);color:var(--brand-deep)}
           <div><div class="set-name">AI 讲解</div><div class="set-desc">卡片底部联网生成语境解释、例句与记忆联想</div></div>
           <label class="switch"><input type="checkbox" id="setAIOn" checked><span class="slider"></span></label>
         </div>
-        <div class="set-item">
+        <div class="set-item" style="display:none">
           <div style="flex:1"><div class="set-name">DeepSeek API Key</div><div class="set-desc">在 platform.deepseek.com 创建</div></div>
-          <input class="set-input" type="password" id="setAIKey" placeholder="sk-..." style="max-width:210px;text-align:left">
+          <div class="key-wrap">
+            <input class="set-input" type="password" id="setAIKey" placeholder="sk-..." style="text-align:left">
+            <button type="button" class="key-eye" id="btnKeyEye" title="显示/隐藏 API Key">
+              <svg id="keyEyeOn" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+              <svg id="keyEyeOff" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="m1 1 22 22"/></svg>
+            </button>
+          </div>
         </div>
         <div class="set-item">
           <div style="flex:1"><div class="set-name">清空讲解缓存</div><div class="set-desc">已生成的讲解会缓存，重复查看不耗额度</div></div>
@@ -1392,25 +1409,33 @@ html.dark .review-badge{background:rgba(61,176,156,.16);color:var(--brand-deep)}
         </div>
         <div class="set-item">
           <div style="flex:1"><div class="set-name">AI 短文排版</div><div class="set-desc">逐句对照：每句英文下紧跟中文；分开显示：先整篇英文再整篇中文</div></div>
-          <select class="set-input" id="setEssayMode" style="max-width:150px">
-            <option value="line">逐句对照</option>
-            <option value="block">分开显示</option>
-          </select>
+          <div class="ai-mode-seg" id="essaySeg">
+            <button class="ai-mode-btn" data-m="line">逐句</button>
+            <button class="ai-mode-btn" data-m="block">分开</button>
+          </div>
         </div>
         <div class="set-item">
           <div style="flex:1"><div class="set-name">AI 短文自动保存</div><div class="set-desc">生成后自动存入「我的短文」；关闭后可在弹窗里手动保存</div></div>
-          <label class="switch"><input type="checkbox" id="setEssayAutoSave"><span></span></label>
+          <label class="switch"><input type="checkbox" id="setEssayAutoSave"><span class="slider"></span></label>
         </div>
         <div class="set-item">
           <div style="flex:1"><div class="set-name">智能出题判题方式</div><div class="set-desc">点选即判：选完立刻判对错；点确定判：先选好再按确定</div></div>
-          <select class="set-input" id="setQuizMode" style="max-width:150px">
-            <option value="instant">点选即判</option>
-            <option value="confirm">点确定判</option>
-          </select>
+          <div class="ai-mode-seg" id="quizSeg">
+            <button class="ai-mode-btn" data-m="instant">点选即判</button>
+            <button class="ai-mode-btn" data-m="confirm">点确定判</button>
+          </div>
         </div>
         <div class="set-item">
           <div style="flex:1"><div class="set-name">出题数量</div><div class="set-desc">每次生成 1~20 道题</div></div>
-          <input class="set-input" type="number" id="setQuizCount" min="1" max="20" value="6" style="max-width:90px;text-align:center">
+          <select class="set-select" id="setQuizCount" style="max-width:92px">
+            <option value="4">4 道</option>
+            <option value="6" selected>6 道</option>
+            <option value="8">8 道</option>
+            <option value="10">10 道</option>
+            <option value="12">12 道</option>
+            <option value="15">15 道</option>
+            <option value="20">20 道</option>
+          </select>
         </div>
       </div>
       <div class="set-group">
@@ -1688,7 +1713,7 @@ var els = {
   btnExport:$("btnExport"), btnImport:$("btnImport"), fileImport:$("fileImport"),
   storeText:$("storeText"), storeBarFill:$("storeBarFill"), storeHint:$("storeHint"),
   btnImpBook:$("btnImpBook"), fileImpBook:$("fileImpBook"), btnImpBookJson:$("btnImpBookJson"), fileImpBookJson:$("fileImpBookJson"), customBookList:$("customBookList"),
-  setAIOn:$("setAIOn"), setAIKey:$("setAIKey"), btnAIClear:$("btnAIClear"), setEssayMode:$("setEssayMode"), setEssayMode2:$("setEssayMode2"), setEssayAutoSave:$("setEssayAutoSave"), setQuizMode:$("setQuizMode"), setQuizCount:$("setQuizCount"),
+  setAIOn:$("setAIOn"), setAIKey:$("setAIKey"), btnKeyEye:$("btnKeyEye"), keyEyeOn:$("keyEyeOn"), keyEyeOff:$("keyEyeOff"), btnAIClear:$("btnAIClear"), essaySeg:$("essaySeg"), quizSeg:$("quizSeg"), setEssayMode2:$("setEssayMode2"), setEssayAutoSave:$("setEssayAutoSave"), setQuizCount:$("setQuizCount"),
   aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody")
 };
 
@@ -2940,9 +2965,17 @@ function markCn(t){
   s = s.replace(/\*+([^*\n]+?)\*+/g, "<b class=\"ai-cn-w\">$1</b>");
   return s;
 }
+function renderQuizSeg(){
+  var v = state.settings.quizMode || "instant";
+  if(els.quizSeg){ var bs = els.quizSeg.querySelectorAll(".ai-mode-btn"); for(var i=0;i<bs.length;i++){ bs[i].classList.toggle("on", bs[i].getAttribute("data-m") === v); } }
+}
+function renderEssaySeg(){
+  var v = state.settings.aiEssayMode === "block" ? "block" : "line";
+  if(els.essaySeg){ var bs = els.essaySeg.querySelectorAll(".ai-mode-btn"); for(var i=0;i<bs.length;i++){ bs[i].classList.toggle("on", bs[i].getAttribute("data-m") === v); } }
+}
 function syncEssayModeUI(){
   var v = state.settings.aiEssayMode === "block" ? "block" : "line";
-  if(els.setEssayMode) els.setEssayMode.value = v;
+  if(els.essaySeg){ var bs3 = els.essaySeg.querySelectorAll(".ai-mode-btn"); for(var i3=0;i3<bs3.length;i3++){ bs3[i3].classList.toggle("on", bs3[i3].getAttribute("data-m") === v); } }
   var seg = document.getElementById("aiModeSeg");
   if(seg){
     var bs = seg.querySelectorAll(".ai-mode-btn");
@@ -4783,9 +4816,9 @@ function renderSettings(){
   els.setWrongSep.checked = state.settings.wrongSep !== false;
   els.setAIOn.checked = state.settings.aiOn !== false;
   els.setAIKey.value = state.settings.aiKey || "";
-  els.setQuizMode.value = state.settings.quizMode || "instant";
-  els.setQuizCount.value = state.settings.quizCount || 6;
-  els.setEssayMode.value = state.settings.aiEssayMode === "block" ? "block" : "line";
+  renderQuizSeg();
+  els.setQuizCount.value = [4,6,8,10,12,15,20].indexOf(state.settings.quizCount || 6) >= 0 ? (state.settings.quizCount || 6) : 6;
+  renderEssaySeg();
   els.setEssayAutoSave.checked = state.settings.aiEssayAutoSave !== false;
   renderStoreBar();
   renderCustomBookList();
@@ -4815,14 +4848,33 @@ els.setFlashCheckSpeak.addEventListener("change", function(){ state.settings.fla
 els.setBoostOnce.addEventListener("change", function(){ state.settings.boostOnce = els.setBoostOnce.checked; onSetChange(); });
 els.setWrongSep.addEventListener("change", function(){ state.settings.wrongSep = els.setWrongSep.checked; onSetChange(); updateWmEntries(); });
 els.setAIOn.addEventListener("change", function(){ state.settings.aiOn = els.setAIOn.checked; onSetChange(); updateAiTag(); });
+els.btnKeyEye.addEventListener("click", function(){
+  var show = els.setAIKey.type === "password";
+  els.setAIKey.type = show ? "text" : "password";
+  els.keyEyeOn.style.display = show ? "none" : "block";
+  els.keyEyeOff.style.display = show ? "block" : "none";
+});
 els.setAIKey.addEventListener("change", function(){ state.settings.aiKey = els.setAIKey.value.trim(); onSetChange(); });
-els.setQuizMode.addEventListener("change", function(){ state.settings.quizMode = els.setQuizMode.value; onSetChange(); });
+var _qsg = els.quizSeg;
+if(_qsg){
+  var _qbs = _qsg.querySelectorAll(".ai-mode-btn");
+  for(var _qi=0;_qi<_qbs.length;_qi++){
+    (function(_mb){ _mb.addEventListener("click", function(){ state.settings.quizMode = _mb.getAttribute("data-m"); renderQuizSeg(); onSetChange(); }); })(_qbs[_qi]);
+  }
+}
 els.setQuizCount.addEventListener("change", function(){
-  var v = Math.min(Math.max(parseInt(els.setQuizCount.value, 10) || 6, 1), 20);
-  state.settings.quizCount = v; els.setQuizCount.value = v; onSetChange();
+  var v = parseInt(els.setQuizCount.value, 10) || 6;
+  if([4,6,8,10,12,15,20].indexOf(v) < 0) v = 6;
+  state.settings.quizCount = v; onSetChange();
 });
 els.setEssayAutoSave.addEventListener("change", function(){ state.settings.aiEssayAutoSave = els.setEssayAutoSave.checked; onSetChange(); });
-els.setEssayMode.addEventListener("change", function(){ applyEssayMode(els.setEssayMode.value); });
+var _esg = els.essaySeg;
+if(_esg){
+  var _ebs = _esg.querySelectorAll(".ai-mode-btn");
+  for(var _ei=0;_ei<_ebs.length;_ei++){
+    (function(_mb){ _mb.addEventListener("click", function(){ applyEssayMode(_mb.getAttribute("data-m")); }); })(_ebs[_ei]);
+  }
+}
 els.btnAIClear.addEventListener("click", function(){ state.aiCache = {}; saveState(); renderSettings(); });
 
 /* ---------- 统计 ---------- */
