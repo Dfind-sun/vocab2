@@ -707,6 +707,7 @@ html.dark .start-btn{box-shadow:0 8px 22px rgba(0,0,0,.35)}
 .hc-ic svg{width:18px;height:18px}
 .hc-t{font-size:14.5px;font-weight:600;color:var(--ink)}
 .hc-cost{font-size:11px;color:var(--brand-deep,#e6a23c);font-weight:800;margin-left:6px;background:rgba(230,162,60,.12);border:1px solid rgba(230,162,60,.35);border-radius:6px;padding:0 5px;line-height:1.6;vertical-align:1px}
+.coin-rem{color:var(--ink2);font-size:10px;font-weight:600;margin-left:3px;white-space:nowrap}
 .ai-cost{font-size:11px;color:var(--brand-deep,#e6a23c);font-weight:800;margin-left:5px;background:rgba(230,162,60,.12);border:1px solid rgba(230,162,60,.35);border-radius:6px;padding:0 5px;line-height:1.5}
 .hc-d{font-size:11.5px;color:var(--ink2);line-height:1.4}
 .home-card.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px}
@@ -789,7 +790,8 @@ html.dark .review-badge{background:rgba(61,176,156,.16);color:var(--brand-deep)}
 .wm-row .wm-word{font-weight:600;color:var(--ink)}
 .wm-row .wm-me{display:block;font-size:12px;color:var(--ink2);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .streak-line{margin:0 0 14px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:13px;color:var(--ink2)}
-.streak-line .sl-fire{color:#F5A623;font-weight:600}
+.streak-line .sl-extra{display:block;width:100%;font-size:11px;color:var(--ink2);text-align:center;margin-top:3px;line-height:1.5}
+.sl-fire{color:#F5A623;font-weight:600}
 .streak-line .sl-done{color:var(--brand);font-weight:600}
 .sl-coins{color:var(--brand-deep);font-weight:800;font-size:13px;cursor:pointer;padding:2px 6px;border-radius:8px;transition:transform .08s;position:relative;z-index:300}
 .sl-coins:active{transform:scale(.92);background:rgba(128,128,128,.12)}
@@ -894,6 +896,77 @@ html.dark #btnMP .hc-ic{background:rgba(46,160,120,.15);color:#7FD8B8}
 .jr-finish .jf-n span{font-size:11px;color:var(--ink2)}
 .jr-finish .jf-btns{display:flex;gap:10px;justify-content:center;margin-top:14px}
 @keyframes jrPop{from{transform:scale(.94);opacity:.4}to{transform:scale(1);opacity:1}}
+.gd-target{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.gd-input:disabled{opacity:.45;cursor:not-allowed}
+.gd-input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--picker);color:var(--ink);font-size:14px;outline:none}
+.gd-input:focus{border-color:var(--brand)}
+.gd-hit{background:var(--brand-soft);border:1px solid var(--brand);border-radius:10px;padding:9px 12px;margin-bottom:10px;text-align:center;color:var(--brand-deep);font-weight:600;font-size:13.5px;line-height:1.5}
+.gd-seed-row{margin-bottom:6px}
+.gd-seed-tip{font-size:11.5px;color:var(--ink2);margin-top:4px}
+.gd-kinds{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin:10px 0}
+.gd-kind{border:1px solid var(--line);border-radius:10px;padding:9px 8px;text-align:center;cursor:pointer;background:var(--picker)}
+.gd-kind.on{border-color:var(--brand);background:var(--brand-soft)}
+.gd-kind-name{font-size:13.5px;font-weight:700;color:var(--brand-deep)}
+.gd-kind-cost{font-size:11.5px;color:var(--ink2);margin-top:2px}
+.gd-kind-d{font-size:11px;color:var(--ink2);margin-top:2px;line-height:1.4}
+.gd-actions{text-align:center;margin:6px 0 4px}
+.gd-growing{text-align:center;padding:16px 0;color:var(--ink2);font-size:14px;line-height:1.7}
+.gd-zone{margin-top:4px}
+.gd-route-keep{margin:6px 0 0;padding:7px 10px;border:1px dashed var(--line);border-radius:10px;font-size:12px;cursor:pointer;background:var(--picker);color:var(--ink2)}
+.gd-route-keep b{color:var(--brand-deep)}
+.gd-route-keep-d{margin-top:4px;padding:6px 8px;background:var(--bg);border-radius:8px;font-size:12px;line-height:1.9}
+.gd-route-old{margin-top:5px;font-size:11px;color:var(--ink2)}
+.gd-route-old-item{padding:4px 8px;border-bottom:1px dashed var(--line);cursor:pointer}
+.gd-route-old-item:hover{background:var(--picker)}
+.gd-clear{margin-top:10px;text-align:right}
+.gd-clear .mini-btn{color:#d64545;border-color:#e3b3b3;background:transparent}
+.gd-clear .mini-btn:hover{background:#fdf0ef}
+.gd-result-title{font-size:13.5px;font-weight:600;color:var(--ink);margin:4px 0 2px}
+.gd-word{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--line)}
+.gd-w{font-size:15px;font-weight:700;color:var(--brand-deep);min-width:86px}
+.gd-p{font-size:12px;color:var(--ink2);white-space:nowrap}
+.gd-m{flex:1;font-size:13px;color:var(--ink);line-height:1.5}
+.gd-act{display:flex;gap:5px}
+.gd-tree{margin:10px 0 4px;display:flex;flex-direction:column;gap:10px}
+.gd-tree-row{display:grid;grid-template-columns:repeat(4, minmax(0,1fr));gap:6px;justify-content:center}
+.gd-node{position:relative;border:1.5px solid var(--line);border-radius:10px;padding:7px 6px 5px;min-width:0;max-width:112px;text-align:center;background:var(--picker);cursor:pointer;transition:all .18s}
+.gd-node.root{border-style:dashed;border-color:var(--brand)}
+.gd-node.sel{border-color:var(--brand);background:var(--brand-soft);box-shadow:0 0 0 2px rgba(230,162,60,.16)}
+.gd-node.grown{cursor:default;opacity:.72}
+.gd-node.regrow{cursor:pointer;opacity:.9;border-style:dashed}
+.gd-node.hit{border-color:#e8a23d;background:var(--brand-soft)}
+.gd-nw{display:block;font-size:13px;font-weight:800;color:var(--brand-deep);word-break:break-all;line-height:1.3}
+.gd-nm{display:block;font-size:10.5px;color:var(--ink2);margin-top:2px;line-height:1.35;word-break:break-word}
+.gd-nflag{display:block;font-size:10px;color:var(--ink2);margin-top:4px}
+.gd-node.sel .gd-nflag{color:var(--brand-deep);font-weight:700}
+.ranch-field{position:relative;flex:1;overflow:hidden;background:var(--bg);margin:0 12px 12px;border-radius:12px;border:1px solid var(--line)}
+.ranch-word{position:absolute;padding:8px 12px;border:1.5px solid var(--brand);border-radius:10px;background:var(--picker);color:var(--ink);font-weight:600;font-size:14px;cursor:pointer;user-select:none;white-space:nowrap;box-shadow:0 2px 6px rgba(0,0,0,.08);z-index:1}
+.ranch-word:hover{background:var(--brand-soft);transform:scale(1.05)}
+.ranch-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;font-size:12px;color:var(--ink2);flex-wrap:wrap}
+.ranch-bar b{color:var(--brand-deep)}
+.ranch-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink2);font-size:14px;text-align:center;padding:20px}
+.gd-node.hit .gd-nflag{color:#c97b00;font-weight:800}
+.gd-nhit{font-size:16px}
+.gd-stats{text-align:center;font-size:11.5px;color:var(--ink2);margin:10px 0 2px;line-height:1.6}
+.gd-plan{text-align:center;margin:2px 0 6px}
+.gd-plan .mini-btn{background:linear-gradient(135deg,#7c5cff,#4f8cff);color:#fff;border:none;padding:6px 14px;font-size:13px;border-radius:999px;cursor:pointer;box-shadow:0 2px 8px rgba(79,140,255,.25)}
+.gd-plan-d{font-size:11.5px;color:var(--ink2);margin-top:5px;line-height:1.6}
+.gd-plan-box{background:var(--picker);border:1px dashed var(--brand);border-radius:12px;padding:10px 12px;margin:6px 0}
+.gd-plan-box .gd-plan-row{margin-bottom:7px}
+.gd-route{margin-top:8px;text-align:left}
+.gd-route-item{display:flex;gap:6px;align-items:baseline;font-size:12px;padding:3px 0;border-bottom:1px dashed var(--line,#eee)}
+.gd-route-item:last-child{border-bottom:none}
+.gd-route-rel{color:var(--brand);font-weight:700;font-size:11px;white-space:nowrap}
+.gd-route-w{font-weight:800}
+.gd-route-why{color:var(--ink2,#888);font-size:11px}
+.gd-mini{font-size:11.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);background:var(--picker);cursor:pointer;color:var(--ink2);white-space:nowrap}
+.gd-mini:hover{color:var(--brand);border-color:var(--brand)}
+.gd-tip{font-size:11.5px;color:var(--ink2);margin:4px 0 2px}
+.gd-log{font-size:11.5px;color:var(--ink2);margin-top:8px;line-height:1.7;word-break:break-all}
+.jr-rule{font-size:11.5px;color:var(--ink2);margin:0 0 8px;text-align:center;line-height:1.5}
+.mp-rule{font-size:11.5px;color:var(--ink2);margin:0 0 8px;text-align:center;line-height:1.5}
+.jr-ban{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:8px;line-height:1.6;text-align:left;background:var(--picker);border-radius:8px;padding:8px 10px}
+.jr-ban b{color:var(--brand-deep);font-weight:800}
 @keyframes jrFade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
 @keyframes jrShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
 #btnJR .hc-ic{background:#F1E8FD;color:#7C5CBF}
@@ -970,7 +1043,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           </button>
           <button class="home-card" id="btnAIEssay" onclick="openAIEssay()">
             <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
-            <span class="hc-t">AI 成文<span class="hc-cost">-5</span></span>
+            <span class="hc-t">AI 成文<span class="hc-cost">-5</span><span class="coin-rem" data-coin="5"></span></span>
             <span class="hc-d">把今天学的词写成一篇短文</span>
           </button>
           <button class="home-card" id="btnEssayLib" onclick="openEssayLib()">
@@ -980,7 +1053,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           </button>
           <button class="home-card" id="btnAIExtract">
             <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
-            <span class="hc-t">AI 提取生词<span class="hc-cost">-8</span></span>
+            <span class="hc-t">AI 提取生词<span class="hc-cost">-8</span><span class="coin-rem" data-coin="8"></span></span>
             <span class="hc-d">粘贴文章筛出生词</span>
           </button>
           <button class="home-card" id="btnAIRBook">
@@ -997,6 +1070,16 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
             <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7v10"/><path d="M11 7v4"/><path d="M15 7v7"/><path d="M19 7v10"/></svg></span>
             <span class="hc-t">单词连连看</span>
             <span class="hc-d">翻开英文和中文，成对消除</span>
+          </button>
+          <button class="home-card wide" id="btnRanch">
+            <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 18c1-3 3-3 4 0s3-3 4 0 3-3 4 0 3-3 4 0"/><path d="M4 18v4"/><path d="M12 18v4"/><path d="M20 18v4"/><path d="M3 14V6h18v8"/><path d="M8 10h.01"/><path d="M16 10h.01"/></svg></span>
+            <span class="hc-t">单词牧场</span>
+            <span class="hc-d">喂食生词，边看边反弹</span>
+          </button>
+          <button class="home-card wide" id="btnGarden">
+            <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 4-6 9-7 5 1 9 3 9 7a7 7 0 0 1-7 7z"/><path d="M12 6V2"/><path d="M9 3l3-1 3 1"/><path d="M12 11v6"/><path d="M9.5 13.5 12 16l2.5-2.5"/></svg></span>
+            <span class="hc-t">单词种植园<span class="hc-cost">-5~8</span></span>
+            <span class="hc-d">种下一个词，长出它的朋友们</span>
           </button>
         </div>
       </div>
@@ -1035,7 +1118,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
             </button>
             <div class="card-head">
-              <div class="ai-row" id="aiRow" style="display:none"><button class="ai-tag" id="aiTag">AI 讲解<span class="ai-cost">-2</span></button></div>
+              <div class="ai-row" id="aiRow" style="display:none"><button class="ai-tag" id="aiTag">AI 讲解<span class="ai-cost">-2</span><span class="coin-rem" data-coin="2"></span></button></div>
               <div class="word-line">
                 <button class="spk spk3" id="spk3" title="连续发音 3 次">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
@@ -1349,20 +1432,23 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         <div class="ci-wrap" style="padding:12px 16px 20px">
           <div class="ci-sec">
             <div class="ci-sec-title">获取积分</div>
-            <div class="ci-row"><div class="ci-name">每日打卡</div><div class="ci-num">+10</div><div class="ci-note">当日背词满 10 个</div></div>
-            <div class="ci-row"><div class="ci-name">每日背词 50</div><div class="ci-num">+7</div><div class="ci-note">当日背词满 50 个，与打卡叠加</div></div>
+            <div class="ci-row"><div class="ci-name">每日背词</div><div class="ci-num">+3~14</div><div class="ci-note">20 词 +3 · 50 词 +7 · 75 词 +10 · 100 词 +14，各档每天一次</div></div>
+            <div class="ci-row"><div class="ci-name">连续坚持</div><div class="ci-num">+10</div><div class="ci-note">每天 ≥50 词连续 3 天（每 3 天一次）</div></div>
+            <div class="ci-row"><div class="ci-name">一周 Buff</div><div class="ci-num">3天</div><div class="ci-note">8 天周期内满 7 天 ≥50 词，所有赚分方式 +2、上限 +8，持续 3 天</div></div>
             <div class="ci-row"><div class="ci-name">完成一轮核心背词</div><div class="ci-num">+2</div><div class="ci-note">拼写检测全部完成才计一轮</div></div>
             <div class="ci-row"><div class="ci-name">艾宾浩斯复习</div><div class="ci-num">+1/10词</div><div class="ci-note">复习 10 个 +1、20 个 +2…每日上限 5</div></div>
             <div class="ci-row"><div class="ci-name">闪过</div><div class="ci-num">+1/10词</div><div class="ci-note">每日上限 5（背 60 个也是 5）</div></div>
             <div class="ci-row"><div class="ci-name">易混词</div><div class="ci-num">+1/10个</div><div class="ci-note">答对 10 个 +1，每日上限 3</div></div>
-            <div class="ci-row"><div class="ci-name">单词连连看</div><div class="ci-num">+连击数</div><div class="ci-note">连续 3 关以上且每关 ≥80 分，每日上限 10</div></div>
-            <div class="ci-row"><div class="ci-name">单词接龙</div><div class="ci-num">+3</div><div class="ci-note">完成一局</div></div>
+            <div class="ci-row"><div class="ci-name">单词连连看</div><div class="ci-num">+1~4</div><div class="ci-note">1-2关+1 · 3-4关+2 · 5-7关+3 · 8关起+4，每挡位每天限 5 次，每日上限 10</div></div>
+            <div class="ci-row"><div class="ci-name">单词接龙</div><div class="ci-num">+1~5</div><div class="ci-note">8轮1分 · 14轮2分 · 20轮3分 · 26轮4分 · 30轮5分，每日上限 10</div></div>
             <div class="ci-row"><div class="ci-name">解锁徽章</div><div class="ci-num">+10/枚</div><div class="ci-note">达成任一成就条件</div></div>
           </div>
           <div class="ci-sec">
             <div class="ci-sec-title">AI 功能消耗</div>
             <div class="ci-row"><div class="ci-name">AI 讲解</div><div class="ci-num">-2</div><div class="ci-note">单词卡片 / 连连看词卡</div></div>
             <div class="ci-row"><div class="ci-name">AI 成文</div><div class="ci-num">-5</div><div class="ci-note">生成今日单词小故事</div></div>
+            <div class="ci-row"><div class="ci-name">单词种植园</div><div class="ci-num">-5~8</div><div class="ci-note">种出近义/形近/同根/语境/反义词，树深处目标词 +30，首次种出解锁成就</div></div>
+            <div class="ci-row"><div class="ci-name">AI 路线规划</div><div class="ci-num">-3</div><div class="ci-note">AI 按你的水平规划开头词/目标词/趣味成长路线</div></div>
             <div class="ci-row"><div class="ci-name">AI 学情</div><div class="ci-num">-5</div><div class="ci-note">学习情况分析</div></div>
             <div class="ci-row"><div class="ci-name">AI 出题</div><div class="ci-num">-5</div><div class="ci-note">智能出题</div></div>
             <div class="ci-row"><div class="ci-name">AI 提取</div><div class="ci-num">-8</div><div class="ci-note">阅读提取生词</div></div>
@@ -1423,10 +1509,30 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           <div class="mpw-body" id="mpWordBody"></div>
         </div>
       </div>
+      <!-- 单词种植园弹窗 -->
+      <div class="modal-mask" id="gardenModal" style="display:none">
+        <div class="modal-box ai-essay-box">
+          <div class="modal-head"><span>单词种植园</span><button class="modal-close" id="gardenClose">×</button></div>
+          <div class="jr-body" id="gardenBody" style="padding:14px 16px"></div>
+        </div>
+      </div>
+      <div class="modal-mask" id="ranchModal" style="display:none">
+        <div class="modal-box" style="width:min(94vw,600px);height:min(86vh,640px);display:flex;flex-direction:column;padding:0">
+          <div class="modal-head"><span>单词牧场</span><button class="modal-close" id="ranchClose">×</button></div>
+          <div class="ranch-bar" id="ranchBar"></div>
+          <div class="ranch-field" id="ranchField"></div>
+        </div>
+      </div>
+      <div class="modal-mask" id="ranchCardModal" style="display:none">
+        <div class="modal-box ai-essay-box">
+          <div class="modal-head"><span>喂食 · 记忆复习</span><button class="modal-close" id="ranchCardClose">×</button></div>
+          <div class="jr-body" id="ranchCardBody" style="padding:14px 16px"></div>
+        </div>
+      </div>
     <!-- ===== 视图：统计 ===== -->
     <section class="view" id="viewStats">
       <div class="ai-stat-btns">
-        <button class="ai-stat-btn" id="btnAIAnalysis"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v4"/><path d="M12 10v8"/><path d="M17 6v12"/></svg>AI 学情分析<span class="hc-cost">-5</span></button>
+        <button class="ai-stat-btn" id="btnAIAnalysis"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v4"/><path d="M12 10v8"/><path d="M17 6v12"/></svg>AI 学情分析<span class="hc-cost">-5</span><span class="coin-rem" data-coin="5"></span></button>
       </div>
       <div class="stats-grid">
         <div class="stat-card"><div class="num" id="stToday">0</div><div class="lab">今日学习</div></div>
@@ -1583,13 +1689,13 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
       <div class="set-group">
         <div class="set-title">AI 智能讲解</div>
         <div class="set-item">
-          <div><div class="set-name">AI 讲解</div><div class="set-desc">卡片底部联网生成语境解释、例句与记忆联想</div></div>
+          <div><div class="set-name">AI 讲解</div><div class="set-desc">联网生成语境解释、例句与记忆联想，每天前 5 次免费</div></div>
           <label class="switch"><input type="checkbox" id="setAIOn" checked><span class="slider"></span></label>
         </div>
-        <div class="set-item" style="display:none">
-          <div style="flex:1"><div class="set-name">DeepSeek API Key</div><div class="set-desc">在 platform.deepseek.com 创建</div></div>
+        <div class="set-item">
+          <div style="flex:1"><div class="set-name">接入自己的 DeepSeek API</div><div class="set-desc">留空则使用内置演示 Key（消耗积分），填自己的 Key 走自己额度</div></div>
           <div class="key-wrap">
-            <input class="set-input" type="password" id="setAIKey" placeholder="sk-..." style="text-align:left">
+            <input class="set-input" type="password" id="setAIKey" placeholder="留空使用内置 Key" style="text-align:left">
             <button type="button" class="key-eye" id="btnKeyEye" title="显示/隐藏 API Key">
               <svg id="keyEyeOn" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
               <svg id="keyEyeOff" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><path d="M14.12 14.12a3 3 0 1 1-4.24-4.24"/><path d="m1 1 22 22"/></svg>
@@ -1757,7 +1863,7 @@ function groupOf(book){
 }
 var LS_KEY = "vocab_app_state_v1";
 var INTERVALS = [1, 2, 4, 7, 15]; // 艾宾浩斯复习间隔（天）
-var SET_DEFAULTS = {night:false, roundSize:10, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false};
+var SET_DEFAULTS = {night:false, roundSize:10, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiFreeDate:"", aiFreeUsed:0, aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false};
 
 var state = loadState();
 function findBookOf(w){
@@ -1771,7 +1877,7 @@ function findBookOf(w){
 function loadState(){
   var s = null;
   try{ s = JSON.parse(localStorage.getItem(LS_KEY)); }catch(e){}
-  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lastCoinDay:"", lastCoinDay50:""};
+  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null};
   if(s){
     for(var k in s){ base[k] = s[k]; }
     if(!s.version){
@@ -1940,7 +2046,7 @@ var els = {
   storeText:$("storeText"), storeBarFill:$("storeBarFill"), storeHint:$("storeHint"),
   btnImpBook:$("btnImpBook"), fileImpBook:$("fileImpBook"), btnImpBookJson:$("btnImpBookJson"), fileImpBookJson:$("fileImpBookJson"), customBookList:$("customBookList"),
   setAIOn:$("setAIOn"), setAIKey:$("setAIKey"), btnKeyEye:$("btnKeyEye"), keyEyeOn:$("keyEyeOn"), keyEyeOff:$("keyEyeOff"), btnAIClear:$("btnAIClear"), essaySeg:$("essaySeg"), quizSeg:$("quizSeg"), setEssayMode2:$("setEssayMode2"), setEssayAutoSave:$("setEssayAutoSave"), setQuizCount:$("setQuizCount"), setJRTimer:$("setJRTimer"), setMPTimer:$("setMPTimer"),
-  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid")
+  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid"), btnGarden:$("btnGarden"), gardenModal:$("gardenModal"), gardenClose:$("gardenClose"), gardenBody:$("gardenBody"), btnRanch:$("btnRanch"), ranchModal:$("ranchModal"), ranchClose:$("ranchClose"), ranchBar:$("ranchBar"), ranchField:$("ranchField"), ranchCardModal:$("ranchCardModal"), ranchCardClose:$("ranchCardClose"), ranchCardBody:$("ranchCardBody")
 };
 
 /* ---------- 词库选择器 ---------- */
@@ -3029,7 +3135,7 @@ function aiExplainFromTag(){
     showAiBodyTop('<div class="ai-err">请先在「设置 → AI 智能讲解」中填写 DeepSeek API Key</div>');
     return;
   }
-  if(!coinCheck(2)) return;
+  if(aiFreeRemain() > 0){ aiUseFree(); } else if(!coinCheck(2)) return;
   var e = entryOf(w);
   var info = "";
   if(e && e.p) info += "音标：" + e.p + "；";
@@ -3601,7 +3707,8 @@ var GUIDE_SLIDES = [
   {t:"开始背词", d:"背单词的核心", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z\"/><path d=\"M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z\"/></svg>", items:["选词书后，用 认识 / 还行 / 不认识 三键标记","不认识的词会再弹出，直到你认识它","认识的词进入拼写检测，写对才算过关","学过的词按艾宾浩斯曲线自动安排复习"]},
   {t:"其他背词功能", d:"不同节奏的记词方式", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\" rx=\"1\"/></svg>", items:["闪过模式：听发音自动翻卡，混脸熟","快速过词：四选一，快速挑出生词","易混词辨析：长得很像的词分组对比","浏览词典、生词本、自定义词书都能用"]},
   {t:"AI 功能", d:"需要联网 + 设置里的 API Key", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l2.4 7.2H22l-6 4.5 2.3 7.3-6.3-4.6-6.3 4.6L8 13.7 2 9.2h7.6z\"/></svg>", items:["AI 讲解：卡片上点单词，生成记忆讲解","AI 成文：把今天学的词写成小故事","AI 提取生词：粘贴文章自动筛生词建词典","AI 阅读提取：一键打开筛出的词书"]},
-  {t:"积分系统", d:"背词赚积分，AI 功能花积分", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l2.4 7.2H22l-6 4.5 2.3 7.3-6.3-4.6-6.3 4.6L8 13.7 2 9.2h7.6z\"/><path d=\"M12 22V14\"/></svg>", items:["注册即送 50 积分，背词 / 复习 / 游戏都能赚","AI 讲解 -2 · 成文 -5 · 学情 -5 · 出题 -5 · 提取 -8","连续闯关和神秘任务有额外奖励","积分不足时 AI 会提示，先去背几轮词"]}
+  {t:"积分系统", d:"背词赚积分，AI 功能花积分", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2l2.4 7.2H22l-6 4.5 2.3 7.3-6.3-4.6-6.3 4.6L8 13.7 2 9.2h7.6z\"/><path d=\"M12 22V14\"/></svg>", items:["注册即送 50 积分，背词 / 复习 / 游戏都能赚","每日 20/50/75/100 词分档 +3/7/10/14，连续坚持 3 天 +10","8 天周期满 7 天达标获 3 天 Buff：所有赚分 +2、上限 +8","AI 讲解 -2 · 成文 -5 · 学情 -5 · 出题 -5 · 提取 -8","连续闯关和神秘任务有额外奖励"]},
+  {t:"趣味板块", d:"背累了就来玩一下", ic:"<svg viewBox=\"0 0 24 24\" width=\"28\" height=\"28\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M2 18c1-3 3-3 4 0s3-3 4 0 3-3 4 0 3-3 4 0\"/><path d=\"M4 18v4\"/><path d=\"M12 18v4\"/><path d=\"M20 18v4\"/><path d=\"M3 14V6h18v8\"/><path d=\"M8 10h.01\"/><path d=\"M16 10h.01\"/></svg>", items:["单词种植园：用积分让单词生根发芽，长出近义 / 同根词","单词牧场：生词在牧场里蹦跶，点击喂食顺便复习","玩游戏也能赚积分，牧场每喂满 20 个 +2 积分"]}
 ];
 var guideIdx = 0;
 var guideAutoTimer = null;
@@ -4196,10 +4303,12 @@ function endRound(){
     saveState();
     if(state.reviewKindWasEbb === true){
       state.reviewKindWasEbb = false;
-      var gEbb = Math.min(Math.floor(recent.length / 10), 5);
-      if(gEbb > 0) coinAdd(gEbb, "完成复习 " + recent.length + " 词");
+      var capR = 5 + (buffActive() ? 8 : 0);
+      var addR = buffActive() ? 2 : 0;
+      var gEbb = Math.min(Math.floor(recent.length / 10) * (1 + addR), capR);
+      if(gEbb > 0) coinAdd(gEbb, "完成复习 " + recent.length + " 词" + (addR ? "（含Buff）" : ""));
     } else {
-      coinAdd(2);
+      coinAdd(2 + buffBonus());
     }
     showDone();
     return;
@@ -5187,32 +5296,102 @@ els.tabStats.addEventListener("click", function(){ switchTab("stats"); });
 els.tabSettings.addEventListener("click", function(){ switchTab("settings"); });
 
 /* ---------- 趣味：打卡 / 成就 / 接龙 / 彩蛋 ---------- */
+function parseYMD(x){
+  var a = String(x).split("-");
+  return new Date(+a[0], (+a[1]||1) - 1, +(a[2]||1));
+}
+function dayDiff(a, b){ return Math.round((parseYMD(a) - parseYMD(b)) / 86400000); }
+function buffActive(){
+  var b = state.stk8 && state.stk8.buffUntil;
+  return !!(b && b >= todayStr());
+}
+function buffBonus(){ return buffActive() ? 2 : 0; }
+function todayEventsN(){
+  var t = todayStr(), n = 0;
+  for(var i=0;i<state.events.length;i++){ if(dstr(new Date(state.events[i].t)) === t) n++; }
+  return n;
+}
+function checkDailyReward(){
+  var today = todayStr();
+  var n = todayEventsN();
+  var add = buffBonus();
+  var tier = state.addTier;
+  if(!tier || tier.d !== today){ tier = {d:today, g20:false, g50:false, g75:false, g100:false}; state.addTier = tier; }
+  function giveT(flag, at, base){
+    if(!tier[flag] && n >= at){
+      tier[flag] = true;
+      coinAdd(base + add, "今日背词满 " + at + " 个 +" + (base + add) + " 积分");
+    }
+  }
+  giveT("g20", 20, 3);
+  giveT("g50", 50, 7);
+  giveT("g75", 75, 10);
+  giveT("g100", 100, 14);
+  checkStreak8(today, n);
+  saveState();
+}
+function checkStreak8(today, n){
+  var st = state.stk8;
+  if(!st){ st = {cycleStart: today, okDays:{}, consec:0, lastOk:"", buffUntil:"", weekGot:""}; state.stk8 = st; }
+  if(dayDiff(today, st.cycleStart) >= 8){
+    st.cycleStart = today; st.okDays = {}; st.weekGot = "";
+  }
+  if(n >= 50 && !st.okDays[today]){
+    st.okDays[today] = true;
+    var y = dayOffset(-1);
+    st.consec = (st.lastOk === y) ? (st.consec || 0) + 1 : 1;
+    st.lastOk = today;
+    if(st.consec >= 3 && st.consec % 3 === 0){
+      coinAdd(10 + buffBonus(), "连续坚持 " + st.consec + " 天 +" + (10 + buffBonus()) + " 积分");
+    }
+    var cnt = 0;
+    for(var k in st.okDays){ if(st.okDays[k]) cnt++; }
+    if(cnt >= 7 && !st.weekGot){
+      st.weekGot = true;
+      st.buffUntil = dayOffset(2);
+      saveState();
+      showToast("一周坚持达标！获得 3 天积分 Buff：所有赚积分方式 +2、上限 +8");
+    }
+  }
+  saveState();
+}
+function cycleInfoText(){
+  var st = state.stk8;
+  if(!st) return "8天周期剩 8 天 · 达标 0/7 · 连续 0 天";
+  var daysGone = dayDiff(todayStr(), st.cycleStart);
+  var remain = Math.max(0, 8 - daysGone);
+  var cnt = 0;
+  for(var k in st.okDays){ if(st.okDays[k]) cnt++; }
+  var t = "8天周期剩 " + remain + " 天 · 达标 " + cnt + "/7 · 连续 " + (st.consec || 0) + " 天";
+  if(buffActive()){
+    var left = Math.max(0, dayDiff(st.buffUntil, todayStr()) + 1);
+    t += " · 🔥Buff 生效中（+2 / 上限+8）剩 " + left + " 天";
+  }
+  return t;
+}
 function renderStreakLine(){
   var el = els.streakLine;
   if(!el) return;
-  var today = todayStr(), todayN = 0, i;
-  for(i=0;i<state.events.length;i++){ if(dstr(new Date(state.events[i].t)) === today) todayN++; }
+  var todayN = todayEventsN();
   var s = calcStreak();
-  if(!state.lastCoinDay || state.lastCoinDay !== today){
-    if(todayN >= 10){
-      state.lastCoinDay = today;
-      state.settings.coins = (state.settings.coins || 0) + 10;
-      saveState();
-      showToast("今日打卡满 10 词 +10 积分");
-    }
-  }
-  if((state.lastCoinDay50 || "") !== today && todayN >= 50){
-    state.lastCoinDay50 = today;
-    state.settings.coins = (state.settings.coins || 0) + 7;
-    saveState();
-    showToast("今日背词满 50 +7 积分");
-  }
-  el.innerHTML = (todayN >= 10
-    ? '<span class="sl-done">今日打卡完成 · 已背 ' + todayN + ' 词</span>'
-    : '<span>今日已背 ' + todayN + ' / 10 词</span>')
+  checkDailyReward();
+  el.innerHTML = (todayN >= 100
+    ? '<span class="sl-done">今日已背 ' + todayN + ' 词 · 全部档位达成</span>'
+    : todayN >= 50
+    ? '<span class="sl-done">今日已背 ' + todayN + ' 词</span>'
+    : '<span>今日已背 ' + todayN + ' / 20 词</span>')
     + '<span class="sl-fire">连续 ' + s + ' 天</span>'
-    + '<span class="sl-coins" id="coinShow" onclick="window.__openCoins && window.__openCoins()">⭐ ' + (state.settings.coins || 0) + '</span>';
+    + '<span class="sl-coins" id="coinShow" onclick="window.__openCoins && window.__openCoins()">⭐ ' + (state.settings.coins || 0) + '</span>'
+    + '<div class="sl-extra">' + cycleInfoText() + '</div>';
+  coinRefreshAll();
 }
+function aiFreeRemain(){
+  var stt = state.settings;
+  var today = new Date().toLocaleDateString("en-CA");
+  if(stt.aiFreeDate !== today){ stt.aiFreeDate = today; stt.aiFreeUsed = 0; }
+  return Math.max(0, 5 - (stt.aiFreeUsed || 0));
+}
+function aiUseFree(){ state.settings.aiFreeUsed = (state.settings.aiFreeUsed || 0) + 1; saveState(); }
 function coinCheck(cost){
   if((state.settings.coins || 0) < cost){
     showToast("积分不足（需 " + cost + " 分），先背几轮词赚积分");
@@ -5223,11 +5402,828 @@ function coinCheck(cost){
   renderCoinUI();
   return true;
 }
+/* ===== 单词种植园 ===== */
+var GARDEN_KINDS = [
+  {k:"syn", n:"近义词", d:"意思相近", cost:8, aiDesc:"意思相近、可同义替换的近义词"},
+  {k:"sim", n:"形近词", d:"拼写相似易混", cost:8, aiDesc:"拼写相似、容易混淆的形近词"},
+  {k:"root", n:"同根/同缀词", d:"同根或同词缀", cost:5, aiDesc:"与种子词有相同词根或相同前后缀的派生词"},
+  {k:"ctx", n:"语境关联", d:"常同场景出现", cost:5, aiDesc:"与种子词常出现在同一语境、场景或话题中的关联词（搭配词、同话题词）"},
+  {k:"ant", n:"反义词", d:"意思相反", cost:5, aiDesc:"意思相反或对立的反义词"}
+];
+var _gdKind = "syn";
+var _gdSel = "";
+function gardenKindOf(k){
+  for(var i=0;i<GARDEN_KINDS.length;i++){ if(GARDEN_KINDS[i].k === k) return GARDEN_KINDS[i]; }
+  return GARDEN_KINDS[0];
+}
+function openGarden(){
+  els.gardenModal.style.display = "flex";
+  renderGarden();
+}
+function gdTreeHtml(root, seq){
+  var levels = [], q = [{n:root, d:0}], maxD = 0;
+  while(q.length){
+    var it = q.shift();
+    if(!it.n) continue;
+    if(!levels[it.d]) levels[it.d] = [];
+    levels[it.d].push(it.n);
+    maxD = Math.max(maxD, it.d);
+    var ks = it.n.kids || [];
+    for(var i=0;i<ks.length;i++) q.push({n:ks[i], d:it.d+1});
+  }
+  var h = "";
+  for(var d=maxD; d>=0; d--){
+    var row = levels[d] || [];
+    h += '<div class="gd-tree-row">';
+    for(var j=0;j<row.length;j++) h += gdNodeHtml(row[j], d, seq);
+    h += '</div>';
+  }
+  return h;
+}
+function gdNodeHtml(n, d, seq){
+  var cls = "gd-node";
+  if(d === 0) cls += " root";
+  var reGrow = !!n.grown && !n.hit && (seq - (n.grownAt || 0)) >= 2;
+  if(n.grown && !reGrow) cls += " grown";
+  if(reGrow) cls += " regrow";
+  if(!n.hit && (n.w === _gdSel) && ((!n.grown && !n.hit) || reGrow)) cls += " sel";
+  if(n.hit) cls += " hit";
+  var flag = n.hit ? "目标词" : (!n.grown ? "可生长" : (reGrow ? "可再生长" : (d === 0 ? "开始词" : "已生长")));
+  return '<div class="' + cls + '" data-w="' + esc(n.w) + '" onclick="gdSelectSel(this)">'
+    + '<span class="gd-nw">' + esc(n.w) + '</span>'
+    + (n.zh ? '<span class="gd-nm">' + esc(n.zh) + '</span>' : '')
+    + '<span class="gd-nflag">' + flag + '</span>'
+    + (n.hit ? '<span class="gd-nhit">🎯</span>' : '')
+    + '</div>';
+}
+function gdFindNode(root, w){
+  if(!root) return null;
+  if(root.w === w) return root;
+  for(var i=0;i<(root.kids||[]).length;i++){
+    var f = gdFindNode(root.kids[i], w);
+    if(f) return f;
+  }
+  return null;
+}
+function gdFirstGrowable(root, seq){
+  var q = [root];
+  while(q.length){
+    var n = q.shift();
+    if(!n.hit && (!n.grown || (seq - (n.grownAt || 0)) >= 2)) return n;
+    for(var i=0;i<(n.kids||[]).length;i++) q.push(n.kids[i]);
+  }
+  return null;
+}
+function gdSelectSel(el){
+  if(!el) return;
+  var w = el.getAttribute("data-w");
+  if(w) gdSelectNode(w);
+}
+function gdSelectNode(w){
+  var g = state.garden;
+  if(!g || !g.tree) return;
+  var node = gdFindNode(g.tree, w);
+  if(!node || node.hit){ showToast("这个词不能生长"); return; }
+  if(node.grown && (g.growSeq || 0) - (node.grownAt || 0) < 2){ showToast("间隔两次生长后才能再选这个词"); return; }
+  _gdSel = w;
+  renderGarden();
+}
+function renderGarden(){
+  var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
+  if(g.tree && !_gdSel){
+    var first = gdFirstGrowable(g.tree, g.growSeq || 0);
+    if(first) _gdSel = first.w;
+  }
+  var h = "";
+  h += '<div class="gd-plan"><button class="mini-btn" onclick="openGardenPlan()">🤖 AI 规划成长路线（-3）<span class="coin-rem" data-coin="3"></span></button><div class="gd-plan-d">填开头词 AI 定目标词，填目标词 AI 定开头词，都不填就全自动；AI 帮你种下第一颗种子</div></div>';
+  if(g.target) h += '<div class="gd-hit">当前目标：' + esc(g.target) + ' · 藏在树深处，种出它 +30 积分</div>';
+  h += '<div class="gd-kinds">';
+  for(var i=0;i<GARDEN_KINDS.length;i++){
+    var kd = GARDEN_KINDS[i];
+    h += '<div class="gd-kind' + (kd.k === _gdKind ? " on" : "") + '" data-k="' + kd.k + '" onclick="pickGardenKind(this)"><div class="gd-kind-name">' + kd.n + '</div><div class="gd-kind-cost">- ' + kd.cost + ' 积分<span class="coin-rem" data-coin="' + kd.cost + '"></span></div><div class="gd-kind-d">' + kd.d + '</div></div>';
+  }
+  h += '</div>';
+  if(!g.tree){
+    h += '<div class="gd-seed-row"><div class="gd-seed-tip">🌱 先点上方「AI 规划成长路线」，让 AI 为你挑好开头词并种下第一颗种子</div></div>';
+  } else {
+    h += '<div class="gd-actions"><button class="mini-btn" onclick="gardenGrowNode()">🌱 生长（-' + gardenKindOf(_gdKind).cost + '）<span class="coin-rem" data-coin="' + gardenKindOf(_gdKind).cost + '"></span></button></div>';
+    h += '<div class="gd-tree" id="gdTree">' + gdTreeHtml(g.tree, g.growSeq || 0) + '</div>';
+    h += '<div class="gd-stats">🌱 已生长 ' + g.achv.growN + ' 次 · 树高 ' + g.achv.maxDepth + ' 层 · 🎯 种出目标词 ' + g.achv.targets + ' 个</div>';
+  }
+  if(g.aiPlan && g.aiPlan.path && g.aiPlan.path.length){
+    h += '<div class="gd-route-keep" onclick="toggleGdRoute()"><b>📌 规划路线</b>：' + esc(g.aiPlan.seed || "") + ' → ' + esc(g.aiPlan.target || "") + '（点击展开）</div>';
+    h += '<div class="gd-route-keep-d" id="gdRouteKeepD" style="display:none">' + gdRouteHtml(g.aiPlan) + '</div>';
+  }
+  if(g.savedRoutes && g.savedRoutes.length){
+    h += '<div class="gd-route-old" onclick="toggleGdSaved()"><b>📚 已保存路线（' + g.savedRoutes.length + '）</b> · 点击展开</div>';
+    h += '<div id="gdSavedD" style="display:none">';
+    for(var si=0;si<g.savedRoutes.length;si++){
+      h += '<div class="gd-route-old-item" onclick="showSavedRoute(' + si + ')">' + esc((g.savedRoutes[si].seed || "") + " → " + (g.savedRoutes[si].target || "")) + '</div>';
+    }
+    h += '<div class="gd-route-old-d" id="gdSavedRouteD"></div>';
+    h += '</div>';
+  }
+  h += '<div class="gd-zone" id="gdZone"></div>';
+  h += '<div class="gd-clear"><button class="mini-btn" onclick="gardenClear()">🗑 清除当前数据</button></div>';
+  if(g.logs && g.logs.length){
+    h += '<div class="gd-log">最近种植：' + esc(g.logs.slice().reverse().join(" · ")) + '</div>';
+  }
+  els.gardenBody.innerHTML = h;
+  coinRefreshAll();
+}
+function gdRouteHtml(plan){
+  var h2 = '<div class="gd-route-item"><span class="gd-route-rel">起点</span><span class="gd-route-w">' + esc(plan.seed || "") + '</span></div>';
+  for(var i=0;i<(plan.path||[]).length;i++){
+    var p2 = plan.path[i];
+    h2 += '<div class="gd-route-item"><span class="gd-route-rel">' + esc(p2.rel || "关联") + '</span><span class="gd-route-w">' + esc(p2.word || "") + '</span><span class="gd-route-why">' + esc(p2.why || "") + '</span></div>';
+  }
+  h2 += '<div class="gd-route-item"><span class="gd-route-rel">目标</span><span class="gd-route-w">' + esc(plan.target || "") + '</span><span class="gd-route-why">' + esc(plan.targetReason || "") + '</span></div>';
+  return h2;
+}
+function toggleGdRoute(){
+  var d = document.getElementById("gdRouteKeepD");
+  if(d) d.style.display = d.style.display === "none" ? "block" : "none";
+}
+function toggleGdSaved(){
+  var d = document.getElementById("gdSavedD");
+  if(d) d.style.display = d.style.display === "none" ? "block" : "none";
+}
+function showSavedRoute(i){
+  var g = state.garden;
+  var d = document.getElementById("gdSavedRouteD");
+  if(!g || !g.savedRoutes || !g.savedRoutes[i]) return;
+  if(d) d.innerHTML = gdRouteHtml(g.savedRoutes[i]);
+}
+function saveGdRoute(){
+  var g = state.garden;
+  if(!g || !g.aiPlan || !g.aiPlan.path || !g.aiPlan.path.length){ showToast("还没有可保存的路线，先规划一次吧"); return; }
+  g.savedRoutes = g.savedRoutes || [];
+  for(var i=0;i<g.savedRoutes.length;i++){
+    if(g.savedRoutes[i].seed === g.aiPlan.seed && g.savedRoutes[i].target === g.aiPlan.target){ showToast("这条路线已经保存过了"); return; }
+  }
+  g.savedRoutes.push({seed: g.aiPlan.seed, target: g.aiPlan.target, targetReason: g.aiPlan.targetReason || "", path: g.aiPlan.path.slice(), ts: Date.now()});
+  if(g.savedRoutes.length > 10) g.savedRoutes = g.savedRoutes.slice(g.savedRoutes.length - 10);
+  saveState();
+  showToast("路线已保存");
+}
+var _ranchActive = [];
+var _ranchRaf = 0;
+var _ranchPaused = false;
+var _ranchTimer = null;
+var _ranchCur = "";
+function ranchSrcList(){
+  var fed = (state.ranch && state.ranch.fed) || [];
+  var out = [];
+  for(var i=0;i<state.wrong.length;i++){
+    if(fed.indexOf(state.wrong[i].w) < 0) out.push(state.wrong[i].w);
+  }
+  return out;
+}
+function openRanch(){
+  els.ranchModal.style.display = "flex";
+  state.ranch = state.ranch || {fed: []};
+  if(!state.ranch.fed) state.ranch.fed = [];
+  ranchReset();
+}
+function ranchReset(){
+  _ranchActive = [];
+  cancelAnimationFrame(_ranchRaf);
+  clearInterval(_ranchTimer);
+  _ranchPaused = false;
+  ranchSpawn();
+}
+function ranchSpawn(){
+  var list = ranchSrcList();
+  var f = document.getElementById("ranchField");
+  var W = f.clientWidth || 340, H = f.clientHeight || 400;
+  f.innerHTML = "";
+  if(state.wrong.length === 0){
+    f.innerHTML = '<div class="ranch-empty"><div style="font-size:40px">🐄</div>生词本里还没有词<br>去背单词时把不会的词放进生词本，再来牧场喂它们吧</div>';
+    ranchRenderBar();
+    return;
+  }
+  if(list.length === 0){
+    f.innerHTML = '<div class="ranch-empty"><div style="font-size:40px">🎉</div>生词本里的词都喂过啦！<br>去背几个新词，或<button class="mini-btn" onclick="ranchReplay()" style="margin-top:8px">再喂一轮</button></div>';
+    ranchRenderBar();
+    return;
+  }
+  if(state.ranch.chaos){
+    var w0 = list[0];
+    var el = document.createElement("div");
+    el.className = "ranch-word";
+    el.textContent = w0;
+    el.style.left = "10px"; el.style.top = "10px";
+    el.onclick = (function(ww, node){ return function(){ ranchFeed(ww, node); }; })(w0, el);
+    f.appendChild(el);
+    var bw = el.offsetWidth || 70, bh = el.offsetHeight || 34;
+    var ang = Math.random() * Math.PI * 2;
+    _ranchActive.push({w: w0, x: Math.random() * Math.max(10, W - bw - 20), y: Math.random() * Math.max(10, H - bh - 20), vx: Math.cos(ang) * (3.0 + Math.random() * 1.5), vy: Math.sin(ang) * (3.0 + Math.random() * 1.5), el: el, bw: bw, bh: bh});
+    ranchTick();
+    ranchRenderBar();
+    return;
+  }
+  var show = Math.min(list.length, 20);
+  for(var i=0;i<show;i++){
+    var w = list[i];
+    var el = document.createElement("div");
+    el.className = "ranch-word";
+    el.textContent = w;
+    el.style.left = "10px"; el.style.top = "10px";
+    el.onclick = (function(ww, node){ return function(){ ranchFeed(ww, node); }; })(w, el);
+    f.appendChild(el);
+    var bw = el.offsetWidth || 70, bh = el.offsetHeight || 34;
+    var sp = 0.5 + Math.random() * 0.5;
+    var ang = Math.random() * Math.PI * 2;
+    _ranchActive.push({w: w, x: 10 + Math.random() * Math.max(10, W - bw - 20), y: 10 + Math.random() * Math.max(10, H - bh - 20), vx: Math.cos(ang) * sp, vy: Math.sin(ang) * sp, el: el, bw: bw, bh: bh});
+  }
+  ranchTick();
+  ranchRenderBar();
+}
+function ranchTick(){
+  if(_ranchPaused){ _ranchRaf = requestAnimationFrame(ranchTick); return; }
+  var f = document.getElementById("ranchField");
+  if(!f) return;
+  var W = f.clientWidth, H = f.clientHeight;
+  var n = _ranchActive.length;
+  for(var i=0;i<n;i++){
+    var a = _ranchActive[i];
+    a.x += a.vx; a.y += a.vy;
+    if(a.x < 2){ a.x = 2; a.vx = Math.abs(a.vx); }
+    if(a.y < 2){ a.y = 2; a.vy = Math.abs(a.vy); }
+    if(a.x + a.bw > W - 2){ a.x = W - 2 - a.bw; a.vx = -Math.abs(a.vx); }
+    if(a.y + a.bh > H - 2){ a.y = H - 2 - a.bh; a.vy = -Math.abs(a.vy); }
+    a.el.style.left = a.x + "px";
+    a.el.style.top = a.y + "px";
+  }
+  for(var i2=0;i2<n;i2++){
+    for(var j=i2+1;j<n;j++){
+      var p = _ranchActive[i2], q = _ranchActive[j];
+      var cx1 = p.x + p.bw/2, cy1 = p.y + p.bh/2;
+      var cx2 = q.x + q.bw/2, cy2 = q.y + q.bh/2;
+      var dx = cx2 - cx1, dy = cy2 - cy1;
+      var rr = (p.bw + q.bw) / 4 + (p.bh + q.bh) / 4;
+      if(dx*dx + dy*dy < rr*rr){
+        var tvx = p.vx; p.vx = q.vx; q.vx = tvx;
+        var tvy = p.vy; p.vy = q.vy; q.vy = tvy;
+        if(dx !== 0 || dy !== 0){
+          var d = Math.sqrt(dx*dx + dy*dy) || 1;
+          var push = (rr - d) / 2;
+          p.x -= (dx/d) * push; p.y -= (dy/d) * push;
+          q.x += (dx/d) * push; q.y += (dy/d) * push;
+        }
+        p.x = Math.max(2, Math.min(W - 2 - p.bw, p.x));
+        p.y = Math.max(2, Math.min(H - 2 - p.bh, p.y));
+        q.x = Math.max(2, Math.min(W - 2 - q.bw, q.x));
+        q.y = Math.max(2, Math.min(H - 2 - q.bh, q.y));
+      }
+    }
+  }
+  _ranchRaf = requestAnimationFrame(ranchTick);
+}
+function ranchFeed(w, el){
+  if(_ranchPaused) return;
+  var e = entryOf(w);
+  _ranchPaused = true;
+  _ranchCur = w;
+  clearInterval(_ranchTimer);
+  els.ranchCardBody.innerHTML =
+    '<div style="text-align:center">'
+    + '<div style="font-size:26px;font-weight:700;color:var(--brand-deep)">' + esc(w) + '</div>'
+    + (e.p ? '<div style="font-size:12px;color:var(--ink2);margin-top:2px">' + esc(e.p) + '</div>' : '')
+    + '<div style="margin-top:10px;font-size:18px;line-height:1.55;color:var(--ink);font-weight:600">' + esc(e.m ? e.m.split(String.fromCharCode(10))[0] : "（暂无释义）") + '</div>'
+    + '<div style="margin-top:10px;font-size:12px;color:var(--ink2)">记忆复习中 · <span id="ranchCardTimer" style="color:var(--brand-deep);font-weight:700">3</span> 秒后自动喂食</div>'
+    + '</div>';
+  els.ranchCardModal.style.display = "flex";
+  var left = 3;
+  els.ranchCardTimer = document.getElementById("ranchCardTimer");
+  _ranchTimer = setInterval(function(){
+    left--;
+    if(els.ranchCardTimer) els.ranchCardTimer.textContent = left;
+    if(left <= 0){ clearInterval(_ranchTimer); ranchFeedDone(w); }
+  }, 1000);
+}
+function ranchFeedDone(w){
+  clearInterval(_ranchTimer);
+  els.ranchCardModal.style.display = "none";
+  _ranchCur = "";
+  state.ranch = state.ranch || {fed: []};
+  if(!state.ranch.fed) state.ranch.fed = [];
+  if(state.ranch.fed.indexOf(w) < 0) state.ranch.fed.push(w);
+  saveState();
+  for(var i=0;i<_ranchActive.length;i++){
+    if(_ranchActive[i].w === w){
+      var el = _ranchActive[i].el;
+      if(el && el.parentNode) el.parentNode.removeChild(el);
+      _ranchActive.splice(i,1);
+      break;
+    }
+  }
+  if(state.ranch.chaos){
+    state.ranch.chaos = false;
+    saveState();
+  }
+  if(state.ranch.fed.length % 20 === 0){
+    coinAdd(2, "牧场喂食满 20 个 · +2 积分");
+  }
+  if(state.ranch.fed.length % 19 === 0){
+    ranchChaos();
+    _ranchPaused = false;
+    ranchRenderBar();
+    return;
+  }
+  var list = ranchSrcList();
+  var onField = {};
+  for(var j=0;j<_ranchActive.length;j++) onField[_ranchActive[j].w] = true;
+  var f = document.getElementById("ranchField");
+  var W = f.clientWidth || 340, H = f.clientHeight || 400;
+  while(_ranchActive.length < 20 && list.length > 0){
+    var next = null;
+    for(var k=0;k<list.length;k++){
+      if(!onField[list[k]]){ next = list[k]; onField[list[k]] = true; break; }
+    }
+    if(!next) break;
+    var el2 = document.createElement("div");
+    el2.className = "ranch-word";
+    el2.textContent = next;
+    el2.style.left = "10px"; el2.style.top = "10px";
+    el2.onclick = (function(ww, node){ return function(){ ranchFeed(ww, node); }; })(next, el2);
+    f.appendChild(el2);
+    var bw2 = el2.offsetWidth || 70, bh2 = el2.offsetHeight || 34;
+    var sp2 = 0.5 + Math.random() * 0.5;
+    var ang2 = Math.random() * Math.PI * 2;
+    _ranchActive.push({w: next, x: Math.random() * Math.max(10, W - bw2 - 20), y: Math.random() * Math.max(10, H - bh2 - 20), vx: Math.cos(ang2) * sp2, vy: Math.sin(ang2) * sp2, el: el2, bw: bw2, bh: bh2});
+  }
+  _ranchPaused = false;
+  ranchRenderBar();
+  if(ranchSrcList().length === 0){
+    setTimeout(function(){
+      if(!els.ranchModal || els.ranchModal.style.display !== "flex") return;
+      ranchReset();
+      showToast("今天的生词都喂食完毕 🎉");
+    }, 500);
+  }
+}
+function ranchChaos(){
+  if(_ranchActive.length === 0) return;
+  var keep = _ranchActive[Math.floor(Math.random() * _ranchActive.length)];
+  for(var i=_ranchActive.length-1;i>=0;i--){
+    if(_ranchActive[i].w !== keep.w){
+      var el = _ranchActive[i].el;
+      if(el && el.parentNode) el.parentNode.removeChild(el);
+      _ranchActive.splice(i,1);
+    }
+  }
+  var ang = Math.random() * Math.PI * 2;
+  keep.vx = Math.cos(ang) * (3.0 + Math.random() * 1.5);
+  keep.vy = Math.sin(ang) * (3.0 + Math.random() * 1.5);
+  state.ranch.chaos = true;
+  saveState();
+}
+function ranchReplay(){
+  state.ranch = state.ranch || {fed: []};
+  state.ranch.fed = [];
+  state.ranch.chaos = false;
+  saveState();
+  ranchReset();
+}
+function ranchRenderBar(){
+  var total = state.wrong.length;
+  var fed = (state.ranch && state.ranch.fed) || [];
+  var on = _ranchActive.length;
+  els.ranchBar.innerHTML = '<span>场上 <b>' + on + '</b> · 排队 ' + Math.max(0, total - fed.length - on) + '</span><span>已喂食 <b>' + fed.length + '</b> / ' + total + ' · 每喂满 20 个 +2 积分</span><span style="cursor:pointer;color:var(--brand-deep)" onclick="ranchReplay()">再来一轮</span>';
+}
+function closeRanch(){
+  cancelAnimationFrame(_ranchRaf);
+  clearInterval(_ranchTimer);
+  els.ranchCardModal.style.display = "none";
+  els.ranchModal.style.display = "none";
+}
+function gardenClear(){
+  var g = state.garden;
+  if(!g || (!g.tree && !g.target && !(g.logs && g.logs.length))){
+    showToast("种植园当前没有数据");
+    return;
+  }
+  if(!confirm("确定清空当前种植园？\n\n已长出的树、目标词、种植记录都会删除，积分不会退还。")) return;
+  state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:{growN:0, targets:0, maxDepth:0}, growSeq:0, savedRoutes:[]};
+  _gdSel = "";
+  _gdKind = "syn";
+  saveState();
+  renderGarden();
+  showToast("种植园已清空");
+}
+function pickGardenKind(el){
+  _gdKind = el.getAttribute("data-k");
+  var all = els.gardenBody.querySelectorAll(".gd-kind");
+  for(var i=0;i<all.length;i++) all[i].classList.remove("on");
+  el.classList.add("on");
+  var cost = gardenKindOf(_gdKind).cost;
+  var btns = els.gardenBody.querySelectorAll(".gd-actions .mini-btn");
+  if(btns.length){
+    btns[0].textContent = (state.garden && state.garden.tree) ? "🌱 生长（-" + cost + "）" : "🌱 种下种子（-" + cost + "）";
+  }
+}
+function openGardenPlan(){
+  var ex = document.getElementById("gdPlanBox");
+  if(ex){ ex.style.display = ex.style.display === "none" ? "block" : "none"; return; }
+  var zone = document.getElementById("gdZone");
+  if(!zone) return;
+  var box = document.createElement("div");
+  box.id = "gdPlanBox"; box.className = "gd-plan-box";
+  box.innerHTML = '<div class="gd-plan-d">开头词 / 目标词只能填一个：<br>· 填开头词 → AI 自动定目标词<br>· 填目标词 → AI 自动定开头词<br>· 都不填 → AI 全自动规划</div>'
+    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanSeed" placeholder="开头词（留空则 AI 来选）" autocomplete="off"></div>'
+    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanTarget" placeholder="目标词（留空则 AI 来选）" autocomplete="off"></div>'
+    + '<div class="gd-actions"><button class="mini-btn" onclick="gardenPlan()">🤖 开始规划（-3 积分）</button></div>'
+    + '<div class="gd-route" id="gdRoute"></div>';
+  zone.parentNode.insertBefore(box, zone);
+  var sEl2 = document.getElementById("gdPlanSeed"), tEl2 = document.getElementById("gdPlanTarget");
+  function syncPlanInputs(){
+    var sv = sEl2 ? sEl2.value.trim() : "", tv = tEl2 ? tEl2.value.trim() : "";
+    if(tEl2){ tEl2.disabled = !!sv; tEl2.placeholder = sv ? "已由 AI 自动选择" : "目标词（留空则 AI 来选）"; }
+    if(sEl2){ sEl2.disabled = !!tv; sEl2.placeholder = tv ? "已由 AI 自动选择" : "开头词（留空则 AI 来选）"; }
+  }
+  if(sEl2) sEl2.addEventListener("input", syncPlanInputs);
+  if(tEl2) tEl2.addEventListener("input", syncPlanInputs);
+  syncPlanInputs();
+}
+function gardenPlan(){
+  var sEl = document.getElementById("gdPlanSeed"), tEl = document.getElementById("gdPlanTarget");
+  var seed = sEl ? sEl.value.trim().toLowerCase() : "";
+  var target = tEl ? tEl.value.trim().toLowerCase() : "";
+  if(seed && target){ showToast("两个都自己填 AI 就不参与啦，留一个给 AI 吧"); return; }
+  if(seed && !/^[a-z][a-z' -]{1,39}$/.test(seed)){ showToast("开头词格式不对"); return; }
+  if(target && !/^[a-z][a-z' -]{1,39}$/.test(target)){ showToast("目标词格式不对"); return; }
+  var g0 = state.garden;
+  if(g0 && (g0.tree || g0.target)){
+    if(!confirm("已有种植园数据：重新规划会清空当前树、目标词和种植记录（积分不退还）。确定继续？")) return;
+    g0.tree = null; g0.target = ""; g0.achieved = []; g0.logs = []; g0.aiPlan = null;
+    g0.achv = {growN:0, targets:0, maxDepth:0};
+    _gdSel = "";
+    saveState();
+  }
+  if(!coinCheck(3)) return;
+  var rt = document.getElementById("gdRoute");
+  if(rt) rt.innerHTML = '<div class="gd-growing">🤖 AI 正在规划成长路线…</div>';
+  var lv = (state.bookSub && state.bookSub[state.book]) || state.book || "cet4";
+  var prompt = "你是背单词应用的成长路线规划师，用户当前词书水平：" + lv + "。"
+    + (seed ? "用户已指定开头词：" + seed + "，请围绕它规划路线。"
+       : target ? "用户已指定目标词：" + target + "，请设计一个通向它的开头词和路线。"
+       : "请从常见考试词汇中挑一个中等难度、有联想空间的词作为开头词。")
+    + "目标词" + (target ? "必须使用用户指定的：" + target : "请选一个挑战性的目标词。")
+    + "关键约束：中间词和目标词都必须属于用户当前词书（" + lv + "）考纲词范围，必须是常见考试词汇，严禁超纲、生僻、不在考纲内的词；"
+    + "路线为 2~4 个中间词，逐步从开头词过渡到目标词。"
+    + "关键约束：每一步（含中间词之间、以及最后一个中间词到目标词的 targetReason）的关联**必须且只能属于以下五种关系之一**：近义、形近（拼写相似）、同根/同词缀、语境关联（常同场景出现）、反义。附一句话自然说明该关联即可，不需要谐音或讲故事；"
+    + "关键要求：1）开头词与目标词必须拉开差距——不能同根、同词缀、近形或近义，词形和词义都要明显不同，一眼看不出关联；2）目标词难度要比开头词明显高一档（开头词是四六级常用词时，目标词应为考研高频或更进阶的词），有挑战但不生僻；3）路线要有层次感和故事感，中间词至少 2 个，绝不能只靠 1 个词就跳到目标；4）全程避开 cat/dog/boy 这类简单词；"
+    + '5）严禁用谐音、读音巧合、字母拼凑、词形拆分巧合等五类关系之外的方式建立任何一步的关联；如果两个词之间确实没有五类关系中的任何一种，就换一个中间词或目标词，宁可路线重新设计也不要强行拼凑。'
+    + '严格只输出 JSON，不要输出任何其他文字，格式：{"seed":"开头词","target":"目标词","targetReason":"最后一个中间词到目标词的五类关联说明（一句话）","path":[{"word":"中间词","rel":"近义/形近/同根同缀/语境关联/反义之一","why":"该五类关联的一句话说明"}]}';
+  fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
+    body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 700, temperature: 0.9})
+  }).then(function(r){
+    if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
+    return r.json();
+  }).then(function(d){
+    var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+    var obj = null;
+    try{ obj = JSON.parse(txt); }catch(e1){
+      var m2 = txt.match(/\{[\s\S]*\}/);
+      if(m2){ try{ obj = JSON.parse(m2[0]); }catch(e2){ obj = null; } }
+    }
+    if(!obj || !obj.seed || !obj.target){
+      state.settings.coins = (state.settings.coins || 0) + 3; saveState(); renderCoinUI();
+      if(rt) rt.innerHTML = '<div class="gd-route-item" style="color:#e05555">AI 没有给出有效路线，已退回 3 积分，请重试</div>';
+      return;
+    }
+    var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+    if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
+    var aiSeed = String(obj.seed).trim().toLowerCase();
+    var aiTarget = String(obj.target).trim().toLowerCase();
+    if(!seed && aiSeed) seed = aiSeed;
+    if(!target && aiTarget) target = aiTarget;
+    var tReason = String(obj.targetReason || "").trim();
+    var cleanPath = [];
+    if(!inCurBook(target)){
+      var replaced = "已自动换词";
+      try{
+        var pool = Array.from(dictMap(groupOf(state.book)).keys());
+        var gd = 0;
+        var cand = "";
+        while(gd < 20){
+          gd++;
+          var c2 = pool[Math.floor(Math.random() * pool.length)];
+          if(c2 && c2 !== seed && c2 !== target){ cand = c2; break; }
+        }
+        if(cand){ replaced = "目标词不在当前词书，已自动换成词书内的「" + cand + "」"; target = cand; }
+      }catch(e9){}
+      if(replaced !== "已自动换词") showToast(replaced);
+    }
+    var en = entryOf(target);
+    var inDict = !!(en && (en.m || en.p));
+    g.target = target;
+    if(!g.tree){
+      var seEn = entryOf(seed);
+      g.tree = {w: seed, zh: seEn ? seEn.m.split(String.fromCharCode(10))[0] : "", p: seEn ? seEn.p : "", kids: [], grown: false, depth: 0};
+    }
+    var h = '<div class="gd-route-item"><span class="gd-route-rel">起点</span><span class="gd-route-w">' + esc(seed) + '</span></div>';
+    var path = obj.path || [];
+    for(var i=0;i<path.length;i++){
+      var p = path[i];
+      if(!p.word || !inCurBook(p.word)) continue;
+      cleanPath.push({word: p.word, rel: p.rel || "关联", why: p.why || ""});
+      h += '<div class="gd-route-item"><span class="gd-route-rel">' + esc(p.rel || "关联") + '</span><span class="gd-route-w">' + esc(p.word) + '</span><span class="gd-route-why">' + esc(p.why || "") + '</span></div>';
+    }
+    if(cleanPath.length < 2){
+      h += '<div class="gd-route-item"><span class="gd-route-rel">提示</span><span class="gd-route-w">步骤太少</span><span class="gd-route-why">AI 给的中间步骤不足或超纲被过滤，建议重新规划一次</span></div>';
+    }
+    g.aiPlan = {seed: seed, target: target, targetReason: tReason, path: cleanPath, ts: Date.now()};
+    saveState();
+    renderGarden();
+    h += '<div class="gd-route-item"><span class="gd-route-rel">目标</span><span class="gd-route-w">' + esc(target) + '</span><span class="gd-route-why">' + (tReason ? esc(tReason) : (inDict ? "词库已有 · 可种出" : "⚠️ 不在本地词库，可能种不出来，建议换一个")) + '</span></div>';
+    var nz = document.getElementById("gdZone");
+    if(nz) nz.innerHTML = '<div class="gd-plan-d" style="font-weight:700">规划路线完成，树已种下，目标词已设定：</div>' + h + '<div style="text-align:right;margin-top:6px"><button class="mini-btn" onclick="saveGdRoute()">💾 保存这条路线</button></div>';
+    showToast(inDict ? "路线规划完成 · 树已种下" : "目标词不在本地词库，建议换个词");
+  }).catch(function(e){
+    state.settings.coins = (state.settings.coins || 0) + 3; saveState(); renderCoinUI();
+    if(rt) rt.innerHTML = '<div class="gd-route-item" style="color:#e05555">AI 规划失败（' + esc(String(e && e.message || e)) + '），已退回 3 积分</div>';
+  });
+}
+function gardenSetTarget(){
+  var inp = document.getElementById("gdTargetIn");
+  if(!inp) return;
+  var v = inp.value.trim().toLowerCase();
+  if(!v || !/^[a-z][a-z' -]{1,39}$/.test(v)){ showToast("先输入一个正确的英文单词"); return; }
+  var g = state.garden;
+  if((g.achieved || []).indexOf(v) >= 0){ showToast("这个词之前已种出过，不能再领奖"); return; }
+  g.target = v;
+  if(g.aiPlan) g.aiPlan.target = "";
+  saveState(); renderGarden();
+  showToast("目标已设定：" + v + "，藏在树深处，种出它 +30 积分");
+}
+function gardenPlantSeed(){
+  var inp = document.getElementById("gdSeedIn");
+  if(!inp) return;
+  var seed = inp.value.trim().toLowerCase();
+  if(!seed || !/^[a-z][a-z' -]{1,39}$/.test(seed)){ showToast("先输入一个英文单词当种子"); return; }
+  var g2 = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  var ap = g2.aiPlan || {};
+  var seedIsAI = !!(ap.seed && seed === ap.seed);
+  var targetIsAI = !!(ap.target && g2.target === ap.target);
+  if(g2.target && !targetIsAI && !seedIsAI){
+    showToast("开头词和目标词不能都自己设置，用「AI 规划成长路线」让 AI 定其中一个吧");
+    return;
+  }
+  var kd = gardenKindOf(_gdKind);
+  var cost = kd.cost;
+  if(!coinCheck(cost)) return;
+  var zone = document.getElementById("gdZone");
+  if(zone) zone.innerHTML = '<div class="gd-growing">🌱 已种下「' + esc(seed) + '」，正在生根…</div>';
+  var root = {w: seed, zh: "", p: "", kids: [], grown: false, depth: 0};
+  state.garden.tree = root;
+  saveState();
+  gardenAI(root, kd, cost);
+}
+function gardenGrowNode(){
+  var g = state.garden;
+  if(!g || !g.tree){ showToast("先种下种子吧"); return; }
+  var node = gdFindNode(g.tree, _gdSel);
+  if(!node || node.hit){ showToast("这个词不能生长"); return; }
+  if(node.grown && (g.growSeq || 0) - (node.grownAt || 0) < 2){ showToast("这个词要间隔两次生长后才能再选"); return; }
+  var kd = gardenKindOf(_gdKind);
+  var cost = kd.cost;
+  if(!coinCheck(cost)) return;
+  var zone = document.getElementById("gdZone");
+  if(zone) zone.innerHTML = '<div class="gd-growing">🌱 「' + esc(node.w) + '」正在向上生长…</div>';
+  gardenAI(node, kd, cost);
+}
+function inCurBook(w){
+  var low = String(w || "").toLowerCase();
+  var grp = groupOf(state.book);
+  if(grp === "wrong" || grp === "fav" || grp === "phrase" || grp === "confusable" || grp === "custom") return true;
+  try{ return dictMap(grp).has(low); }catch(e){ return true; }
+}
+function gardenAI(node, kd, cost){
+  var seed = node.w;
+  if(!state.settings.aiKey){
+    var lr = gardenLocal(seed, kd);
+    if(lr && lr.length){ gardenAttach(node, kd, lr, true); return; }
+    gardenFailRefund(cost);
+    return;
+  }
+  var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  var exTarget = (g.target && (g.achieved || []).indexOf(g.target) < 0) ? g.target : "";
+  var grpLv = groupOf(state.book);
+  var lvName = grpLv === "cet6" ? "六级" : grpLv === "kaoyan" ? "考研" : "四级";
+  var prompt = "你是英语词汇教学助手。种子词：" + seed + "。请给出 4 个" + kd.aiDesc + "。要求：1）全部是真实存在、拼写正确的英文单词；2）不能包含种子词本身；3）每个词只给最常见的 1~2 个中文释义，不要用偏僻义项；4）所有词必须属于当前词书范围（" + lvName + "考纲词），必须是常见考试词汇，严禁生僻词和超纲词；"
+    + (exTarget ? "5）绝对不要输出目标词「" + exTarget + "」。严格只输出 JSON，不要输出任何其他文字，格式：{\"words\":[{\"w\":\"单词\",\"zh\":\"中文释义\"}]}" : "严格只输出 JSON，不要输出任何其他文字，格式：{\"words\":[{\"w\":\"单词\",\"zh\":\"中文释义\"}]}");
+  fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
+    body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 600, temperature: 0.8})
+  }).then(function(r){
+    if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
+    return r.json();
+  }).then(function(d){
+    var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+    var obj = null;
+    try{ obj = JSON.parse(txt); }catch(e1){
+      var m2 = txt.match(/\{[\s\S]*\}/);
+      if(m2){ try{ obj = JSON.parse(m2[0]); }catch(e2){ obj = null; } }
+    }
+    var list = (obj && obj.words && obj.words.length) ? obj.words : null;
+    if(!list){
+      var lr2 = gardenLocal(seed, kd);
+      if(lr2 && lr2.length){ gardenAttach(node, kd, lr2, true); return; }
+      gardenFailRefund(cost);
+      return;
+    }
+    var out = [];
+    for(var i=0;i<list.length;i++){
+      var w = (list[i].w || "").trim().toLowerCase();
+      if(!w || w === seed) continue;
+      if(exTarget && w === exTarget) continue;
+      if(!inCurBook(w)) continue;
+      var e2 = entryOf(w);
+      var local = (e2 && e2.m) ? e2 : null;
+      var zh = local ? local.m.split(String.fromCharCode(10))[0] : (list[i].zh || "");
+      out.push({w: w, zh: zh, p: local ? local.p : "", local: !!local});
+    }
+    if(out.length < 4){
+      var lr3 = gardenLocal(seed, kd);
+      var have = {};
+      for(var j2=0;j2<out.length;j2++) have[out[j2].w] = 1;
+      for(var j3=0;j3<lr3.length && out.length < 4;j3++){
+        if(!have[lr3[j3].w]){ out.push(lr3[j3]); have[lr3[j3].w] = 1; }
+      }
+      if(!out.length){ gardenFailRefund(cost); return; }
+    } else {
+      out = out.slice(0, 4);
+    }
+    // 目标词概率：越往深处概率越高
+    var childDepth = (node.depth || 0) + 1;
+    var prob = childDepth === 1 ? 0 : childDepth === 2 ? 0.15 : childDepth === 3 ? 0.25 : childDepth === 4 ? 0.35 : 0.5;
+    if(exTarget && inCurBook(exTarget) && Math.random() < prob){
+      var te = entryOf(exTarget);
+      var tzh = (te && te.m) ? te.m.split(String.fromCharCode(10))[0] : "";
+      var tp = (te && te.p) ? te.p : "";
+      var slot = Math.floor(Math.random() * Math.min(out.length, 4));
+      out[slot] = {w: exTarget, zh: tzh || "🎯 目标词", p: tp, local: !!te, isTarget: true};
+    }
+    gardenAttach(node, kd, out, false);
+  }).catch(function(err){
+    var lr4 = gardenLocal(seed, kd);
+    if(lr4 && lr4.length){ gardenAttach(node, kd, lr4, true); return; }
+    gardenFailRefund(cost);
+  });
+}
+function gardenLocal(seed, kd){
+  var e = entryOf(seed);
+  var out = [];
+  var i, w, m;
+  if(kd.k === "syn" && e.s && e.s.length){
+    for(i=0;i<e.s.length && out.length<4;i++){
+      var it = e.s[i];
+      w = (typeof it === "string") ? it : it.w;
+      if(!w || w.toLowerCase() === seed || !inCurBook(w)) continue;
+      m = (typeof it === "string") ? "" : (it.m || "");
+      if(!m){ var se = entryOf(w); m = se.m ? se.m.split(String.fromCharCode(10))[0] : ""; }
+      out.push({w: w, zh: m, p: "", local: true});
+    }
+  } else if(kd.k === "root" && e.rt && e.rt.length){
+    for(i=0;i<e.rt.length && out.length<4;i++){
+      var r = e.rt[i];
+      if(!r || !r.w || r.w.toLowerCase() === seed || !inCurBook(r.w)) continue;
+      out.push({w: r.w, zh: r.m || "", p: "", local: true});
+    }
+  } else if(kd.k === "ctx"){
+    for(i=0;i<(e.s||[]).length && out.length<4;i++){
+      var itc = e.s[i];
+      w = (typeof itc === "string") ? itc : itc.w;
+      if(!w || w.toLowerCase() === seed || !inCurBook(w)) continue;
+      m = (typeof itc === "string") ? "" : (itc.m || "");
+      if(!m){ var seC = entryOf(w); m = seC.m ? seC.m.split(String.fromCharCode(10))[0] : ""; }
+      out.push({w: w, zh: m, p: "", local: true});
+    }
+  } else if(kd.k === "sim"){
+    var lst = (window.SIM && window.SIM[seed]) || [];
+    for(i=0;i<lst.length && out.length<4;i++){
+      w = lst[i];
+      if(w.toLowerCase() === seed || !inCurBook(w)) continue;
+      var se2 = entryOf(w);
+      var sm = se2.m ? se2.m.split(String.fromCharCode(10))[0] : "";
+      out.push({w: w, zh: sm, p: se2.p || "", local: true});
+    }
+  }
+  if(out.length < 4){
+    try{
+      var pool = Array.from(dictMap(groupOf(state.book)).keys());
+      var used = {};
+      for(i=0;i<out.length;i++) used[out[i].w] = 1;
+      var guard = 0;
+      while(out.length < 4 && guard < 80){
+        guard++;
+        var rw = pool[Math.floor(Math.random() * pool.length)];
+        if(!rw || used[rw] || rw === seed) continue;
+        var re = entryOf(rw);
+        out.push({w: rw, zh: re.m ? re.m.split(String.fromCharCode(10))[0] : "", p: re.p || "", local: true});
+      }
+    }catch(e2){}
+  }
+  return out.slice(0, 4);
+}
+function gardenFailRefund(cost){
+  coinAdd(cost, "种植失败，积分已退还");
+  var zone = document.getElementById("gdZone");
+  if(zone) zone.innerHTML = '<div class="ai-err">种植失败（AI 未响应且本地词库无关联词），积分已退还</div>';
+}
+function gardenAttach(node, kd, list, fromLocal){
+  var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
+  var depth = (node.depth || 0) + 1;
+  var hit = null;
+  node.kids = node.kids || [];
+  for(var i=0;i<list.length;i++){
+    var it = list[i];
+    node.kids.push({w: it.w, zh: it.zh || "", p: it.p || "", kids: [], grown: !!it.isTarget, depth: depth, hit: !!it.isTarget});
+    if(it.isTarget) hit = it.w;
+  }
+  node.grown = true;
+  node.grownAt = g.growSeq || 0;
+  g.growSeq = (g.growSeq || 0) + 1;
+  g.achv.growN = (g.achv.growN || 0) + 1;
+  if(depth > (g.achv.maxDepth || 0)) g.achv.maxDepth = depth;
+  var msg = fromLocal ? '<div class="gd-tip">离线模式：已用本地词库关联词</div>' : '<div class="gd-tip">AI 生成 · 释义已对照本地权威词典</div>';
+  var newTarget = false;
+  if(hit){
+    g.achieved = g.achieved || [];
+    g.achieved.push(hit);
+    g.target = "";
+    newTarget = (g.achv.targets || 0) === 0;
+    g.achv.targets = (g.achv.targets || 0) + 1;
+    coinAdd(30 + buffBonus(), "种植园目标词「" + hit + "」种出！");
+    if(newTarget) coinAdd(10, "解锁成就「幸运农夫」：第一次种出目标词");
+    msg += '<div class="gd-hit">🎉 目标词 ' + esc(hit) + ' 种出！+30 积分' + (newTarget ? ' · 成就「幸运农夫」+10' : '') + '</div>';
+  } else {
+    msg += '<div class="gd-result-title">「' + esc(node.w) + '」长出了 ' + list.length + ' 个' + (kd ? kd.n : "") + '：</div>';
+  }
+  g.logs = g.logs || [];
+  g.logs.push(node.w + "×" + (kd ? kd.n : "") + "×" + list.length + "词");
+  if(g.logs.length > 5) g.logs = g.logs.slice(g.logs.length - 5);
+  saveState();
+  _gdSel = list.length ? list[0].w : "";
+  renderGarden();
+  var nz = document.getElementById("gdZone");
+  if(nz) nz.innerHTML = msg + '<div class="gd-tip">点击树上的「可生长」节点，继续向上长</div>';
+}
+function gardenToFav(w){
+  w = String(w).toLowerCase();
+  var e2 = entryOf(w);
+  var has = false;
+  for(var i=0;i<state.favorites.length;i++){ if(state.favorites[i].w === e2.w) has = true; }
+  if(has){ showToast("已在收藏里"); return; }
+  state.favorites.push({w: e2.w, book: findBookOf(w) || state.book, t: Date.now()});
+  saveState();
+  showToast("已加入收藏 ⭐");
+}
+function gardenToWrong(w){
+  w = String(w).toLowerCase();
+  var e2 = entryOf(w);
+  var has = false;
+  for(var i=0;i<state.wrong.length;i++){ if(state.wrong[i].w === e2.w) has = true; }
+  if(has){ showToast("已在生词本里"); return; }
+  state.wrong.push({w: e2.w, book: findBookOf(w) || state.book, t: Date.now()});
+  saveState();
+  showToast("已加入生词本");
+}
+window.speakWord = speakWord;
+window.openGarden = openGarden;
+window.renderGarden = renderGarden;
+window.pickGardenKind = pickGardenKind;
+window.gardenSetTarget = gardenSetTarget;
+window.gardenPlantSeed = gardenPlantSeed;
+window.gardenGrowNode = gardenGrowNode;
+window.gdSelectNode = gdSelectNode;
+window.gdSelectSel = gdSelectSel;
+window.gardenToFav = gardenToFav;
+window.gardenToWrong = gardenToWrong;
+window.openGardenPlan = openGardenPlan;
+window.gardenPlan = gardenPlan;
+window.gardenClear = gardenClear;
+window.toggleGdRoute = toggleGdRoute;
+window.toggleGdSaved = toggleGdSaved;
+window.showSavedRoute = showSavedRoute;
+window.saveGdRoute = saveGdRoute;
 function coinAdd(n, why){
   state.settings.coins = (state.settings.coins || 0) + n;
   saveState();
   renderCoinUI();
   if(why) showToast("+" + n + " 积分：" + why);
+}
+function coinRefreshAll(){
+  var n = (state.settings && state.settings.coins) || 0;
+  var crs = document.querySelectorAll(".coin-rem");
+  for(var i=0;i<crs.length;i++) crs[i].textContent = "· 剩 " + n;
 }
 function renderCoinUI(){
   var el = document.getElementById("coinShow");
@@ -5237,6 +6233,7 @@ function renderCoinUI(){
     var sc = sl.querySelector(".sl-coins");
     if(sc) sc.textContent = "⭐ " + (state.settings.coins || 0);
   }
+  coinRefreshAll();
 }
 var BADGES = [
   {id:"b_first", n:"初出茅庐", d:"背完第一轮单词", c:function(){ return state.events.length >= 1; }},
@@ -5280,7 +6277,7 @@ function renderBadges(){
   g.innerHTML = html;
 }
 /* ---- 单词接龙 ---- */
-var jr = {used:[], last:"", chain:0, pool:[], score:0, combo:0, maxCombo:0, busy:false, timeLeft:0, timerInt:null};
+var jr = {used:[], last:"", chain:0, pool:[], score:0, combo:0, maxCombo:0, busy:false, timeLeft:0, timerInt:null, ban:[], secret:null, userCount:0, settled:false};
 var JR_EXTRA = [
   {w:"yell", m:"v. 喊叫, 大喊"},
   {w:"yank", m:"v. 猛拉, 拽"},
@@ -5290,6 +6287,7 @@ var JR_EXTRA = [
   {w:"zest", m:"n. 热情, 兴趣"},
   {w:"zap", m:"v. 迅速击打, 消灭"}
 ];
+var JR_BAN = ["able","about","above","after","again","air","all","also","always","and","animal","another","answer","any","apple","arm","ask","at","away","back","bad","bag","ball","bank","be","bear","beautiful","because","become","bed","before","begin","behind","best","better","big","bird","black","blue","boat","body","book","both","boy","bread","break","bring","brother","build","bus","buy","by","cake","call","can","car","care","carry","cat","catch","chair","change","child","city","class","clean","clear","climb","close","cloud","cold","come","cook","cool","count","country","cover","cross","cry","cup","cut","dance","dark","day","dead","dear","deep","die","different","dinner","dirty","do","dog","door","down","draw","dream","drink","drive","drop","dry","duck","during","each","ear","early","earth","east","easy","eat","egg","eight","else","end","enough","even","ever","every","example","eye","face","fact","fall","family","far","farm","fast","fat","father","feel","few","field","fight","fill","film","find","fine","finger","fire","first","fish","five","food","foot","for","forest","forget","four","free","friend","from","front","fruit","full","fun","future","game","garden","get","gift","girl","give","glad","glass","go","gold","good","great","green","ground","group","grow","guess","hair","half","hand","happy","hard","have","head","health","hear","heart","heavy","hello","help","here","high","hill","hold","home","hope","horse","hot","hour","house","how","hundred","hungry","hurry","ice","idea","if","ill","important","in","inside","into","island","it","job","join","joke","joy","jump","just","keep","key","kick","kill","kind","king","kiss","kitchen","kite","knee","know","lake","land","large","last","late","laugh","lazy","learn","leave","left","leg","lesson","let","letter","library","life","light","like","line","listen","little","live","long","look","lose","love","low","lunch","make","man","many","map","mean","meat","meet","member","milk","mind","minute","miss","money","month","moon","more","morning","most","mother","mountain","mouth","move","much","music","must","name","near","need","never","new","news","next","nice","night","nine","nose","not","nothing","now","number","office","often","old","once","one","only","open","orange","other","our","out","over","own","page","paint","paper","parent","park","part","party","pass","past","pay","people","picture","piece","place","plan","plant","play","please","point","poor","possible","present","pretty","price","problem","put","quarter","question","quick","quiet","quite","rain","read","ready","real","red","remember","rest","rice","rich","right","ring","river","road","room","run","sad","safe","same","say","school","sea","season","second","see","sell","send","seven","ship","shoe","shop","short","should","show","sick","side","sing","sister","sit","six","sleep","slow","small","smile","snow","some","son","song","soon","sorry","sound","speak","sport","spring","stand","star","start","stay","stop","store","story","street","strong","study","such","summer","sun","sweet","table","take","talk","tall","teach","teacher","tell","ten","thank","that","the","their","them","then","there","these","they","thin","thing","think","third","this","those","three","through","throw","time","tired","today","together","tomorrow","too","town","tree","trip","true","try","turn","two","uncle","under","understand","until","up","use","very","village","visit","voice","wait","walk","wall","want","warm","wash","watch","water","way","wear","weather","week","well","what","when","where","which","while","white","who","why","wife","will","win","wind","window","winter","wish","with","without","woman","word","work","world","would","write","wrong","year","yellow","yes","yesterday","young","your","zoo"];
 function jrPool(){
   var books = [];
   var cur = state.book;
@@ -5323,7 +6321,8 @@ function jrReset(){
   jr.used = []; jr.chain = 0; jr.last = ""; jr.score = 0; jr.combo = 0; jr.maxCombo = 0; jr.busy = false;
   if(!jr.pool.length){ els.jrBody.innerHTML = '<div class="jr-finish"><div class="jf-t">当前词库没有可用单词</div><div class="jf-btns"><button class="mini-btn" onclick="els.jrModal.style.display=\"none\"">知道了</button></div></div>'; return; }
   var e = jr.pool[Math.floor(Math.random()*jr.pool.length)];
-  jr.last = e.w; jr.used.push(e.w.toLowerCase());
+  jr.last = e.w; jr.used.push(e.w.toLowerCase()); jr.userCount = 0; jr.settled = false;
+  jrPrepRound();
   jrStopTimer();
   jrRender("", "");
   jrStartTimer();
@@ -5336,6 +6335,7 @@ function jrSubmit(){
   if(!w){ showToast("输入一个英文单词"); return; }
   if(!/^[a-z]+$/.test(w)){ showToast("只能输入英文字母"); inp.value = ""; return; }
   if(jr.used.indexOf(w) >= 0){ showToast("这个词已经用过了"); return; }
+  if(jr.ban.indexOf(w) >= 0){ jrRender("「" + w + "」是本局禁用的超常见词，换一个有难度的", "bad"); return; }
   var lastCh = jr.last ? jr.last.toLowerCase().charAt(jr.last.length - 1) : "";
   if(w.charAt(0) !== lastCh){ jrRender("首字母必须是 " + lastCh.toUpperCase() + "，再想想", "bad"); return; }
   var e = null;
@@ -5344,12 +6344,83 @@ function jrSubmit(){
   jr.combo++; if(jr.combo > jr.maxCombo) jr.maxCombo = jr.combo;
   var gain = 10 + (jr.combo >= 2 ? (jr.combo - 1) * 2 : 0);
   jr.score += gain;
-  jr.used.push(w); jr.last = e.w; jr.chain++;
+  jr.used.push(w); jr.last = e.w; jr.chain++; jr.userCount++;
   jrStopTimer();
   var cm = jr.combo >= 3 ? "，连击 x" + jr.combo + " ！" : (jr.combo === 2 ? "，连击 x2" : "");
-  jrRender("接对了 +" + gain + cm, "ok");
+  var _tn = jrTierOf(jr.userCount);
+  var _tierNote = "";
+  if(_tn && [8,14,20,26,30].indexOf(jr.userCount) >= 0) _tierNote = "，已达 " + jr.userCount + " 轮，退出可得 +" + _tn.v + " 分";
+  jrRender("接对了 +" + gain + cm + _tierNote, "ok");
   jr.busy = true;
   setTimeout(function(){ jrNext(); }, 1000);
+}
+function jrGiveCoin(){
+  var today = todayStr();
+  if(state.jrCoinDay !== today){ state.jrCoinDay = today; state.jrCoinGain = 0; }
+  if((state.jrCoinGain || 0) >= 10) return;
+  state.jrCoinGain = (state.jrCoinGain || 0) + 1;
+  coinAdd(1, "接龙每 5 轮 +1（今日 " + state.jrCoinGain + "/10）");
+}
+function jrTierOf(n){
+  if(n >= 30) return {t:5, v:5};
+  if(n >= 26) return {t:4, v:4};
+  if(n >= 20) return {t:3, v:3};
+  if(n >= 14) return {t:2, v:2};
+  if(n >= 8) return {t:1, v:1};
+  return null;
+}
+function jrGiveCoin(){
+  if(jr.settled) return {v:0};
+  jr.settled = true;
+  var t = jrTierOf(jr.userCount);
+  if(!t) return {v:0};
+  var day = todayStr();
+  var tr = state.jrTier;
+  if(!tr || tr.d !== day){ tr = {d:day, c1:0, c2:0, c3:0, c4:0, c5:0}; state.jrTier = tr; }
+  if((tr["c" + t.t] || 0) >= 5){
+    var _seg = t.t === 1 ? "8~13 轮" : t.t === 2 ? "14~19 轮" : t.t === 3 ? "20~25 轮" : t.t === 4 ? "26~29 轮" : "30+ 轮";
+    var _need = t.t === 1 ? 14 : t.t === 2 ? 20 : t.t === 3 ? 26 : t.t === 4 ? 30 : 999;
+    showToast("今日 " + _seg + " 挡已满 5 次，打到 " + _need + " 轮以上才能再得分");
+    return {v:0, blocked:true};
+  }
+  var capJ = 10 + (buffActive() ? 8 : 0);
+  var addJ = buffActive() ? 2 : 0;
+  if(state.jrCoinDay !== day){ state.jrCoinDay = day; state.jrCoinGain = 0; }
+  if((state.jrCoinGain || 0) >= capJ) return {v:0, cap:true};
+  var give = Math.min(t.v + addJ, capJ - (state.jrCoinGain || 0));
+  tr["c" + t.t] = (tr["c" + t.t] || 0) + 1;
+  state.jrCoinGain = (state.jrCoinGain || 0) + give;
+  state.settings.coins = (state.settings.coins || 0) + give;
+  saveState(); renderCoinUI();
+  showToast("接龙 " + jr.userCount + " 轮 +" + give + " 积分（今日 " + state.jrCoinGain + "/" + capJ + "）");
+  return {v:give};
+}
+function jrPrepRound(){
+  jr.ban = []; jr.secret = null;
+  var lastCh = jr.last ? jr.last.toLowerCase().charAt(jr.last.length - 1) : "";
+  if(!lastCh) return;
+  // ① 基础简单词优先（小学生/初中生最容易想到的词）
+  for(var bi=0; bi<JR_BAN.length && jr.ban.length < 10; bi++){
+    var bw = JR_BAN[bi];
+    if(bw.charAt(0) === lastCh && jr.used.indexOf(bw) < 0 && jr.ban.indexOf(bw) < 0) jr.ban.push(bw);
+  }
+  // ② 不足 10 个时用词库真题高频词补足
+  var poolA = [], poolB = [];
+  for(var i=0;i<jr.pool.length;i++){
+    var wl = jr.pool[i].w.toLowerCase();
+    if(wl.charAt(0) !== lastCh || jr.used.indexOf(wl) >= 0 || jr.ban.indexOf(wl) >= 0) continue;
+    var fq = jr.pool[i].fq || 0;
+    poolA.push({e:jr.pool[i], fq:fq});
+    if(fq > 0 && fq < 50) poolB.push(jr.pool[i]);
+  }
+  poolA.sort(function(a,b){ return b.fq - a.fq; });
+  for(var j=0;j<poolA.length && jr.ban.length < 10;j++){
+    if(poolA[j].fq > 0) jr.ban.push(poolA[j].e.w.toLowerCase());
+  }
+  for(var k=0;k<poolB.length;k++){
+    var wk = poolB[k].w.toLowerCase();
+    if(jr.ban.indexOf(wk) < 0 && jr.used.indexOf(wk) < 0){ jr.secret = poolB[k]; break; }
+  }
 }
 function jrNext(){
   jr.busy = false;
@@ -5360,8 +6431,17 @@ function jrNext(){
     if(wl.charAt(0) === lastCh && jr.used.indexOf(wl) < 0 && jr.pool[i].m && jr.pool[i].m.length) cands.push(jr.pool[i]);
   }
   if(!cands.length){ jrFinish(false); return; }
-  var e = cands[Math.floor(Math.random()*cands.length)];
+  var TAIL_W = {e:1,s:1,t:1,d:1,o:1,n:1,r:1,a:1,l:1,i:1,c:1,u:2,h:2,m:2,p:2,f:2,b:2,g:3,y:3,w:3,k:3,v:3,j:4,z:4,x:4,q:4};
+  var total = 0, pick = null;
+  for(var ci=0;ci<cands.length;ci++){
+    var tw = cands[ci].w.toLowerCase().charAt(cands[ci].w.length - 1);
+    var wt = TAIL_W[tw] || 1;
+    total += wt;
+    if(!pick || Math.random()*total < wt) pick = cands[ci];
+  }
+  var e = pick;
   jr.used.push(e.w.toLowerCase()); jr.last = e.w; jr.chain++;
+  jrPrepRound();
   jrRender("系统接上：" + e.w + " — " + String(e.m || "").split(";")[0], "sys");
   jrStartTimer();
 }
@@ -5403,28 +6483,35 @@ function jrStartTimer(){
       el.textContent = jr.timeLeft + "s";
       el.className = jr.timeLeft <= 3 ? "jr-timer warn" : "jr-timer";
     }
+    if(jr.timeLeft <= 4 && jr.secret && jr.used.indexOf(jr.secret.w.toLowerCase()) < 0){
+      var _m = document.querySelector(".jr-msg");
+      if(_m && _m.textContent.indexOf("快超时") < 0) _m.textContent = "快超时了，答案是：" + String(jr.secret.m || "").split(";")[0];
+    }
   }, 1000);
 }
 function jrStopTimer(){ if(jr.timerInt){ clearInterval(jr.timerInt); jr.timerInt = null; } }
 function jrFinish(timeup){
   jrStopTimer();
   if(jr.chain > (state.jrBest || 0)){ state.jrBest = jr.chain; saveState(); }
+  var _jg = jrGiveCoin();
+  var _jgV = _jg ? _jg.v : 0;
+  var _blockTxt = (_jg && _jg.blocked) ? '<div class="jr-rule">今日该挡位已满 5 次，打到更高轮次才能得分</div>' : ((_jg && _jg.cap) ? '<div class="jr-rule">今日积分已达上限 10</div>' : '');
   var best = state.jrBest || 0;
-  var win = jr.chain >= 10;
   els.jrBody.innerHTML =
     '<div class="jr-finish">' +
-    '<div class="jf-t">' + (timeup ? "时间到！" : (win ? "你赢了！系统认输" : "本轮结束")) + '</div>' +
-    '<div class="jr-cur" style="border:0;box-shadow:none"><span class="jr-word">' + (win ? "WINNER" : (timeup ? "手速再练练" : "再接再厉")) + '</span><span class="jr-cn">' + (timeup ? "超时未接，本轮结算" : (win ? "你比系统接得还远" : "离 10 个还差 " + (10 - jr.chain) + " 个")) + '</span></div>' +
+    '<div class="jf-t">' + (timeup ? "时间到！" : "本轮结束") + '</div>' +
+    '<div class="jr-cur" style="border:0;box-shadow:none"><span class="jr-word">' + (timeup ? "手速再练练" : "再接再厉") + '</span><span class="jr-cn">' + (timeup ? "超时未接，本轮结算" : "想接多久接多久，随时再来") + '</span></div>' +
     '<div class="jf-nums">' +
+      '<div class="jf-n"><b>' + _jgV + '</b><span>本次积分</span></div>' +
       '<div class="jf-n"><b>' + jr.score + '</b><span>得分</span></div>' +
       '<div class="jf-n"><b>' + jr.chain + '</b><span>本轮接词</span></div>' +
       '<div class="jf-n"><b>' + best + '</b><span>历史最佳</span></div>' +
     '</div>' +
+    _blockTxt +
     '<div class="jf-btns"><button class="mini-btn" id="jrAgain">再来一局</button><button class="mini-btn ghost" onclick="els.jrModal.style.display=\"none\"">退出</button></div>' +
     '</div>';
   var again = document.getElementById("jrAgain");
   if(again) again.addEventListener("click", jrReset);
-  coinAdd(3, "完成一局接龙");
   unlockBadges();
 }
 function jrRender(msg, cls){
@@ -5438,16 +6525,20 @@ function jrRender(msg, cls){
     if(j > 0) chainHtml += '<span class="arrow">›</span>';
     chainHtml += '<span class="chip' + (j % 2 === 1 ? " me" : "") + '">' + w + '</span>';
   }
+  var _trNow = state.jrTier;
+  var _tierInfo = (_trNow && _trNow.d === todayStr()) ? ' · 今日 1分档 ' + (_trNow.c1 || 0) + '/5' : '';
   els.jrBody.innerHTML =
     '<div class="jr-top">' +
       '<div class="jr-score"><span class="js-ic">★</span>' + jr.score + ' 分</div>' +
       '<div class="jr-timer' + (jr.busy ? "" : (jr.timeLeft > 0 && jr.timeLeft <= 3 ? " warn" : "")) + '" id="jrTimerD">' + jrTimerText() + '</div>' +
-      '<div class="jr-meta">已接 <b>' + jr.chain + '</b> 个' + (jr.combo >= 2 ? ' · 连击 x' + jr.combo : '') + '</div>' +
+      '<div class="jr-meta">已接 <b>' + jr.chain + '</b> 个' + (jr.combo >= 2 ? ' · 连击 x' + jr.combo : '') + _tierInfo + '</div>' +
     '</div>' +
+    '<div class="jr-rule">积分挡位：8轮+1 · 14轮+2 · 20轮+3 · 26轮+4 · 30轮+5（每挡每天 5 次）</div>' +
     '<div class="jr-cur"><span class="jr-word">' + jr.last + '</span><span class="jr-cn">' + cn + '</span><span class="jr-tail">尾字母 <b>' + lastCh + '</b></span></div>' +
     '<div class="jr-in"><input id="jrInput" placeholder="输入一个以 ' + lastCh + ' 开头的单词" autocomplete="off"' + (jr.busy ? " disabled" : "") + '><div class="jr-btns"><button class="mini-btn" id="jrGo">接上</button><button class="mini-btn ghost" id="jrHintB">提示</button></div></div>' +
     (msg ? '<div class="jr-msg ' + (cls === "ok" ? "ok" : cls === "bad" ? "bad shake" : "sys") + '">' + msg + '</div>' : '<div class="jr-msg"></div>') +
-    '<div class="jr-chain">' + chainHtml + '</div>';
+    '<div class="jr-chain">' + chainHtml + '</div>' +
+    (jr.ban.length ? '<div class="jr-ban"><b>本局禁词</b>（不能接这些简单词）：' + jr.ban.join("、") + '</div>' : '');
   var inp = document.getElementById("jrInput");
   if(inp){
     if(!jr.busy) inp.focus();
@@ -5460,6 +6551,36 @@ function jrRender(msg, cls){
 }
 /* ---- 单词连连看 ---- */
 var mp = {pool:[], en:[], cn:[], sel:null, matched:0, score:0, combo:0, timeLeft:0, timerInt:null, busy:false};
+function lkTierTime(){
+  var s = (state.lkStreak || 0) + 1;
+  if(s <= 2) return 20;
+  if(s <= 4) return 17;
+  if(s <= 7) return 14;
+  return 10;
+}
+function lkGiveCoin(){
+  var s = (state.lkStreak || 0);
+  var t = s <= 2 ? {t:1, v:1} : (s <= 4 ? {t:2, v:2} : (s <= 7 ? {t:3, v:3} : {t:4, v:4}));
+  var day = todayStr();
+  var tr = state.lkTier;
+  if(!tr || tr.d !== day){ tr = {d:day, c1:0, c2:0, c3:0, c4:0}; state.lkTier = tr; }
+  if((tr["c" + t.t] || 0) >= 5){
+    var _seg = t.t === 1 ? "1-2 关" : t.t === 2 ? "3-4 关" : t.t === 3 ? "5-7 关" : "8 关起";
+    var _need = t.t === 1 ? 3 : t.t === 2 ? 5 : t.t === 3 ? 8 : 999;
+    showToast("今日 " + _seg + " 挡已满 5 次，连对到 " + _need + " 关才能再得分");
+    return;
+  }
+  var capL = 10 + (buffActive() ? 8 : 0);
+  var addL = buffActive() ? 2 : 0;
+  if(state.lkCoinDay !== day){ state.lkCoinDay = day; state.lkCoinGain2 = 0; }
+  if((state.lkCoinGain2 || 0) >= capL) return;
+  var give = Math.min(t.v + addL, capL - (state.lkCoinGain2 || 0));
+  tr["c" + t.t] = (tr["c" + t.t] || 0) + 1;
+  state.lkCoinGain2 = (state.lkCoinGain2 || 0) + give;
+  state.settings.coins = (state.settings.coins || 0) + give;
+  saveState(); renderCoinUI();
+  showToast("本关连对 +" + give + " 积分（今日 " + state.lkCoinGain2 + "/" + capL + "）");
+}
 function openMP(){
   els.mpModal.style.display = "flex";
   mpReset();
@@ -5549,9 +6670,9 @@ function mpReset(){
   }
   var sh = function(a){ for(var j=a.length-1;j>0;j--){ var r=Math.floor(Math.random()*(j+1)); var t=a[j]; a[j]=a[r]; a[r]=t; } return a; };
   mp.en = sh(en); mp.cn = sh(cn);
-  var t0raw = parseInt(state.settings.mpTimer, 10) || 0;
-  var t0 = t0raw > 0 ? Math.max(10, t0raw - (state.lkPenalty || 0)) : 0;
+  var t0 = lkTierTime();
   var gh = '<div class="mp-top"><div class="jr-score"><span class="js-ic">★</span><span id="mpScore">0 分</span></div><div class="jr-timer" id="mpTimerD">' + (t0 <= 0 ? "不限时" : t0 + "s") + '</div><div class="jr-meta" id="mpMeta">已配对 <b>0</b> / ' + en.length + '</div></div>';
+  gh += '<div class="mp-rule">积分：1-2关+1 · 3-4关+2 · 5-7关+3 · 8关起+4（每挡每天 5 次，上限 10）</div>';
   gh += '<div class="lk-label">英文（点一个英文再点对应中文）</div><div class="lk-grid" id="mpEn">';
   for(var a2=0;a2<mp.en.length;a2++){
     gh += '<div class="lk-card en" data-kind="en" data-i="' + a2 + '">' + esc(mp.en[a2].w) + '</div>';
@@ -5624,8 +6745,7 @@ function mpTap(kind, i){
   el.classList.add("sel");
 }
 function mpRender(msg){
-  var t0raw = parseInt(state.settings.mpTimer, 10) || 0;
-  var t0 = t0raw > 0 ? Math.max(10, t0raw - (state.lkPenalty || 0)) : 0;
+  var t0 = lkTierTime();
   var sc = document.getElementById("mpScore");
   if(sc) sc.textContent = mp.score + " 分";
   var mt = document.getElementById("mpMeta");
@@ -5640,9 +6760,7 @@ function mpRender(msg){
 }
 function mpStartTimer(){
   if(mp.timerInt){ clearInterval(mp.timerInt); mp.timerInt = null; }
-  var t0raw = parseInt(state.settings.mpTimer, 10) || 0;
-  var t0 = t0raw > 0 ? Math.max(10, t0raw - (state.lkPenalty || 0)) : 0;
-  if(t0 <= 0){ var e = document.getElementById("mpTimerD"); if(e) e.textContent = "不限时"; return; }
+  var t0 = lkTierTime();
   mp.timeLeft = t0;
   var e0 = document.getElementById("mpTimerD");
   if(e0){ e0.textContent = t0 + "s"; e0.className = "jr-timer"; }
@@ -5756,11 +6874,6 @@ function phrasePickOptions(w){
 function mpFinish(timeup){
   mpStopTimer();
   if(mp.matched > (state.mpBest || 0)){ state.mpBest = mp.matched; saveState(); }
-  var pn = state.lkPenalty || 0;
-  var hit = false;
-  if(mp.score >= 80 && pn < 10){ pn = Math.min(10, pn + 3); state.lkPenalty = pn; saveState(); hit = true; }
-  var baseT = parseInt(state.settings.mpTimer, 10) || 0;
-  var nextT = baseT > 0 ? Math.max(10, baseT - pn) : 0;
   var best = state.mpBest || 0;
   var total = mp.en.length;
   var win = mp.matched >= total;
@@ -5777,30 +6890,23 @@ function mpFinish(timeup){
       '<div class="jf-n"><b>' + mp.matched + '/' + total + '</b><span>配对</span></div>' +
       '<div class="jf-n"><b>' + best + '</b><span>历史最佳</span></div>' +
     '</div>' +
-    '<div class="lk-next' + (hit ? " hot" : "") + '">' + (hit ? "高分触发加速：下局开局 " + nextT + "s（-3s）" : (pn > 0 ? "当前惩罚中：下局开局 " + nextT + "s" : "下局开局 " + nextT + "s")) + '</div>' +
-    '<div class="lk-streak">连续达标 <b>' + (state.lkStreak || 0) + '</b> 关（≥3 关且都 ≥80 分，每天按关数给积分，上限 10）</div>' +
+    '<div class="lk-next">下局时间：1-2关20s · 3-4关17s · 5-7关14s · 8关起10s</div>' +
+    '<div class="lk-streak">已连对 <b>' + (state.lkStreak || 0) + '</b> 关（1-2关+1 · 3-4关+2 · 5-7关+3 · 8关起+4，每挡位每天限 5 次，每日上限 10）</div>' +
     '<div class="lk-recap-title">本局单词 · 点词看完整卡片</div>' +
     '<div class="lk-recap">' + recap + '</div>' +
     '<div class="jf-btns"><button class="mini-btn" id="mpAgain">再来一局</button><button class="mini-btn ghost" onclick="els.mpModal.style.display=\"none\"">退出</button></div>' +
     '</div>';
   var again = document.getElementById("mpAgain");
   if(again) again.addEventListener("click", mpReset);
-  if(win && mp.score >= 80){
+  if(win){
     state.lkStreak = (state.lkStreak || 0) + 1;
     mystStepLk(true);
-    if((state.lkCoinDay || "") !== todayStr() && state.lkStreak >= 3){
-      var gainLk = Math.min(state.lkStreak, 10);
-      state.lkCoinDay = todayStr();
-      state.settings.coins = (state.settings.coins || 0) + gainLk;
-      saveState(); renderCoinUI();
-      showToast("连续 " + state.lkStreak + " 关达标 +" + gainLk + " 积分");
-    } else {
-      saveState();
-    }
+    lkGiveCoin();
   } else {
     state.lkStreak = 0;
     mystStepLk(false);
   }
+  saveState();
   unlockBadges();
 }
 var mpWordCloseB = document.getElementById("mpWordClose");
@@ -5813,7 +6919,7 @@ function mpShowWord(w){
   var h = '<div class="mpw-word">' + esc(w) + '</div>';
   if(e && e.p) h += '<div class="mpw-ph">' + esc(e.p) + '</div>';
   h += '<div class="mpw-defs">' + (e && e.m ? esc(e.m) : "（暂无释义）") + '</div>';
-  h += '<div class="mpw-ai-row"><button class="ai-tag" id="mpwAiBtn" data-w="' + esc(w) + '">AI 讲解<span class="ai-cost">-2</span></button></div>';
+  h += '<div class="mpw-ai-row"><button class="ai-tag" id="mpwAiBtn" data-w="' + esc(w) + '">AI 讲解<span class="ai-cost">-2</span><span class="coin-rem" data-coin="2"></span></button></div>';
   h += '<div class="mpw-ai-body" id="mpwAiBody"></div>';
   document.getElementById("mpWordBody").innerHTML = h;
   document.getElementById("mpWordModal").style.display = "flex";
@@ -5949,7 +7055,14 @@ function letterRain(line){
 }
 els.btnJR.addEventListener("click", openJR);
 els.btnMP.addEventListener("click", openMP);
-els.mpClose.addEventListener("click", function(){ els.mpModal.style.display = "none"; mpStopTimer(); });
+els.btnGarden.addEventListener("click", openGarden);
+els.btnRanch.addEventListener("click", openRanch);
+els.ranchClose.addEventListener("click", closeRanch);
+els.ranchCardClose.addEventListener("click", function(){
+  if(_ranchCur) ranchFeedDone(_ranchCur);
+});
+els.gardenClose.addEventListener("click", function(){ els.gardenModal.style.display = "none"; });
+els.mpClose.addEventListener("click", function(){ els.mpModal.style.display = "none"; mpStopTimer(); if(mp.matched < (mp.en.length || 0)){ state.lkStreak = 0; saveState(); } });
 els.mpBody.addEventListener("click", function(ev){
   var _cp = ev.target && ev.target.closest ? ev.target.closest(".lk-chip") : null;
   if(_cp){ var _w = _cp.getAttribute("data-w"); if(_w) mpShowWord(_w); return; }
@@ -5959,7 +7072,7 @@ els.mpBody.addEventListener("click", function(ev){
   var _ii = parseInt(_lc.getAttribute("data-i"), 10);
   if((_ki === "en" || _ki === "cn") && !isNaN(_ii)) mpTap(_ki, _ii);
 });
-els.jrClose.addEventListener("click", function(){ els.jrModal.style.display = "none"; });
+els.jrClose.addEventListener("click", function(){ if(!jr.settled) jrGiveCoin(); els.jrModal.style.display = "none"; });
 easterInit();
 
 /* ---------- 设置 ---------- */
@@ -5988,7 +7101,7 @@ function renderSettings(){
   els.setBoostOnce.checked = !!state.settings.boostOnce;
   els.setWrongSep.checked = state.settings.wrongSep !== false;
   els.setAIOn.checked = state.settings.aiOn !== false;
-  els.setAIKey.value = state.settings.aiKey || "";
+  els.setAIKey.value = (state.settings.aiKey && state.settings.aiKey !== "sk-0991f531c857467cb07121041b8e6699") ? state.settings.aiKey : "";
   renderQuizSeg();
   els.setQuizCount.value = [4,6,8,10,12,15,20].indexOf(state.settings.quizCount || 6) >= 0 ? (state.settings.quizCount || 6) : 6;
   els.setJRTimer.value = [0,10,15,20,30].indexOf(state.settings.jrTimer) >= 0 ? state.settings.jrTimer : 15;
@@ -6030,7 +7143,7 @@ els.btnKeyEye.addEventListener("click", function(){
   els.keyEyeOn.style.display = show ? "none" : "block";
   els.keyEyeOff.style.display = show ? "block" : "none";
 });
-els.setAIKey.addEventListener("change", function(){ state.settings.aiKey = els.setAIKey.value.trim(); onSetChange(); });
+els.setAIKey.addEventListener("change", function(){ var v = els.setAIKey.value.trim(); state.settings.aiKey = v || "sk-0991f531c857467cb07121041b8e6699"; onSetChange(); });
 var _qsg = els.quizSeg;
 if(_qsg){
   var _qbs = _qsg.querySelectorAll(".ai-mode-btn");
@@ -6341,13 +7454,15 @@ function confuseCheckAll(){
       var tdayC = todayStr();
       if(cd.d !== tdayC){ cd.d = tdayC; cd.n = 0; cd.got = 0; }
       cd.n++;
-      var wantC = Math.min(Math.floor(cd.n / 10), 3);
+      var capC = 3 + (buffActive() ? 8 : 0);
+      var perC = buffActive() ? 3 : 1;
+      var wantC = Math.min(Math.floor(cd.n / 10) * perC, capC);
       if(wantC > cd.got){
         var gainC = wantC - cd.got;
         cd.got = wantC;
         state.settings.coins = (state.settings.coins || 0) + gainC;
         saveState(); renderCoinUI();
-        showToast("易混词答对 " + cd.n + " 个 +" + gainC + " 积分");
+        showToast("易混词答对 " + cd.n + " 个 +" + gainC + " 积分（今日 " + cd.got + "/" + capC + "）");
       }
     } else {
       ansBox.className = "cf-ans bad";
@@ -6649,14 +7764,16 @@ function flashCheckNext(){
     var tdayF = todayStr();
     if(fd.d !== tdayF){ fd.d = tdayF; fd.n = 0; fd.got = 0; }
     fd.n += flashQueue.length;
-    var wantF = Math.min(Math.floor(fd.n / 10), 5);
+    var capF = 5 + (buffActive() ? 8 : 0);
+    var perF = buffActive() ? 3 : 1;
+    var wantF = Math.min(Math.floor(fd.n / 10) * perF, capF);
     var gainF = wantF - fd.got;
     if(gainF > 0){
       fd.got = wantF;
       state.settings.coins = (state.settings.coins || 0) + gainF;
       saveState(); renderCoinUI();
     }
-    var gainTxt = gainF > 0 ? "本组获得 +" + gainF + " 积分 · 今日 " + fd.got + " / 5" : "今日闪过积分 " + fd.got + " / 5";
+    var gainTxt = gainF > 0 ? "本组获得 +" + gainF + " 积分 · 今日 " + fd.got + " / " + capF : "今日闪过积分 " + fd.got + " / " + capF;
     els.flashMe.innerHTML = '<div class="flash-done">本组闪过 ' + flashQueue.length + ' 词<br>认识 ' + flashCheckKnown + ' 个 · 不认识 ' + flashCheckUnknown + ' 个<br>不认识的已移回「未过」，并在下次闪过中优先出现<br>' + gainTxt + '<br><button class="mini-btn" id="flashAgain" style="margin-top:10px">再来一组</button></div>';
     els.btnFlashExit.textContent = "返回主页";
     var fa2 = document.getElementById("flashAgain");
