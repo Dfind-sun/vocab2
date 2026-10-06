@@ -1891,6 +1891,10 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           <button class="mini-btn" id="btnImport">导入</button>
         </div>
         <input type="file" id="fileImport" accept="application/json,.json" style="display:none">
+        <div class="set-item" style="border-top:1px dashed var(--line,#e5e7eb);margin-top:10px;padding-top:10px">
+          <div style="flex:1"><div class="set-name" style="color:#e5484d">清空本地数据</div><div class="set-desc">删除全部学习进度、积分、收藏、词书，不可恢复</div></div>
+          <button class="mini-btn" id="btnClearAll" style="background:#e5484d;color:#fff;border-color:#e5484d">清空</button>
+        </div>
       </div>
       <div class="set-group">
         <div class="set-title">自定义词典</div>
@@ -1921,6 +1925,18 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         </div>
       </div>
     </section>
+
+    <!-- 清空本地数据确认弹窗 -->
+    <div class="modal-mask" id="clearModal" style="display:none">
+      <div class="modal-box" style="max-width:340px;width:92%;text-align:center;padding:22px 18px">
+        <div style="font-size:18px;font-weight:800;margin-bottom:8px">清空本地数据？</div>
+        <div style="font-size:13px;color:var(--ink2,#6B7280);line-height:1.7;margin-bottom:16px">将删除全部学习进度、积分、收藏、生词本、AI 缓存和自定义词书，<b>此操作无法恢复</b>。</div>
+        <div style="display:flex;gap:10px;justify-content:center">
+          <button class="mini-btn" id="btnClearCancel">取消</button>
+          <button class="mini-btn" id="btnClearConfirm" style="background:#e5484d;color:#fff;border-color:#e5484d">确认清空</button>
+        </div>
+      </div>
+    </div>
   </main>
 
   <nav class="tabbar">
@@ -3910,7 +3926,7 @@ var GUIDE_SLIDES = [
 ];
 var guideIdx = 0;
 var guideAutoTimer = null;
-function showGuide(){ guideIdx = 0; renderGuide(); els.guideModal.style.display = "flex"; clearTimeout(guideAutoTimer); guideAutoTimer = setTimeout(function(){ closeGuide(true); }, 6000); }
+function showGuide(){ guideIdx = 0; renderGuide(); els.guideModal.style.display = "flex"; }
 function renderGuide(){
   var g = GUIDE_SLIDES[guideIdx];
   els.guideIc.innerHTML = g.ic;
@@ -8101,6 +8117,21 @@ if(_esg){
   }
 }
 els.btnAIClear.addEventListener("click", function(){ state.aiCache = {}; saveState(); renderSettings(); });
+/* 清空本地数据 */
+var elClearModal = document.getElementById("clearModal");
+var btnClearAllEl = document.getElementById("btnClearAll");
+var btnClearCancelEl = document.getElementById("btnClearCancel");
+var btnClearConfirmEl = document.getElementById("btnClearConfirm");
+if(btnClearAllEl && elClearModal){
+  btnClearAllEl.addEventListener("click", function(){ elClearModal.style.display = "flex"; });
+  if(btnClearCancelEl) btnClearCancelEl.addEventListener("click", function(){ elClearModal.style.display = "none"; });
+  if(btnClearConfirmEl) btnClearConfirmEl.addEventListener("click", function(){
+    elClearModal.style.display = "none";
+    try{ localStorage.removeItem(LS_KEY); }catch(e){}
+    showToast("本地数据已清空，正在重置…");
+    setTimeout(function(){ location.reload(); }, 600);
+  });
+}
 
 /* ---------- 统计 ---------- */
 function renderStats(){
