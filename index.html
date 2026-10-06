@@ -319,6 +319,37 @@ html.dark .ai-extract-btn .ae-ic{background:rgba(245,158,11,.14);color:#F5C76B}
 .qa-his-item{background:var(--card,#f7f7f8);border:1px solid var(--line,#e5e5ea);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;cursor:pointer}
 .qa-his-item:hover{border-color:var(--brand)}
 .qa-his-t{float:right;color:var(--muted,#999);margin-left:8px}
+.vt-top{font-size:12px;color:var(--muted,#999);margin-bottom:6px;text-align:center}
+.vt-w{font-size:26px;font-weight:800;text-align:center;margin:8px 0 2px}
+.vt-p{text-align:center;color:var(--muted,#999);font-size:13px;margin-bottom:16px}
+.vt-opts{display:flex;flex-direction:column;gap:8px}
+.vt-opt{width:100%;box-sizing:border-box;padding:11px 14px;border:1px solid var(--line,#e5e5ea);border-radius:12px;background:var(--card,#f7f7f8);color:var(--fg,#222);font-size:14px;cursor:pointer;text-align:left;font-family:inherit}
+.vt-opt:hover{border-color:var(--brand,#4f6ef7)}
+.vt-opt.on{border-color:#27ae60;background:#e9f9f0;color:#27ae60;font-weight:600}
+.vt-opt.wrong{border-color:#d64545;background:#fdecec;color:#c0392b}
+.vt-fb{text-align:center;font-size:15px;margin:12px 0 2px}
+.vt-fb .good{color:#27ae60;font-weight:700}
+.vt-fb .bad{color:#c0392b;font-weight:700}
+.vt-fb .unk{color:var(--muted,#999);font-weight:700}
+.vt-ans{text-align:center;font-size:13px;color:var(--muted,#999);margin-bottom:10px}
+.vt-score{text-align:center;font-size:16px;font-weight:700;margin:10px 0 4px}
+.vt-acc{text-align:center;font-size:13px;color:var(--muted,#999);margin-bottom:12px}
+.vt-sec{border:1px solid var(--line,#e5e5ea);border-radius:10px;padding:10px 12px;margin-bottom:8px}
+.vt-sec-t{font-weight:700;font-size:14px;margin-bottom:6px}
+.vt-witem{display:flex;justify-content:space-between;gap:8px;font-size:13px;padding:3px 0;border-bottom:1px dashed var(--line,#e5e5ea)}
+.vt-witem:last-child{border-bottom:none}
+.vt-witem b{font-weight:600}
+.vt-witem span{color:var(--muted,#999);text-align:right}
+.vt-empty{font-size:12px;color:var(--muted,#999);padding:4px 0}
+.vt-next{margin-top:14px}
+.vt-home-t{font-size:18px;font-weight:800;text-align:center;margin-bottom:12px}
+.vt-home-stats{display:flex;gap:10px;margin-bottom:10px}
+.vt-stat{flex:1;border:1px solid var(--line,#e5e5ea);border-radius:12px;padding:12px 6px;text-align:center;background:var(--card,#f7f7f8)}
+.vt-stat-n{font-size:22px;font-weight:800;color:var(--brand,#4f6ef7)}
+.vt-stat-l{font-size:12px;color:var(--muted,#999);margin-top:2px}
+.vt-home-desc{font-size:13px;color:var(--muted,#999);text-align:center;margin-bottom:10px}
+.vt-home-last{font-size:13px;color:var(--muted,#999);text-align:center;margin-bottom:10px}
+.vt-cat{cursor:pointer}
 .ai-extract-res{margin-top:10px}
 .ai-extract-res .ai-loading{font-size:13px;color:var(--mut);padding:8px 0}
 .ai-extract-res .ai-err{font-size:13px;color:#E0655A;background:rgba(224,101,90,.08);border:1px solid rgba(224,101,90,.25);border-radius:10px;padding:10px;margin-top:4px;line-height:1.6}
@@ -619,7 +650,7 @@ nav.tabbar svg{width:22px;height:22px}
 .quick-wordline{display:flex;align-items:center;justify-content:center;gap:10px}
 .quick-word{font-size:34px;font-weight:700;color:var(--ink);letter-spacing:.5px}
 .quick-phon{font-size:13px;color:var(--ink2);margin-top:8px}
-.quick-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:26px}
+.quick-opts{display:flex;flex-direction:column;gap:10px;margin-top:26px}
 .quick-opt{border:1.5px solid var(--line);background:var(--bg);border-radius:14px;padding:16px 10px;font-size:15px;color:var(--ink);cursor:pointer;min-height:58px;display:flex;align-items:center;justify-content:center;line-height:1.4}
 .quick-opt:active{transform:scale(.97)}
 .quick-opt.ok{border-color:var(--brand);background:rgba(28,160,140,.08);color:var(--brand);font-weight:600}
@@ -706,6 +737,10 @@ nav.tabbar svg{width:22px;height:22px}
 .start-btn:active{transform:scale(.985)}
 html.dark .start-btn{box-shadow:0 8px 22px rgba(0,0,0,.35)}
 .home-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;text-align:left}
+.home-sec{display:flex;align-items:center;gap:10px;margin:22px 0 2px;font-size:14px;font-weight:700;color:var(--t2,#555)}
+.home-sec .sec-ic{width:18px;height:18px;flex:none}
+.home-sec::after{content:"";flex:1;height:1px;background:var(--line,#e5e5ea)}
+.home-sec-tag{font-size:11px;font-weight:500;color:var(--brand,#4f6ef7);background:rgba(79,110,247,.08);padding:2px 8px;border-radius:20px}
 .home-card{
   display:flex;flex-direction:column;align-items:flex-start;gap:2px;
   background:var(--card);border:1px solid var(--line);border-radius:16px;
@@ -1059,6 +1094,9 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
             <span class="hc-t">闪过模式</span>
             <span class="hc-d">按发音节奏快速过词</span>
           </button>
+        </div>
+        <div class="home-sec"><span class="sec-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/><path d="M9 18h6"/><path d="M10 22h4"/></svg></span>AI 功能<span class="home-sec-tag">消耗积分</span></div>
+        <div class="home-grid">
           <button class="home-card wide" id="btnAIQuizHome">
             <span class="hc-ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.4 1 2.3h6c0-.9.4-1.8 1-2.3A7 7 0 0 0 12 2z"/></svg></span>
             <span class="hc-t">AI 智能出题<span class="hc-cost">-5</span></span>
@@ -1084,6 +1122,9 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
             <span class="hc-t">AI 阅读提取</span>
             <span class="hc-d">打开筛出的生词词典</span>
           </button>
+        </div>
+        <div class="home-sec"><span class="sec-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 4 13c0-4 4-6 9-7 5 1 9 3 9 7a7 7 0 0 1-7 7z"/><path d="M9 3l3-1 3 1"/><path d="M9 3v6l3-2 3 2V3"/></svg></span>趣味游戏<span class="home-sec-tag">背词之余放松一下</span></div>
+        <div class="home-grid">
           <button class="home-card" id="btnJR">
             <span class="hc-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V5a2 2 0 0 1 2-2h2"/><path d="M4 17v2a2 2 0 0 0 2 2h2"/><path d="M20 7V5a2 2 0 0 0-2-2h-2"/><path d="M20 17v2a2 2 0 0 1-2 2h-2"/></svg></span>
             <span class="hc-t">单词接龙</span>
@@ -1542,6 +1583,13 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           </div>
         </div>
       </div>
+      <!-- 词汇测试弹窗 -->
+      <div class="modal-mask" id="vtModal" style="display:none">
+        <div class="modal-box ai-essay-box">
+          <div class="modal-head"><span>词汇测试</span><button class="modal-close" id="vtClose">×</button></div>
+          <div class="jr-body" style="padding:14px 16px" id="vtBody"></div>
+        </div>
+      </div>
       <!-- 单词接龙弹窗 -->
       <div class="modal-mask" id="jrModal" style="display:none">
         <div class="modal-box ai-essay-box">
@@ -1601,6 +1649,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         <button class="ai-stat-btn" id="btnAIAnalysis"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v4"/><path d="M12 10v8"/><path d="M17 6v12"/></svg>AI 学情分析<span class="hc-cost">-5</span><span class="coin-rem" data-coin="5"></span></button>
         <button class="ai-stat-btn" id="btnAIQA"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>AI 单词问答<span class="hc-cost">-3</span><span class="coin-rem" data-coin="3"></span></button>
       </div>
+      <div style="margin-bottom:14px"><button class="ai-stat-btn" id="btnVtTest" style="width:100%;justify-content:center">词汇测试 · 检验学习成果</button></div>
       <div class="stats-grid">
         <div class="stat-card"><div class="num" id="stToday">0</div><div class="lab">今日学习</div></div>
         <div class="stat-card"><div class="num" id="stTotal">0</div><div class="lab">累计学习</div></div>
@@ -1944,7 +1993,7 @@ function findBookOf(w){
 function loadState(){
   var s = null;
   try{ s = JSON.parse(localStorage.getItem(LS_KEY)); }catch(e){}
-  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
+  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, vtStats:{}, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
   if(s){
     for(var k in s){ base[k] = s[k]; }
     if(!s.version){
@@ -2113,7 +2162,7 @@ var els = {
   storeText:$("storeText"), storeBarFill:$("storeBarFill"), storeHint:$("storeHint"),
   btnImpBook:$("btnImpBook"), fileImpBook:$("fileImpBook"), btnImpBookJson:$("btnImpBookJson"), fileImpBookJson:$("fileImpBookJson"), customBookList:$("customBookList"),
   setAIOn:$("setAIOn"), setAIKey:$("setAIKey"), btnKeyEye:$("btnKeyEye"), keyEyeOn:$("keyEyeOn"), keyEyeOff:$("keyEyeOff"), btnAIClear:$("btnAIClear"), essaySeg:$("essaySeg"), quizSeg:$("quizSeg"), setEssayMode2:$("setEssayMode2"), setEssayAutoSave:$("setEssayAutoSave"), setQuizCount:$("setQuizCount"), setJRTimer:$("setJRTimer"), setMPTimer:$("setMPTimer"),
-  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), btnAIQA:$("btnAIQA"), aiQaModal:$("aiQaModal"), aiQaClose:$("aiQaClose"), aiQaInput:$("aiQaInput"), aiQaRun:$("aiQaRun"), aiQaSave:$("aiQaSave"), aiQaHist:$("aiQaHist"), aiQaBack:$("aiQaBack"), aiQaRes:$("aiQaRes"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid"), btnGarden:$("btnGarden"), gardenModal:$("gardenModal"), gardenClose:$("gardenClose"), gardenBody:$("gardenBody"), btnRanch:$("btnRanch"), btnGardenGuide:$("btnGardenGuide"), gardenGuideModal:$("gardenGuideModal"), gardenGuideClose:$("gardenGuideClose"), ranchModal:$("ranchModal"), ranchClose:$("ranchClose"), ranchBar:$("ranchBar"), ranchField:$("ranchField"), ranchCardModal:$("ranchCardModal"), ranchCardClose:$("ranchCardClose"), ranchCardBody:$("ranchCardBody"), learnHint:$("learnHint"), learnHintTxt:$("learnHintTxt"), learnHintX:$("learnHintX")
+  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), btnAIQA:$("btnAIQA"), aiQaModal:$("aiQaModal"), aiQaClose:$("aiQaClose"), aiQaInput:$("aiQaInput"), aiQaRun:$("aiQaRun"), aiQaSave:$("aiQaSave"), aiQaHist:$("aiQaHist"), aiQaBack:$("aiQaBack"), aiQaRes:$("aiQaRes"), btnVtTest:$("btnVtTest"), vtModal:$("vtModal"), vtClose:$("vtClose"), vtBody:$("vtBody"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid"), btnGarden:$("btnGarden"), gardenModal:$("gardenModal"), gardenClose:$("gardenClose"), gardenBody:$("gardenBody"), btnRanch:$("btnRanch"), btnGardenGuide:$("btnGardenGuide"), gardenGuideModal:$("gardenGuideModal"), gardenGuideClose:$("gardenGuideClose"), ranchModal:$("ranchModal"), ranchClose:$("ranchClose"), ranchBar:$("ranchBar"), ranchField:$("ranchField"), ranchCardModal:$("ranchCardModal"), ranchCardClose:$("ranchCardClose"), ranchCardBody:$("ranchCardBody"), learnHint:$("learnHint"), learnHintTxt:$("learnHintTxt"), learnHintX:$("learnHintX")
 };
 
 /* ---------- 词库选择器 ---------- */
@@ -4058,6 +4107,8 @@ els.guideModal.addEventListener("click", function(ev){
 els.btnAIAnalysis.addEventListener("click", function(){ els.aiAnalysisModal.style.display = "flex"; aiAnalysisRun(); });
 els.aiAnalysisClose.addEventListener("click", function(){ els.aiAnalysisModal.style.display = "none"; });
 els.aiAnalysisRegen.addEventListener("click", function(){ aiAnalysisRun(); });
+els.btnVtTest.addEventListener("click", openVtTest);
+els.vtClose.addEventListener("click", function(){ els.vtModal.style.display = "none"; });
 els.btnAIQA.addEventListener("click", openAIQA);
 els.aiQaClose.addEventListener("click", function(){ els.aiQaModal.style.display = "none"; });
 els.aiQaRun.addEventListener("click", aiQAAsk);
@@ -6822,6 +6873,266 @@ function renderCoinUI(){
   }
   coinRefreshAll();
 }
+var vt = {queue:[], idx:0, known:[], unknown:[], wrongOpt:[], curNone:false, answered:false};
+function vtLearnedWords(){
+  // 认识/还行/不认识 都算背过；斩掉(cut)与短语词书排除
+  var seen = {}, out = [];
+  var L = state.learned || {};
+  for(var b in L){
+    if(b === "phrase") continue;
+    var l = L[b];
+    if(!l) continue;
+    for(var w in l){
+      var rec = l[w];
+      if(rec && rec.k === "cut") continue;
+      if(!seen[w]){ seen[w] = 1; out.push(w); }
+    }
+  }
+  return out;
+}
+function openVtTest(){
+  els.vtModal.style.display = "flex";
+  vtRenderHome();
+}
+function vtRenderHome(){
+  var words = vtLearnedWords();
+  var st = state.vtStats || {};
+  var n = words.length;
+  var times = st.times || 0;
+  var known = st.known || 0, wrong = st.wrong || 0, unk = st.unknown || 0;
+  var total = known + wrong + unk;
+  var acc = total ? Math.round(known / total * 100) : 0;
+  var h = '<div class="vt-home-t">词汇测试</div>';
+  h += '<div class="vt-home-stats">';
+  h += '<div class="vt-stat"><div class="vt-stat-n">' + n + '</div><div class="vt-stat-l">已学单词</div></div>';
+  h += '<div class="vt-stat"><div class="vt-stat-n">' + times + '</div><div class="vt-stat-l">已测试次</div></div>';
+  h += '<div class="vt-stat"><div class="vt-stat-n">' + acc + '%</div><div class="vt-stat-l">历史正确率</div></div>';
+  h += '</div>';
+  h += '<div class="vt-home-desc">从已学过的单词中随机抽 20 个，检验这段时间的学习成果</div>';
+  if(times > 0){
+    h += '<div class="vt-home-last">最近一次（' + (st.lastDate || "") + '）：认识 ' + (st.lastKnown||0) + ' · 选错 ' + (st.lastWrong||0) + ' · 不认识 ' + (st.lastUnk||0) + '</div>';
+    h += '<div class="vt-sec"><div class="vt-sec-t">累计三分类（点击查看单词）</div>';
+    h += '<div class="vt-witem vt-cat" data-cat="known"><b>认识</b><span>' + known + ' ›</span></div>';
+    h += '<div class="vt-witem vt-cat" data-cat="wrong"><b>选错</b><span>' + wrong + ' ›</span></div>';
+    h += '<div class="vt-witem vt-cat" data-cat="unknown"><b>不认识</b><span>' + unk + ' ›</span></div>';
+    h += '</div>';
+  } else {
+    h += '<div class="vt-home-last">还没有测试记录，开始第一次测试吧</div>';
+  }
+  h += '<button id="vtStartBtn" style="width:100%;background:var(--brand,#4f6ef7);color:#fff;border:none;padding:12px 0;font-size:15px;font-weight:600;border-radius:14px;margin-top:8px;cursor:pointer">开始测试（20 题）</button>';
+  els.vtBody.innerHTML = h;
+}
+function vtShowCat(cat){
+  var st = state.vtStats || {};
+  var key = cat === "known" ? "knownWords" : cat === "wrong" ? "wrongWords" : "unknownWords";
+  var list = st[key] || [];
+  var title = cat === "known" ? "认识" : cat === "wrong" ? "选错" : "不认识";
+  var cnt = cat === "known" ? (st.known || 0) : cat === "wrong" ? (st.wrong || 0) : (st.unknown || 0);
+  var h = '<div class="vt-home-t">' + title + '（' + cnt + '）</div>';
+  h += '<div class="vt-home-desc">历史测试中归入「' + title + '」的单词</div>';
+  if(!list.length){
+    if(cnt > 0){
+      h += '<div class="vt-home-last">历史累计 ' + cnt + ' 个，单词明细自本次更新后开始记录——完成下一次测试后即可查看</div>';
+    } else {
+      h += '<div class="vt-home-last">还没有记录，完成一次测试后自动生成</div>';
+    }
+  } else {
+    h += '<div class="vt-sec">';
+    for(var i=0;i<list.length;i++){
+      var e = entryOf(list[i]);
+      var m = e ? quickMainMeaning(e) : "";
+      h += '<div class="vt-witem"><b>' + esc(e && (e.w || e.word) ? (e.w || e.word) : list[i]) + '</b><span>' + esc(m || "") + '</span></div>';
+    }
+    h += '</div>';
+  }
+  h += '<button class="mini-btn" id="vtHomeBtn" style="width:100%;margin-top:4px">返回测试主页</button>';
+  els.vtBody.innerHTML = h;
+}
+function vtStart(){
+  var words = vtLearnedWords();
+  if(words.length < 5){ showToast("已学单词太少（<5），先去背几轮吧"); return; }
+  quickBuildPosIndex();
+  var n = Math.min(20, words.length);
+  var cp = words.slice();
+  var q = [];
+  for(var i=0;i<n;i++){ var ri = Math.floor(Math.random()*cp.length); q.push(cp[ri]); cp.splice(ri,1); }
+  vt.queue = q; vt.idx = 0; vt.known = []; vt.unknown = []; vt.wrongOpt = [];
+  vtRenderQ();
+}
+function zhSim(a, b){
+  if(!a || !b) return false;
+  var as = a.split(/[；;，,]/), bs = b.split(/[；;，,]/);
+  for(var i=0;i<as.length;i++){
+    var t = as[i].trim(); if(!t) continue;
+    for(var j=0;j<bs.length;j++){
+      var u = bs[j].trim(); if(!u) continue;
+      if(t === u || t.indexOf(u) >= 0 || u.indexOf(t) >= 0) return true;
+    }
+  }
+  return false;
+}
+function vtBuildOptions(w){
+  var e0 = entryOf(w);
+  var ans = quickMainMeaning(e0);
+  var posKey = quickPosKey(e0);
+  var hasCorrect = Math.random() < 2 / 3;
+  var need = hasCorrect ? 2 : 3;
+  var opts = [];
+  var tried = {};
+  if(ans && hasCorrect) opts.push({txt: ans, ok: true});
+  if(ans) tried[ans] = 1;
+  var sims = (window.SIM && window.SIM[w]) || [];
+  for(var i=0;i<sims.length && opts.length < need+1;i++){
+    var sw = String(sims[i]).toLowerCase();
+    if(sw === w || tried[sw]) continue;
+    var se = entryOf(sw);
+    var sm = quickMainMeaning(se);
+    if(!sm || sm === ans || zhSim(ans, sm) || tried[sm]) continue;
+    if(posKey === "n" && quickPosKey(se) !== "n") continue;
+    tried[sm] = 1;
+    opts.push({txt: sm, ok: false});
+  }
+  var pool = (quickGlobalPosIdx[posKey] || []).concat(quickPosIdx[posKey] || []);
+  var max = 800;
+  while(opts.length < need+1 && max-- > 0){
+    var c = pool[Math.floor(Math.random()*pool.length)];
+    if(!c) continue;
+    var cm = quickMainMeaning(entryOf(String(c).toLowerCase()));
+    if(!cm || cm === ans || zhSim(ans, cm) || tried[cm]) continue;
+    tried[cm] = 1;
+    opts.push({txt: cm, ok: false});
+  }
+  var all = quickAllBookWords();
+  var max2 = 800;
+  while(opts.length < need+1 && max2-- > 0){
+    var c2 = all[Math.floor(Math.random()*all.length)];
+    if(!c2) continue;
+    var cm2 = quickMainMeaning(entryOf(String(c2).toLowerCase()));
+    if(!cm2 || cm2 === ans || zhSim(ans, cm2) || tried[cm2]) continue;
+    tried[cm2] = 1;
+    opts.push({txt: cm2, ok: false});
+  }
+  var picked = opts.slice(0, 3);
+  for(var z=picked.length-1;z>0;z--){
+    var zi = Math.floor(Math.random()*(z+1));
+    var tt = picked[z]; picked[z] = picked[zi]; picked[zi] = tt;
+  }
+  return {opts: picked, hasCorrect: hasCorrect};
+}
+function vtRenderQ(){
+  var w = vt.queue[vt.idx];
+  var e = entryOf(w);
+  var build = vtBuildOptions(w);
+  vt.curNone = !build.hasCorrect;
+  vt.answered = false;
+  var h = '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px"><div class="vt-top" style="margin-bottom:0">第 ' + (vt.idx+1) + ' / ' + vt.queue.length + ' 题</div><button class="mini-btn" id="vtBack" style="padding:4px 10px;font-size:12px">返回</button></div>';
+  h += '<div class="vt-w">' + esc(e.w || w) + '</div>';
+  if(e.p) h += '<div class="vt-p">&lt;' + esc(e.p) + '&gt;</div>';
+  h += '<div class="vt-opts">';
+  for(var i=0;i<build.opts.length;i++){
+    h += '<button class="vt-opt" data-i="' + i + '" data-ok="' + (build.opts[i].ok ? "1" : "0") + '">' + esc(build.opts[i].txt) + '</button>';
+  }
+  h += '<button class="vt-opt" data-kind="none">以上都不对</button>';
+  h += '<button class="vt-opt" data-kind="unk">不认识</button>';
+  h += '</div>';
+  h += '<button class="mini-btn vt-next" id="vtNext" style="display:none;width:100%">下一题</button>';
+  els.vtBody.innerHTML = h;
+}
+function vtAnswer(btn){
+  if(vt.answered) return;
+  vt.answered = true;
+  var w = vt.queue[vt.idx];
+  var e = entryOf(w);
+  var ans = quickMainMeaning(e);
+  var kind = btn.getAttribute("data-kind") || "";
+  var ok = btn.getAttribute("data-ok") === "1";
+  var right, label, cls;
+  if(kind === "unk"){ right = false; label = "不认识"; cls = "unk"; vt.unknown.push(w); }
+  else if(kind === "none"){
+    if(vt.curNone){ right = true; label = "答对了，三个选项确实都不对"; cls = "good"; vt.known.push(w); }
+    else { right = false; label = "选错，其实有正确选项"; cls = "bad"; vt.wrongOpt.push(w); }
+  } else {
+    if(ok){ right = true; label = "认识（选对）"; cls = "good"; vt.known.push(w); }
+    else { right = false; label = "选错，对这个词的记忆不准确"; cls = "bad"; vt.wrongOpt.push(w); }
+  }
+  var selIdx = parseInt(btn.getAttribute("data-i") || "-1", 10);
+  var btns = els.vtBody.querySelectorAll(".vt-opt");
+  for(var i=0;i<btns.length;i++){
+    btns[i].disabled = true;
+    var k = btns[i].getAttribute("data-kind") || "";
+    var o = btns[i].getAttribute("data-ok") === "1";
+    if(k === "none"){
+      if(vt.curNone){ btns[i].classList.add("on"); btns[i].textContent = ans || "以上都不对"; }
+      else if(kind === "none") btns[i].classList.add("wrong");
+    } else if(k === "unk"){
+      if(kind === "unk") btns[i].classList.add("unk");
+    } else {
+      if(o) btns[i].classList.add("on");
+      if(i === selIdx && !o) btns[i].classList.add("wrong");
+    }
+  }
+  var ansTxt = vt.curNone ? "三个选项都不是该词的正确释义" : ("正确答案：" + ans);
+  var fb = '<div class="vt-fb"><span class="' + cls + '">' + label + '</span></div><div class="vt-ans">' + ansTxt + '</div>';
+  var nx = document.getElementById("vtNext");
+  nx.style.display = "block";
+  nx.textContent = (vt.idx + 1 >= vt.queue.length) ? "查看测试结果" : "下一题";
+  var ph = document.querySelector(".vt-opts");
+  ph.insertAdjacentHTML("beforebegin", fb);
+}
+function vtNext(){
+  vt.idx++;
+  if(vt.idx >= vt.queue.length){ vtRenderResult(); return; }
+  vtRenderQ();
+}
+function vtRenderResult(){
+  var total = vt.queue.length;
+  var acc = Math.round(vt.known.length / total * 100);
+  var st = state.vtStats || (state.vtStats = {});
+  st.times = (st.times || 0) + 1;
+  st.known = (st.known || 0) + vt.known.length;
+  st.wrong = (st.wrong || 0) + vt.wrongOpt.length;
+  st.unknown = (st.unknown || 0) + vt.unknown.length;
+  st.lastKnown = vt.known.length; st.lastWrong = vt.wrongOpt.length; st.lastUnk = vt.unknown.length;
+  st.lastDate = todayStr();
+  function pushWords(listKey, arr){
+    var list = st[listKey] || (st[listKey] = []);
+    for(var pi=0;pi<arr.length;pi++){ if(list.indexOf(arr[pi]) < 0) list.push(arr[pi]); }
+  }
+  pushWords("knownWords", vt.known);
+  pushWords("wrongWords", vt.wrongOpt);
+  pushWords("unknownWords", vt.unknown);
+  saveState();
+  var h = '<div class="vt-top">测试完成</div>';
+  h += '<div class="vt-score">认识 ' + vt.known.length + ' · 选错 ' + vt.wrongOpt.length + ' · 不认识 ' + vt.unknown.length + '</div>';
+  h += '<div class="vt-acc">正确率 ' + acc + '%</div>';
+  h += vtList("认识", vt.known) + vtList("选错", vt.wrongOpt) + vtList("不认识", vt.unknown);
+  h += '<div style="display:flex;gap:8px;margin-top:4px"><button class="mini-btn" id="vtAgain" style="flex:1">再来一次</button><button class="mini-btn" id="vtHomeBtn" style="flex:1">返回测试主页</button></div>';
+  els.vtBody.innerHTML = h;
+}
+function vtList(title, arr){
+  var h = '<div class="vt-sec"><div class="vt-sec-t">' + title + '（' + arr.length + '）</div>';
+  if(!arr.length){ h += '<div class="vt-empty">无</div>'; }
+  for(var i=0;i<arr.length;i++){
+    var e = entryOf(arr[i]);
+    h += '<div class="vt-witem"><b>' + esc(e.w || arr[i]) + '</b><span>' + esc(quickMainMeaning(e)) + '</span></div>';
+  }
+  return h + '</div>';
+}
+els.vtBody.addEventListener("click", function(ev){
+  var t = ev.target;
+  while(t && t !== els.vtBody){
+    if(t.id === "vtNext" || t.id === "vtAgain" || t.id === "vtBack" || t.id === "vtStartBtn" || t.id === "vtHomeBtn" || (t.className && t.className.toString().indexOf("vt-opt") >= 0) || (t.classList && t.classList.contains("vt-cat"))) break;
+    t = t.parentNode;
+  }
+  if(!t || t === els.vtBody) return;
+  if(t.id === "vtNext"){ vtNext(); return; }
+  if(t.id === "vtAgain"){ vtStart(); return; }
+  if(t.id === "vtBack"){ vtRenderHome(); return; }
+  if(t.id === "vtHomeBtn"){ vtRenderHome(); return; }
+  if(t.id === "vtStartBtn"){ vtStart(); return; }
+  if(t.classList && t.classList.contains("vt-cat")){ vtShowCat(t.getAttribute("data-cat")); return; }
+  if(t.className.toString().indexOf("vt-opt") >= 0){ vtAnswer(t); }
+});
 function aiTick(){
   state.aiUse = (state.aiUse || 0) + 1;
   unlockBadges();
