@@ -308,6 +308,17 @@ html.dark .ai-extract-btn .ae-ic{background:rgba(245,158,11,.14);color:#F5C76B}
 .ai-extract-btn .ae-d{font-size:11px;color:var(--mut);margin-left:auto}
 #aiExtractText{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);font-size:13px;line-height:1.6;resize:vertical;font-family:inherit}
 #aiExtractText:focus{outline:none;border-color:var(--brand)}
+#aiQaInput{width:100%;box-sizing:border-box;padding:10px;border:1px solid var(--line);border-radius:10px;background:var(--card);color:var(--fg);font-size:13px;line-height:1.6;resize:vertical;font-family:inherit}
+#aiQaInput:focus{outline:none;border-color:var(--brand)}
+.qa-bar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.qa-block{border:1px solid var(--line,#e5e5ea);border-radius:10px;padding:10px 12px;margin-bottom:10px;font-size:14px;line-height:1.7}
+.qa-q{background:var(--card,#f7f7f8)}
+.qa-a{background:var(--bg,#fff)}
+.qa-tag{display:inline-block;font-size:12px;color:#fff;background:var(--brand,#4f6ef7);border-radius:6px;padding:1px 8px;margin-bottom:6px}
+.qa-body{font-size:14px;line-height:1.7}
+.qa-his-item{background:var(--card,#f7f7f8);border:1px solid var(--line,#e5e5ea);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;cursor:pointer}
+.qa-his-item:hover{border-color:var(--brand)}
+.qa-his-t{float:right;color:var(--muted,#999);margin-left:8px}
 .ai-extract-res{margin-top:10px}
 .ai-extract-res .ai-loading{font-size:13px;color:var(--mut);padding:8px 0}
 .ai-extract-res .ai-err{font-size:13px;color:#E0655A;background:rgba(224,101,90,.08);border:1px solid rgba(224,101,90,.25);border-radius:10px;padding:10px;margin-top:4px;line-height:1.6}
@@ -897,6 +908,10 @@ html.dark #btnMP .hc-ic{background:rgba(46,160,120,.15);color:#7FD8B8}
 .jr-finish .jf-btns{display:flex;gap:10px;justify-content:center;margin-top:14px}
 @keyframes jrPop{from{transform:scale(.94);opacity:.4}to{transform:scale(1);opacity:1}}
 .gd-target{display:flex;gap:8px;align-items:center;margin-bottom:8px}
+.gd-synrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;background:var(--card,#f7f7f8);border:1px solid var(--line,#e5e5ea);border-radius:10px;padding:8px 10px;margin:8px 0;font-size:13px}
+.gd-his-item{background:var(--card,#f7f7f8);border:1px solid var(--line,#e5e5ea);border-radius:8px;padding:8px 10px;margin-bottom:6px;font-size:13px;cursor:pointer}
+.gd-his-item:hover{border-color:var(--accent,#4f6ef7)}
+.gd-his-d{margin-top:8px}
 .gd-input:disabled{opacity:.45;cursor:not-allowed}
 .gd-input{flex:1;min-width:0;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--picker);color:var(--ink);font-size:14px;outline:none}
 .gd-input:focus{border-color:var(--brand)}
@@ -945,6 +960,13 @@ html.dark #btnMP .hc-ic{background:rgba(46,160,120,.15);color:#7FD8B8}
 .ranch-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 14px;font-size:12px;color:var(--ink2);flex-wrap:wrap}
 .ranch-bar b{color:var(--brand-deep)}
 .ranch-empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--ink2);font-size:14px;text-align:center;padding:20px}
+.gg-step{display:flex;flex-direction:column;gap:4px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px;background:var(--card)}
+.gg-step b{font-size:14px;color:var(--brand-deep)}
+.gg-step span{font-size:13px;line-height:1.6;color:var(--ink)}
+.gg-tip{margin-top:6px;font-size:12px;color:var(--ink2);text-align:center}
+.mode-hint{display:flex;align-items:center;gap:7px;padding:8px 12px;background:var(--brand-soft);border:1px solid var(--brand-l);border-radius:10px;font-size:12.5px;line-height:1.5;color:var(--ink2);margin:0 0 12px}
+.mode-hint svg{flex:0 0 auto;color:var(--brand-deep)}
+.mode-hint .mode-hint-x{margin-left:auto;background:none;border:none;color:var(--ink2);font-size:16px;line-height:1;cursor:pointer;padding:2px 4px}
 .gd-node.hit .gd-nflag{color:#c97b00;font-weight:800}
 .gd-nhit{font-size:16px}
 .gd-stats{text-align:center;font-size:11.5px;color:var(--ink2);margin:10px 0 2px;line-height:1.6}
@@ -958,6 +980,7 @@ html.dark #btnMP .hc-ic{background:rgba(46,160,120,.15);color:#7FD8B8}
 .gd-route-item:last-child{border-bottom:none}
 .gd-route-rel{color:var(--brand);font-weight:700;font-size:11px;white-space:nowrap}
 .gd-route-w{font-weight:800}
+.gd-route-tag{display:inline-block;margin-left:5px;padding:0 5px;border-radius:5px;font-size:10px;line-height:16px;color:var(--brand-deep);background:var(--line)}
 .gd-route-why{color:var(--ink2,#888);font-size:11px}
 .gd-mini{font-size:11.5px;padding:3px 8px;border-radius:999px;border:1px solid var(--line);background:var(--picker);cursor:pointer;color:var(--ink2);white-space:nowrap}
 .gd-mini:hover{color:var(--brand);border-color:var(--brand)}
@@ -1101,6 +1124,11 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         <div class="due-banner" id="dueBanner">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           <span>艾宾浩斯 · <span class="due-num" id="dueNum">0</span> 个词待复习</span>
+        </div>
+        <div class="mode-hint" id="learnHint" style="display:none">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span id="learnHintTxt">认识=完全掌握 · 还行=眼熟、知道意思但不保证拼对会读 · 不认识=没见过 · 斩掉=本轮跳过</span>
+          <button class="mode-hint-x" id="learnHintX">×</button>
         </div>
         <div class="learn-meta">
           <span class="round" id="roundLabel">第 1 / 10 词</span>
@@ -1289,6 +1317,10 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
             <div class="flash-phon" id="flashPhon"></div>
             <div class="flash-me" id="flashMe"></div>
           </div>
+          <div class="mode-hint" id="flashHint" style="display:none">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span>认识=闪过 · 不认识=记不住，之后还会闪到它</span>
+          </div>
           <div class="flash-check-btns" id="flashCheckBtns" style="display:none">
             <button id="flashCheckYes">认识</button>
             <button id="flashCheckNo">不认识</button>
@@ -1362,6 +1394,10 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         </div>
         <button class="wm-entry" id="quickWmEntry" style="display:none">生词本（0）</button>
         <div class="progress-track" style="margin:12px 0 14px"><div class="progress-fill" id="quickFill"></div></div>
+        <div class="mode-hint" style="margin:0 0 10px">
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+          <span>选出正确的中文释义 · 选对=过关，选错=进生词本</span>
+        </div>
         <div class="quick-card" id="quickCardWrap">
           <div class="quick-wordline">
             <div class="quick-word" id="quickWord"></div>
@@ -1489,6 +1525,23 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
         <div class="ai-quiz-body" id="aiQuizBody"></div>
         </div>
       </div>
+      <!-- AI 单词问答弹窗 -->
+      <div class="modal-mask" id="aiQaModal" style="display:none">
+        <div class="modal-box ai-essay-box">
+          <div class="modal-head"><span>AI 单词问答</span><button class="modal-close" id="aiQaClose">×</button></div>
+          <div class="jr-body" style="padding:14px 16px">
+            <textarea id="aiQaInput" rows="3" placeholder="只回答与单词、英语学习相关的问题，例如：accept 和 receive 有什么本质区别？
+怎么记 stubborn 这个词？"></textarea>
+            <div style="display:flex;gap:8px;margin-top:8px"><button class="mini-btn" id="aiQaRun" style="flex:1">发送（-3）<span class="coin-rem" data-coin="3"></span></button></div>
+            <div class="qa-bar">
+              <button class="mini-btn" id="aiQaSave">💾 保存这条</button>
+              <button class="mini-btn" id="aiQaHist">📚 历史（0）</button>
+              <button class="mini-btn" id="aiQaBack" style="display:none">← 返回</button>
+            </div>
+            <div class="qa-res" id="aiQaRes"></div>
+          </div>
+        </div>
+      </div>
       <!-- 单词接龙弹窗 -->
       <div class="modal-mask" id="jrModal" style="display:none">
         <div class="modal-box ai-essay-box">
@@ -1512,8 +1565,21 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
       <!-- 单词种植园弹窗 -->
       <div class="modal-mask" id="gardenModal" style="display:none">
         <div class="modal-box ai-essay-box">
-          <div class="modal-head"><span>单词种植园</span><button class="modal-close" id="gardenClose">×</button></div>
+          <div class="modal-head"><span>单词种植园</span><button class="mini-btn" id="btnGardenGuide" style="margin:0 8px 0 auto">教程</button><button class="modal-close" id="gardenClose">×</button></div>
           <div class="jr-body" id="gardenBody" style="padding:14px 16px"></div>
+        </div>
+      </div>
+      <div class="modal-mask" id="gardenGuideModal" style="display:none">
+        <div class="modal-box" style="max-width:440px;width:92%;max-height:84vh;overflow:auto;padding:0">
+          <div class="modal-head"><span>种植园使用说明</span><button class="modal-close" id="gardenGuideClose">×</button></div>
+          <div class="jr-body" style="padding:14px 16px">
+            <div class="gg-step"><b>① 先规划路线</b><span>点「本地规划」：路线由词书关联自动生成，稳定可达且免费；或点「AI 规划」让 AI 帮忙挑开头/目标词。填开头词就自动定目标词，填目标词就自动定开头词，都不填就全自动。</span></div>
+            <div class="gg-step"><b>② 让单词生长</b><span>点种下的词，选择生长方式，一次长出 4 个关联词：近义 -8 · 形近 -8 · 同根/同缀 -5 · 语境 -5 · 反义 -5 积分。</span></div>
+            <div class="gg-step"><b>③ 继续向上长</b><span>长出的词也能再生长，像果树一样向上延伸；同一个词间隔两次生长后可再次选择。</span></div>
+            <div class="gg-step"><b>④ 目标词达成</b><span>目标词会随生长随机“长出来”（前几轮不会出现，越往深处概率越高，可能要长十几轮才遇到）——这是惊喜机制，把它种出来后获得 30~60 随机积分奖励，还有 33% 概率获得「折扣 buff」：之后所有消耗积分的功能减免 1~2 分、持续 1~3 天。</span></div>
+            <div class="gg-step"><b>⑤ AI 近义词辨析</b><span>长出一组近义词后，下方会出现「辨析这组近义词」按钮，让 AI 讲清楚这些意思相近的词在英语语境里到底有什么区别、怎么用。</span></div>
+            <div class="gg-tip">提示：生长会消耗积分，剩余积分在每个按钮上直接可见；路线可以保存，随时回看。</div>
+          </div>
         </div>
       </div>
       <div class="modal-mask" id="ranchModal" style="display:none">
@@ -1533,6 +1599,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
     <section class="view" id="viewStats">
       <div class="ai-stat-btns">
         <button class="ai-stat-btn" id="btnAIAnalysis"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v4"/><path d="M12 10v8"/><path d="M17 6v12"/></svg>AI 学情分析<span class="hc-cost">-5</span><span class="coin-rem" data-coin="5"></span></button>
+        <button class="ai-stat-btn" id="btnAIQA"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>AI 单词问答<span class="hc-cost">-3</span><span class="coin-rem" data-coin="3"></span></button>
       </div>
       <div class="stats-grid">
         <div class="stat-card"><div class="num" id="stToday">0</div><div class="lab">今日学习</div></div>
@@ -1863,7 +1930,7 @@ function groupOf(book){
 }
 var LS_KEY = "vocab_app_state_v1";
 var INTERVALS = [1, 2, 4, 7, 15]; // 艾宾浩斯复习间隔（天）
-var SET_DEFAULTS = {night:false, roundSize:10, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiFreeDate:"", aiFreeUsed:0, aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false};
+var SET_DEFAULTS = {night:false, roundSize:10, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiFreeDate:"", aiFreeUsed:0, aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false, learnHint:false};
 
 var state = loadState();
 function findBookOf(w){
@@ -1877,7 +1944,7 @@ function findBookOf(w){
 function loadState(){
   var s = null;
   try{ s = JSON.parse(localStorage.getItem(LS_KEY)); }catch(e){}
-  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null};
+  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
   if(s){
     for(var k in s){ base[k] = s[k]; }
     if(!s.version){
@@ -2046,7 +2113,7 @@ var els = {
   storeText:$("storeText"), storeBarFill:$("storeBarFill"), storeHint:$("storeHint"),
   btnImpBook:$("btnImpBook"), fileImpBook:$("fileImpBook"), btnImpBookJson:$("btnImpBookJson"), fileImpBookJson:$("fileImpBookJson"), customBookList:$("customBookList"),
   setAIOn:$("setAIOn"), setAIKey:$("setAIKey"), btnKeyEye:$("btnKeyEye"), keyEyeOn:$("keyEyeOn"), keyEyeOff:$("keyEyeOff"), btnAIClear:$("btnAIClear"), essaySeg:$("essaySeg"), quizSeg:$("quizSeg"), setEssayMode2:$("setEssayMode2"), setEssayAutoSave:$("setEssayAutoSave"), setQuizCount:$("setQuizCount"), setJRTimer:$("setJRTimer"), setMPTimer:$("setMPTimer"),
-  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid"), btnGarden:$("btnGarden"), gardenModal:$("gardenModal"), gardenClose:$("gardenClose"), gardenBody:$("gardenBody"), btnRanch:$("btnRanch"), ranchModal:$("ranchModal"), ranchClose:$("ranchClose"), ranchBar:$("ranchBar"), ranchField:$("ranchField"), ranchCardModal:$("ranchCardModal"), ranchCardClose:$("ranchCardClose"), ranchCardBody:$("ranchCardBody")
+  aiTag:$("aiTag"), aiRow:$("aiRow"), btnAIEssay:$("btnAIEssay"), btnEssayLib:$("btnEssayLib"), aiEssayModal:$("aiEssayModal"), aiEssayClose:$("aiEssayClose"), aiEssayBody:$("aiEssayBody"), aiEssayRegen:$("aiEssayRegen"), aiEssaySave:$("aiEssaySave"), aiEssayCopy:$("aiEssayCopy"), btnAIExtract:$("btnAIExtract"), btnAIRBook:$("btnAIRBook"), btnGuide:$("btnGuide"), guideModal:$("guideModal"), guideIc:$("guideIc"), guideT:$("guideT"), guideD:$("guideD"), guideItems:$("guideItems"), guideDots:$("guideDots"), guideNext:$("guideNext"), guideSkip:$("guideSkip"), aiExtractModal:$("aiExtractModal"), aiExtractClose:$("aiExtractClose"), aiExtractText:$("aiExtractText"), aiExtractFile:$("aiExtractFile"), aiExtractRun:$("aiExtractRun"), aiExtractRes:$("aiExtractRes"), fileAiExtract:$("fileAiExtract"), btnAIAnalysis:$("btnAIAnalysis"), aiAnalysisModal:$("aiAnalysisModal"), aiAnalysisClose:$("aiAnalysisClose"), aiAnalysisBody:$("aiAnalysisBody"), aiAnalysisRegen:$("aiAnalysisRegen"), btnAIQuizHome:$("btnAIQuizHome"), btnCoinRules:$("btnCoinRules"), aiQuizModal:$("aiQuizModal"), aiQuizClose:$("aiQuizClose"), aiQuizBody:$("aiQuizBody"), btnAIQA:$("btnAIQA"), aiQaModal:$("aiQaModal"), aiQaClose:$("aiQaClose"), aiQaInput:$("aiQaInput"), aiQaRun:$("aiQaRun"), aiQaSave:$("aiQaSave"), aiQaHist:$("aiQaHist"), aiQaBack:$("aiQaBack"), aiQaRes:$("aiQaRes"), streakLine:$("streakLine"), btnJR:$("btnJR"), jrModal:$("jrModal"), jrClose:$("jrClose"), jrBody:$("jrBody"), btnMP:$("btnMP"), mpModal:$("mpModal"), mpClose:$("mpClose"), mpBody:$("mpBody"), badgeGrid:$("badgeGrid"), btnGarden:$("btnGarden"), gardenModal:$("gardenModal"), gardenClose:$("gardenClose"), gardenBody:$("gardenBody"), btnRanch:$("btnRanch"), btnGardenGuide:$("btnGardenGuide"), gardenGuideModal:$("gardenGuideModal"), gardenGuideClose:$("gardenGuideClose"), ranchModal:$("ranchModal"), ranchClose:$("ranchClose"), ranchBar:$("ranchBar"), ranchField:$("ranchField"), ranchCardModal:$("ranchCardModal"), ranchCardClose:$("ranchCardClose"), ranchCardBody:$("ranchCardBody"), learnHint:$("learnHint"), learnHintTxt:$("learnHintTxt"), learnHintX:$("learnHintX")
 };
 
 /* ---------- 词库选择器 ---------- */
@@ -2453,6 +2520,7 @@ els.wmStart.addEventListener("click", function(){
     els.flashLabel.textContent = "0 / " + flashQueue.length;
     els.btnFlashExit.textContent = "退出";
     els.flashCheckBtns.style.display = "none";
+  var _fh2 = document.getElementById("flashHint"); if(_fh2) _fh2.style.display = "none";
     els.flashCheckCard.style.display = "none";
     clearTimeout(flashWaitTimer); clearTimeout(flashFallbackTimer);
     showFlashWord(0);
@@ -3034,6 +3102,7 @@ function renderCard(opts){
   els.btnHalf.style.display = hideAct ? "none" : "";
   els.btnYes.style.display = hideAct ? "none" : "";
   els.btnCut.style.display = (hideAct || state.review) ? "none" : "";
+  els.learnHint.style.display = (!hideAct && !state.review && !state.settings.learnHint) ? "flex" : "none";
   els.linkNav.style.display = (jumpStack.length > 0 && !viewing) ? "" : "none";
   els.roundLabel.style.display = linked ? "none" : "";
   if(viewing) els.btnSwitchBook.style.display = "none";
@@ -3156,6 +3225,7 @@ function aiExplainFromTag(){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
     return r.json();
   }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var html = renderAiResult(txt);
     showAiBodyTop(html);
@@ -3291,6 +3361,7 @@ function aiEssayGenerate(words, force){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
     return r.json();
   }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
@@ -3507,6 +3578,7 @@ function aiAnalysisRun(force){
     headers: {"Content-Type": "application/json", "Authorization": "Bearer " + key},
     body: JSON.stringify({model: "deepseek-chat", temperature: 0.6, max_tokens: 1200, messages: msgs})
   }).then(function(r){ return r.json(); }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
@@ -3554,6 +3626,82 @@ function shuffleArr(a){
   return a;
 }
 var quizQList = [], quizIdx = 0, quizRight = 0, quizAnswered = false, quizMissIdx = [];
+var _qaLast = null, _qaSaved = false;
+function openAIQA(){
+  els.aiQaModal.style.display = "flex";
+  els.aiQaHist.textContent = "📚 历史（" + ((state.aiQas || []).length) + "）";
+  els.aiQaBack.style.display = "none";
+}
+function renderQaText(t){
+  return esc(t).replace(/\n+/g, "<br>");
+}
+function aiQAAsk(){
+  var q = (els.aiQaInput.value || "").trim();
+  if(!q){ showToast("先输入你的问题"); return; }
+  if(!state.settings.aiKey){ showToast("请先在「设置 → AI 智能讲解」中填写 DeepSeek API Key"); return; }
+  if(!coinCheck(3)) return;
+  var btn = els.aiQaRun;
+  btn.disabled = true;
+  var ot = btn.textContent;
+  btn.textContent = "询问中…";
+  var res = els.aiQaRes;
+  res.innerHTML = '<div class="gd-growing">🤖 AI 正在回答…</div>';
+  var prompt = "你是英语学习助手。判定规则（最高优先级）：只有问题属于英语学习范畴才回答——背单词、词义辨析、语法、阅读理解、写作表达、发音口语、英语考试等。若问题与英语无关（数学、编程、美食、闲聊、翻译等），只回复一句话「这个问题与英语学习无关，我只回答英语相关问题」并立即结束，绝不多写一个字。若相关，请用清楚、分点、口语化的中文讲解，可以包含词源拆解、常见搭配、地道例句、近义词辨析对比；回答不超过 400 字，不要编造词源或含义。用户的问题是：" + q;
+  fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
+    body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 600, temperature: 0.7})
+  }).then(function(r){
+    if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
+    return r.json();
+  }).then(function(d){
+    aiTick();
+    var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+    if(!txt){ throw new Error("AI 返回为空"); }
+    _qaLast = {q: q, a: txt};
+    _qaSaved = false;
+    res.innerHTML = '<div class="qa-block qa-q"><div class="qa-tag">问题</div><div>' + esc(q) + '</div></div><div class="qa-block qa-a"><div class="qa-tag">解析</div><div class="qa-body">' + renderQaText(txt) + '</div></div>';
+    els.aiQaSave.textContent = "💾 保存这条";
+  }).catch(function(err){
+    res.innerHTML = '<div class="ai-err">回答失败：' + esc(err.message) + '<br>请检查网络连接与 API Key</div>';
+  }).then(function(){
+    btn.disabled = false;
+    btn.textContent = ot;
+  });
+}
+function aiQASave(){
+  if(!_qaLast){ showToast("还没有可保存的回答"); return; }
+  if(_qaSaved){ showToast("这条已经保存过了"); return; }
+  state.aiQas = state.aiQas || [];
+  state.aiQas.unshift({q: _qaLast.q, a: _qaLast.a, t: Date.now()});
+  if(state.aiQas.length > 30) state.aiQas = state.aiQas.slice(0, 30);
+  _qaSaved = true;
+  saveState();
+  els.aiQaSave.textContent = "已保存 ✓";
+  els.aiQaHist.textContent = "📚 历史（" + state.aiQas.length + "）";
+  showToast("已保存，可在历史中查看");
+}
+function aiQAHist(){
+  var arr = state.aiQas || [];
+  if(!arr.length){ showToast("还没有保存的记录"); return; }
+  els.aiQaBack.style.display = "";
+  var h = "";
+  for(var i=0;i<arr.length;i++){
+    var it = arr[i];
+    h += '<div class="qa-his-item" onclick="aiQAShow(' + i + ')">' + esc((it.q || "").slice(0, 26)) + '<span class="qa-his-t">' + new Date(it.t).toLocaleDateString() + '</span></div>';
+  }
+  els.aiQaRes.innerHTML = h;
+}
+function aiQAShow(i){
+  var it = (state.aiQas || [])[i];
+  if(!it) return;
+  els.aiQaRes.innerHTML = '<div class="qa-block qa-q"><div class="qa-tag">问题</div><div>' + esc(it.q || "") + '</div></div><div class="qa-block qa-a"><div class="qa-tag">解析</div><div class="qa-body">' + renderQaText(it.a || "") + '</div></div>';
+}
+function aiQABack(){
+  els.aiQaBack.style.display = "none";
+  els.aiQaRes.innerHTML = "";
+  _qaLast = null;
+}
 function openAIQuiz(){
   els.aiQuizModal.style.display = "flex";
   var qn = Math.min(Math.max(parseInt(state.settings.quizCount, 10) || 6, 1), 20);
@@ -3585,6 +3733,7 @@ function openAIQuiz(){
       ]
     })
   }).then(function(r){ return r.json(); }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
@@ -3767,6 +3916,7 @@ function aiExtractRun(){
       ]
     })
   }).then(function(r){ return r.json(); }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
@@ -3908,6 +4058,12 @@ els.guideModal.addEventListener("click", function(ev){
 els.btnAIAnalysis.addEventListener("click", function(){ els.aiAnalysisModal.style.display = "flex"; aiAnalysisRun(); });
 els.aiAnalysisClose.addEventListener("click", function(){ els.aiAnalysisModal.style.display = "none"; });
 els.aiAnalysisRegen.addEventListener("click", function(){ aiAnalysisRun(); });
+els.btnAIQA.addEventListener("click", openAIQA);
+els.aiQaClose.addEventListener("click", function(){ els.aiQaModal.style.display = "none"; });
+els.aiQaRun.addEventListener("click", aiQAAsk);
+els.aiQaSave.addEventListener("click", aiQASave);
+els.aiQaHist.addEventListener("click", aiQAHist);
+els.aiQaBack.addEventListener("click", aiQABack);
 els.btnAIQuizHome.addEventListener("click", openAIQuiz);
 els.aiQuizClose.addEventListener("click", function(){ els.aiQuizModal.style.display = "none"; });
 els.aiExtractClose.addEventListener("click", function(){ els.aiExtractModal.style.display = "none"; });
@@ -4373,6 +4529,7 @@ function finishBoost(){
 }
 var spellMetaNow = {}; // 本轮拼写词的首判：yes/no/half
 function startSpell(words, isRound2, meta){
+  if(els.learnHint) els.learnHint.style.display = "none";
   state.queue = words; state.qIdx = 0;
   state.review = true; state.reviewKind = "spell";
   for(var si=0;si<words.length;si++){ spellTouched[words[si]] = 1; }
@@ -4781,6 +4938,11 @@ els.btnStart.addEventListener("click", function(){
   saveState();
   showPanel();
   renderCard();
+});
+els.learnHintX.addEventListener("click", function(){
+  state.settings.learnHint = true;
+  saveState();
+  els.learnHint.style.display = "none";
 });
 els.btnAgain.addEventListener("click", function(){
   if(state.book === "phrase"){
@@ -5381,7 +5543,7 @@ function renderStreakLine(){
     ? '<span class="sl-done">今日已背 ' + todayN + ' 词</span>'
     : '<span>今日已背 ' + todayN + ' / 20 词</span>')
     + '<span class="sl-fire">连续 ' + s + ' 天</span>'
-    + '<span class="sl-coins" id="coinShow" onclick="window.__openCoins && window.__openCoins()">⭐ ' + (state.settings.coins || 0) + '</span>'
+    + '<span class="sl-coins" id="coinShow" onclick="window.__openCoins && window.__openCoins()">⭐ ' + (state.settings.coins || 0) + (discBuffInfo() ? (' · 🎟️ 剩 ' + discBuffInfo().days + ' 天') : '') + '</span>'
     + '<div class="sl-extra">' + cycleInfoText() + '</div>';
   coinRefreshAll();
 }
@@ -5392,12 +5554,29 @@ function aiFreeRemain(){
   return Math.max(0, 5 - (stt.aiFreeUsed || 0));
 }
 function aiUseFree(){ state.settings.aiFreeUsed = (state.settings.aiFreeUsed || 0) + 1; saveState(); }
+function discActive(){
+  var d = state.discBuff;
+  if(!d || !d.until || !d.amount) return 0;
+  if(todayStr() > d.until) return 0;
+  return d.amount;
+}
+function discBuffInfo(){
+  var d = state.discBuff;
+  if(!d || !d.until || !d.amount) return null;
+  var days = Math.ceil((Date.parse(d.until) - Date.parse(todayStr())) / 86400000);
+  if(days < 0) return null;
+  return {days: days + 1, amt: d.amount};
+}
 function coinCheck(cost){
-  if((state.settings.coins || 0) < cost){
+  var dc = discActive();
+  var pay = cost;
+  if(dc > 0 && cost > 0){ pay = Math.max(0, cost - dc); }
+  if((state.settings.coins || 0) < pay){
     showToast("积分不足（需 " + cost + " 分），先背几轮词赚积分");
     return false;
   }
-  state.settings.coins -= cost;
+  if(pay < cost){ showToast("🎟️ 折扣 buff 生效：本次减免 " + (cost - pay) + " 积分"); }
+  state.settings.coins -= pay;
   saveState();
   renderCoinUI();
   return true;
@@ -5497,7 +5676,11 @@ function renderGarden(){
   }
   var h = "";
   h += '<div class="gd-plan"><button class="mini-btn" onclick="openGardenPlan()">🤖 AI 规划成长路线（-3）<span class="coin-rem" data-coin="3"></span></button><div class="gd-plan-d">填开头词 AI 定目标词，填目标词 AI 定开头词，都不填就全自动；AI 帮你种下第一颗种子</div></div>';
-  if(g.target) h += '<div class="gd-hit">当前目标：' + esc(g.target) + ' · 藏在树深处，种出它 +30 积分</div>';
+  if(g.target){
+    var _mk = gardenTargetMatch(_gdSel || "", g.target);
+    var _mt = _mk ? ' · 与 ' + esc(_gdSel) + ' 是' + gardenKindOf(_mk).n + '，点「' + gardenKindOf(_mk).n + '」生长更容易长出' : '';
+    h += '<div class="gd-hit">当前目标：' + esc(g.target) + _mt + ' · 种出它 +30 积分</div>';
+  }
   h += '<div class="gd-kinds">';
   for(var i=0;i<GARDEN_KINDS.length;i++){
     var kd = GARDEN_KINDS[i];
@@ -5522,6 +5705,11 @@ function renderGarden(){
       h += '<div class="gd-route-old-item" onclick="showSavedRoute(' + si + ')">' + esc((g.savedRoutes[si].seed || "") + " → " + (g.savedRoutes[si].target || "")) + '</div>';
     }
     h += '<div class="gd-route-old-d" id="gdSavedRouteD"></div>';
+    h += '</div>';
+  }
+  if(g.lastSyn && g.lastSyn.words && g.lastSyn.words.length){
+    h += '<div class="gd-synrow"><span>最近近义词：' + g.lastSyn.words.map(function(x){ return esc(x.w); }).join("、") + '</span><button class="mini-btn" onclick="gardenSynDiff()">🤖 辨析这组近义词（-2）<span class="coin-rem" data-coin="2"></span></button>';
+    if(g.synNotes && g.synNotes.length) h += '<button class="mini-btn" onclick="showSynHistory()">📚 辨析历史（' + g.synNotes.length + '）</button>';
     h += '</div>';
   }
   h += '<div class="gd-zone" id="gdZone"></div>';
@@ -5824,6 +6012,220 @@ function pickGardenKind(el){
     btns[0].textContent = (state.garden && state.garden.tree) ? "🌱 生长（-" + cost + "）" : "🌱 种下种子（-" + cost + "）";
   }
 }
+function gardenBfs(seed, maxD, target){
+  var e0 = entryOf(seed);
+  var queue = [{w: seed, d: 0, parent: null, rel: "", why: ""}];
+  var seen = {}; seen[seed] = 1;
+  var found = null, head = 0, nodes = [];
+  while(head < queue.length){
+    var cur = queue[head++];
+    nodes.push(cur);
+    if(cur.d >= maxD) continue;
+    if(target && cur.w === target){ found = cur; break; }
+    var nbs = [];
+    var ec = entryOf(cur.w);
+    var sList = ec.s || [];
+    for(var i=0;i<sList.length;i++){
+      var it = sList[i], w = (typeof it === "string") ? it : (it && it.w);
+      if(!w) continue;
+      nbs.push({w: String(w).toLowerCase(), rel: "近义", why: (typeof it === "string") ? "" : (it.m || "")});
+    }
+    var rtList = ec.rt || [];
+    for(i=0;i<rtList.length;i++){ var r = rtList[i]; if(r && r.w) nbs.push({w: String(r.w).toLowerCase(), rel: "同根同缀", why: r.m || ""}); }
+    var smList = (window.SIM && window.SIM[cur.w]) || [];
+    for(i=0;i<smList.length;i++){ if(smList[i]) nbs.push({w: String(smList[i]).toLowerCase(), rel: "形近", why: ""}); }
+    for(i=0;i<nbs.length;i++){
+      var nb = nbs[i];
+      if(!nb.w || seen[nb.w] || !inCurBook(nb.w) || nb.w === seed) continue;
+      if(target && nb.w === target){ found = {w: nb.w, d: cur.d + 1, parent: cur, rel: nb.rel, why: nb.why}; break; }
+      seen[nb.w] = 1;
+      queue.push({w: nb.w, d: cur.d + 1, parent: cur, rel: nb.rel, why: nb.why});
+    }
+    if(found) break;
+  }
+  return {found: found, nodes: nodes, seen: seen};
+}
+function buildLocalRoute(seed, target){
+  if(!seed || !target || seed === target) return null;
+  var r = gardenBfs(seed, 5, target);
+  if(!r.found) return null;
+  var chain = [];
+  var n = r.found;
+  while(n && n.parent){ chain.unshift({word: n.w, rel: n.rel, why: n.why}); n = n.parent; }
+  var path = chain.slice(0, chain.length - 1);
+  var lastRel = chain.length ? chain[chain.length - 1].rel : "关联";
+  var lastWhy = chain.length ? chain[chain.length - 1].why : "";
+  var tr = lastRel + (lastWhy ? "：" + lastWhy : "关联");
+  return {path: path, targetReason: tr};
+}
+function gardenCands(seed){
+  var r = gardenBfs(seed, 3, "");
+  var seedFamily = {};
+  var es = entryOf(seed);
+  (es.s || []).forEach(function(it){ var w = (typeof it === "string") ? it : (it && it.w); if(w) seedFamily[String(w).toLowerCase()] = 1; });
+  (es.rt || []).forEach(function(rr){ if(rr && rr.w) seedFamily[String(rr.w).toLowerCase()] = 1; });
+  var out = [];
+  for(var i=0;i<r.nodes.length;i++){
+    var nd = r.nodes[i];
+    if(nd.d < 1 || nd.d > 4) continue;
+    if(nd.w.length < 4) continue;
+    if(seedFamily[nd.w]) continue;
+    out.push(nd.w);
+  }
+  var seen2 = {}, uniq = [];
+  for(i=0;i<out.length;i++){ if(!seen2[out[i]]){ seen2[out[i]] = 1; uniq.push(out[i]); } }
+  return uniq;
+}
+function gardenApplyPlan(seed, target, path, tReason, note){
+  var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
+  var en = entryOf(target);
+  var inDict = !!(en && (en.m || en.p));
+  g.target = target;
+  if(!g.tree){
+    var seEn = entryOf(seed);
+    g.tree = {w: seed, zh: seEn ? seEn.m.split(String.fromCharCode(10))[0] : "", p: seEn ? seEn.p : "", kids: [], grown: false, depth: 0};
+  }
+  var h = '<div class="gd-route-item"><span class="gd-route-rel">起点</span><span class="gd-route-w">' + esc(seed) + '</span></div>';
+  var cleanPath = [];
+  for(var i=0;i<path.length;i++){
+    var p = path[i];
+    if(!p.word) continue;
+    if(String(p.word).trim().toLowerCase() === target) continue;
+    cleanPath.push({word: p.word, rel: p.rel || "关联", why: p.why || ""});
+    h += '<div class="gd-route-item"><span class="gd-route-rel">' + esc(p.rel || "关联") + '</span><span class="gd-route-w">' + esc(p.word) + '</span><span class="gd-route-why">' + esc(p.why || "") + '</span></div>';
+  }
+  if(cleanPath.length < 2){
+    h += '<div class="gd-route-item"><span class="gd-route-rel">提示</span><span class="gd-route-w">路线偏短</span><span class="gd-route-why">这个词能连的关联词不多，可换个开头词让路线更长</span></div>';
+  }
+  g.aiPlan = {seed: seed, target: target, targetReason: tReason || "", path: cleanPath, ts: Date.now()};
+  saveState();
+  renderGarden();
+  h += '<div class="gd-route-item"><span class="gd-route-rel">目标</span><span class="gd-route-w">' + esc(target) + '</span><span class="gd-route-why">' + (tReason ? esc(tReason) : (inDict ? "词库已有 · 可种出" : "")) + (note ? '<div style="color:#e6a23c;font-size:12px;margin-top:2px">' + esc(note) + '</div>' : '') + '</span></div>';
+  var nz = document.getElementById("gdZone");
+  if(nz) nz.innerHTML = '<div class="gd-plan-d" style="font-weight:700">规划路线完成，树已种下，目标词已设定：</div>' + h + '<div style="text-align:right;margin-top:6px"><button class="mini-btn" onclick="saveGdRoute()">💾 保存这条路线</button></div>';
+  showToast(inDict ? "路线规划完成 · 树已种下" : "目标词不在本地词库，建议换个词");
+}
+function gardenPickSeed(){
+  var pool = Array.from(dictMap(groupOf(state.book)).keys());
+  var order = pool.slice();
+  for(var i=order.length-1;i>0;i--){ var j = Math.floor(Math.random() * (i+1)); var t = order[i]; order[i] = order[j]; order[j] = t; }
+  var guard = 0;
+  for(i=0;i<order.length && guard < 300;i++){
+    guard++;
+    var c2 = order[i];
+    if(!c2 || c2.length < 3 || c2.length > 10) continue;
+    var nb = gardenNeighborCount(c2);
+    if(nb >= 2) return c2;
+  }
+  for(i=0;i<order.length && guard < 600;i++){
+    guard++;
+    var c3 = order[i];
+    if(c3 && c3.length >= 3) return c3;
+  }
+  return "happy";
+}
+function gardenNeighborCount(w){
+  var e = entryOf(w), n = 0;
+  (e.s || []).forEach(function(it){ var ww = (typeof it === "string") ? it : (it && it.w); if(ww && inCurBook(String(ww).toLowerCase())) n++; });
+  (e.rt || []).forEach(function(r){ if(r && r.w && inCurBook(String(r.w).toLowerCase())) n++; });
+  (window.SIM && window.SIM[w] || []).forEach(function(ww){ if(ww && inCurBook(String(ww).toLowerCase())) n++; });
+  return n;
+}
+function gardenCandsOf(w){
+  var r = gardenBfs(w, 5, "");
+  var fam = {};
+  var e = entryOf(w);
+  (e.s || []).forEach(function(it){ var ww = (typeof it === "string") ? it : (it && it.w); if(ww) fam[String(ww).toLowerCase()] = 1; });
+  (e.rt || []).forEach(function(rr){ if(rr && rr.w) fam[String(rr.w).toLowerCase()] = 1; });
+  var out = [], seen2 = {};
+  for(var i=0;i<r.nodes.length;i++){
+    var nd = r.nodes[i];
+    if(nd.d < 1 || nd.d > 4) continue;
+    if(nd.w.length < 4) continue;
+    if(fam[nd.w]) continue;
+    if(!seen2[nd.w]){ seen2[nd.w] = 1; out.push(nd.w); }
+  }
+  return out;
+}
+function gardenPickPairFrom(w){
+  var r = gardenBfs(w, 5, "");
+  var fam = {};
+  var e = entryOf(w);
+  (e.s || []).forEach(function(it){ var ww = (typeof it === "string") ? it : (it && it.w); if(ww) fam[String(ww).toLowerCase()] = 1; });
+  (e.rt || []).forEach(function(rr){ if(rr && rr.w) fam[String(rr.w).toLowerCase()] = 1; });
+  var cands = [];
+  for(var i=0;i<r.nodes.length;i++){
+    var nd = r.nodes[i];
+    if(nd.d < 1 || nd.d > 4) continue;
+    if(nd.w.length < 4) continue;
+    if(fam[nd.w]) continue;
+    if(nd.w === w) continue;
+    var chain = [];
+    var n = nd;
+    while(n && n.parent){ chain.unshift({word: n.w, rel: n.rel, why: n.why}); n = n.parent; }
+    cands.push({word: nd.w, chain: chain});
+  }
+  if(!cands.length) return null;
+  var c = cands[Math.floor(Math.random() * cands.length)];
+  var path = c.chain.slice(0, c.chain.length - 1);
+  var lastRel = c.chain.length ? c.chain[c.chain.length - 1].rel : "关联";
+  var lastWhy = c.chain.length ? c.chain[c.chain.length - 1].why : "";
+  return {word: c.word, path: path, targetReason: lastRel + (lastWhy ? "：" + lastWhy : "关联")};
+}
+function gardenPlanLocal(){
+  var sEl = document.getElementById("gdPlanSeed"), tEl = document.getElementById("gdPlanTarget");
+  var seed = sEl ? sEl.value.trim().toLowerCase() : "";
+  var target = tEl ? tEl.value.trim().toLowerCase() : "";
+  if(seed && target){ showToast("开头词和目标词只能填一个，另一个交给规划吧"); return; }
+  var g0 = state.garden;
+  if(g0 && (g0.tree || g0.target)){
+    if(!confirm("已有种植园数据：重新规划会清空当前树、目标词和种植记录。确定继续？")) return;
+    g0.tree = null; g0.target = ""; g0.achieved = []; g0.logs = []; g0.aiPlan = null;
+    g0.achv = {growN:0, targets:0, maxDepth:0};
+    _gdSel = "";
+    saveState();
+  }
+  if(target){
+    if(!inCurBook(target)){ showToast("目标词不在当前词书，换个词试试"); return; }
+    if(seed){
+      var p1 = buildLocalRoute(seed, target);
+      if(p1){ gardenApplyPlan(seed, target, p1.path, p1.targetReason, "本地规划 · 路线由词书关联生成，稳定可达"); return; }
+      var cs = gardenCandsOf(seed);
+      if(!cs.length){
+        var ns1 = gardenPickSeed();
+        var pn1 = gardenPickPairFrom(ns1);
+        if(pn1){ gardenApplyPlan(ns1, pn1.word, pn1.path, pn1.targetReason, "「" + seed + "」关联太少连不出路线，已自动换成「" + ns1 + "」当开头词"); return; }
+        showToast("这个词能连的关联词太少，换个开头词或目标词试试"); return;
+      }
+      var t2 = cs[Math.floor(Math.random() * cs.length)];
+      var p2 = buildLocalRoute(seed, t2);
+      gardenApplyPlan(seed, t2, p2 ? p2.path : [], p2 ? p2.targetReason : "", "你填的目标词「" + target + "」与开头词没有本地关联链，已换成可达目标「" + t2 + "」");
+      return;
+    }
+    var pair = gardenPickPairFrom(target);
+    if(pair){
+      var full = pair.path.concat([pair.word]);
+      var rev = full.slice().reverse();
+      var revPath = [];
+      for(var ri=0;ri<rev.length - 1;ri++){ revPath.push({word: rev[ri].word, rel: rev[ri].rel, why: rev[ri].why}); }
+      var lastRel = rev[rev.length - 1].rel || "关联";
+      var lastWhy = rev[rev.length - 1].why || "";
+      gardenApplyPlan(pair.word, target, revPath, lastRel + (lastWhy ? "：" + lastWhy : "关联"), "本地规划 · 路线由词书关联生成，稳定可达");
+      return;
+    }
+    showToast("这个词的可达关联太少，换个目标词或留空自动规划试试"); return;
+  }
+  if(!seed) seed = gardenPickSeed();
+  var pair2 = gardenPickPairFrom(seed);
+  if(!pair2){
+    var ns2 = gardenPickSeed();
+    var pn2 = gardenPickPairFrom(ns2);
+    if(pn2){ gardenApplyPlan(ns2, pn2.word, pn2.path, pn2.targetReason, "「" + seed + "」关联太少连不出路线，已自动换成「" + ns2 + "」当开头词"); return; }
+    showToast("自动选词也没找到足够关联，再试一次吧"); return;
+  }
+  gardenApplyPlan(seed, pair2.word, pair2.path, pair2.targetReason, "本地规划 · 路线由词书关联生成，稳定可达");
+}
 function openGardenPlan(){
   var ex = document.getElementById("gdPlanBox");
   if(ex){ ex.style.display = ex.style.display === "none" ? "block" : "none"; return; }
@@ -5831,10 +6233,10 @@ function openGardenPlan(){
   if(!zone) return;
   var box = document.createElement("div");
   box.id = "gdPlanBox"; box.className = "gd-plan-box";
-  box.innerHTML = '<div class="gd-plan-d">开头词 / 目标词只能填一个：<br>· 填开头词 → AI 自动定目标词<br>· 填目标词 → AI 自动定开头词<br>· 都不填 → AI 全自动规划</div>'
-    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanSeed" placeholder="开头词（留空则 AI 来选）" autocomplete="off"></div>'
-    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanTarget" placeholder="目标词（留空则 AI 来选）" autocomplete="off"></div>'
-    + '<div class="gd-actions"><button class="mini-btn" onclick="gardenPlan()">🤖 开始规划（-3 积分）</button></div>'
+  box.innerHTML = '<div class="gd-plan-d">开头词 / 目标词只能填一个（或都不填）：<br>· 填开头词 → 自动定目标词<br>· 填目标词 → 自动定开头词<br>· 都不填 → 全自动规划<br><span style="color:var(--brand-deep)">🎲 本地规划：路线完全由词书关联生成，稳定可达、免费<br>🤖 AI 规划：AI 帮忙挑开头/目标词，路线同样本地生成</span></div>'
+    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanSeed" placeholder="开头词（留空则自动选）" autocomplete="off"></div>'
+    + '<div class="gd-plan-row"><input class="gd-input" id="gdPlanTarget" placeholder="目标词（留空则自动选）" autocomplete="off"></div>'
+    + '<div class="gd-actions" style="display:flex;gap:8px;flex-wrap:wrap"><button class="mini-btn" style="flex:1" onclick="gardenPlanLocal()">🎲 本地规划（免费）</button><button class="mini-btn" style="flex:1" onclick="gardenPlan()">🤖 AI 规划（-3）</button></div>'
     + '<div class="gd-route" id="gdRoute"></div>';
   zone.parentNode.insertBefore(box, zone);
   var sEl2 = document.getElementById("gdPlanSeed"), tEl2 = document.getElementById("gdPlanTarget");
@@ -5866,85 +6268,111 @@ function gardenPlan(){
   var rt = document.getElementById("gdRoute");
   if(rt) rt.innerHTML = '<div class="gd-growing">🤖 AI 正在规划成长路线…</div>';
   var lv = (state.bookSub && state.bookSub[state.book]) || state.book || "cet4";
-  var prompt = "你是背单词应用的成长路线规划师，用户当前词书水平：" + lv + "。"
-    + (seed ? "用户已指定开头词：" + seed + "，请围绕它规划路线。"
-       : target ? "用户已指定目标词：" + target + "，请设计一个通向它的开头词和路线。"
-       : "请从常见考试词汇中挑一个中等难度、有联想空间的词作为开头词。")
-    + "目标词" + (target ? "必须使用用户指定的：" + target : "请选一个挑战性的目标词。")
-    + "关键约束：中间词和目标词都必须属于用户当前词书（" + lv + "）考纲词范围，必须是常见考试词汇，严禁超纲、生僻、不在考纲内的词；"
-    + "路线为 2~4 个中间词，逐步从开头词过渡到目标词。"
-    + "关键约束：每一步（含中间词之间、以及最后一个中间词到目标词的 targetReason）的关联**必须且只能属于以下五种关系之一**：近义、形近（拼写相似）、同根/同词缀、语境关联（常同场景出现）、反义。附一句话自然说明该关联即可，不需要谐音或讲故事；"
-    + "关键要求：1）开头词与目标词必须拉开差距——不能同根、同词缀、近形或近义，词形和词义都要明显不同，一眼看不出关联；2）目标词难度要比开头词明显高一档（开头词是四六级常用词时，目标词应为考研高频或更进阶的词），有挑战但不生僻；3）路线要有层次感和故事感，中间词至少 2 个，绝不能只靠 1 个词就跳到目标；4）全程避开 cat/dog/boy 这类简单词；"
-    + '5）严禁用谐音、读音巧合、字母拼凑、词形拆分巧合等五类关系之外的方式建立任何一步的关联；如果两个词之间确实没有五类关系中的任何一种，就换一个中间词或目标词，宁可路线重新设计也不要强行拼凑。'
-    + '严格只输出 JSON，不要输出任何其他文字，格式：{"seed":"开头词","target":"目标词","targetReason":"最后一个中间词到目标词的五类关联说明（一句话）","path":[{"word":"中间词","rel":"近义/形近/同根同缀/语境关联/反义之一","why":"该五类关联的一句话说明"}]}';
-  fetch("https://api.deepseek.com/chat/completions", {
-    method: "POST",
-    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
-    body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 700, temperature: 0.9})
-  }).then(function(r){
-    if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
-    return r.json();
-  }).then(function(d){
-    var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+  var planAttempt = 0, planNote = "", seedOrig = seed, targetOrig = target;
+  function gdPlanPrompt(){
+    return "你是背单词应用的成长路线规划师，用户当前词书水平：" + lv + "。"
+      + (seed ? "用户已指定开头词：" + seed + "，请围绕它规划路线。"
+         : target ? "用户已指定目标词：" + target + "，请设计一个通向它的开头词和路线。"
+         : "请从用户当前词书中挑一个中等难度、有联想空间的常见词作为开头词。")
+      + "目标词" + (target ? "必须使用用户指定的：" + target : "请选一个目标词。")
+      + "硬性约束（逐词自检）：开头词、中间词、目标词每一个都必须属于用户当前词书（" + lv + "）考纲内的常见考试词汇，严禁超纲、生僻、冷门词；宁可降低难度也不要超纲。"
+      + "目标词要求：比开头词略高一档即可，是用户眼熟但容易背不牢的常见考试词，不要选生僻或过于进阶的词。"
+      + "路线为 3~5 个中间词，逐步过渡，每一步都必须有真实明显的关联，禁止跳跃式拼凑。"
+      + "每一步（含中间词之间、以及最后一个中间词到目标词的 targetReason）的关联必须且只能属于以下五类之一：近义、形近（拼写相似）、同根/同词缀、语境关联（常同场景出现）、反义；附一句话自然说明。"
+      + "严禁用谐音、读音巧合、字母拼凑、词形拆分巧合等建立任何一步的关联；两个词之间若没有五类关系中的任何一种，就换中间词或重新设计路线。"
+      + "开头词与目标词必须拉开差距：不同根、不近形、不近义、不反义，词形和词义都要明显不同。"
+      + "你只需要挑选开头词和目标词两个词，具体过渡路线由应用根据本地词书自动生成，你不用输出中间路径。"
+      + planNote
+      + '严格只输出 JSON，不要输出任何其他文字，格式：{"seed":"开头词","target":"目标词","targetReason":"为什么选这个目标词的一句话说明"}';
+  }
+  function gdParse(txt){
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
       var m2 = txt.match(/\{[\s\S]*\}/);
       if(m2){ try{ obj = JSON.parse(m2[0]); }catch(e2){ obj = null; } }
     }
-    if(!obj || !obj.seed || !obj.target){
-      state.settings.coins = (state.settings.coins || 0) + 3; saveState(); renderCoinUI();
-      if(rt) rt.innerHTML = '<div class="gd-route-item" style="color:#e05555">AI 没有给出有效路线，已退回 3 积分，请重试</div>';
-      return;
-    }
-    var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
-    if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
-    var aiSeed = String(obj.seed).trim().toLowerCase();
-    var aiTarget = String(obj.target).trim().toLowerCase();
-    if(!seed && aiSeed) seed = aiSeed;
-    if(!target && aiTarget) target = aiTarget;
-    var tReason = String(obj.targetReason || "").trim();
-    var cleanPath = [];
-    if(!inCurBook(target)){
-      var replaced = "已自动换词";
-      try{
-        var pool = Array.from(dictMap(groupOf(state.book)).keys());
-        var gd = 0;
-        var cand = "";
-        while(gd < 20){
-          gd++;
-          var c2 = pool[Math.floor(Math.random() * pool.length)];
-          if(c2 && c2 !== seed && c2 !== target){ cand = c2; break; }
+    return obj;
+  }
+  function gdRun(){
+    return fetch("https://api.deepseek.com/chat/completions", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
+      body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: gdPlanPrompt()}], max_tokens: 800, temperature: 0.9})
+    }).then(function(r){
+      if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
+      return r.json();
+    }).then(function(d){
+    aiTick();
+      var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+      var obj = gdParse(txt);
+      if(!obj || !obj.seed || !obj.target) throw new Error("AI 没有给出有效路线");
+      var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+      if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
+      var aiSeed = String(obj.seed).trim().toLowerCase();
+      var aiTarget = String(obj.target).trim().toLowerCase();
+      if(!seed && aiSeed) seed = aiSeed;
+      if(!targetOrig && aiTarget) target = aiTarget;
+      var tReason = String(obj.targetReason || "").trim();
+      if(target && !inCurBook(target)){
+        if(planAttempt < 2){
+          planAttempt++;
+          planNote = "；上次你给的目标词「" + target + "」不在用户词书考纲内，这次必须换一个词书内的常见词做目标词";
+          showToast("目标词不在词书，AI 重新规划中…");
+          return gdRun();
         }
-        if(cand){ replaced = "目标词不在当前词书，已自动换成词书内的「" + cand + "」"; target = cand; }
-      }catch(e9){}
-      if(replaced !== "已自动换词") showToast(replaced);
-    }
-    var en = entryOf(target);
-    var inDict = !!(en && (en.m || en.p));
-    g.target = target;
-    if(!g.tree){
-      var seEn = entryOf(seed);
-      g.tree = {w: seed, zh: seEn ? seEn.m.split(String.fromCharCode(10))[0] : "", p: seEn ? seEn.p : "", kids: [], grown: false, depth: 0};
-    }
-    var h = '<div class="gd-route-item"><span class="gd-route-rel">起点</span><span class="gd-route-w">' + esc(seed) + '</span></div>';
-    var path = obj.path || [];
-    for(var i=0;i<path.length;i++){
-      var p = path[i];
-      if(!p.word || !inCurBook(p.word)) continue;
-      cleanPath.push({word: p.word, rel: p.rel || "关联", why: p.why || ""});
-      h += '<div class="gd-route-item"><span class="gd-route-rel">' + esc(p.rel || "关联") + '</span><span class="gd-route-w">' + esc(p.word) + '</span><span class="gd-route-why">' + esc(p.why || "") + '</span></div>';
-    }
-    if(cleanPath.length < 2){
-      h += '<div class="gd-route-item"><span class="gd-route-rel">提示</span><span class="gd-route-w">步骤太少</span><span class="gd-route-why">AI 给的中间步骤不足或超纲被过滤，建议重新规划一次</span></div>';
-    }
-    g.aiPlan = {seed: seed, target: target, targetReason: tReason, path: cleanPath, ts: Date.now()};
-    saveState();
-    renderGarden();
-    h += '<div class="gd-route-item"><span class="gd-route-rel">目标</span><span class="gd-route-w">' + esc(target) + '</span><span class="gd-route-why">' + (tReason ? esc(tReason) : (inDict ? "词库已有 · 可种出" : "⚠️ 不在本地词库，可能种不出来，建议换一个")) + '</span></div>';
-    var nz = document.getElementById("gdZone");
-    if(nz) nz.innerHTML = '<div class="gd-plan-d" style="font-weight:700">规划路线完成，树已种下，目标词已设定：</div>' + h + '<div style="text-align:right;margin-top:6px"><button class="mini-btn" onclick="saveGdRoute()">💾 保存这条路线</button></div>';
-    showToast(inDict ? "路线规划完成 · 树已种下" : "目标词不在本地词库，建议换个词");
-  }).catch(function(e){
+        var pool = Array.from(dictMap(groupOf(state.book)).keys());
+        var cand = "", gd = 0;
+        while(gd < 60){ gd++; var c2 = pool[Math.floor(Math.random() * pool.length)]; if(c2 && c2 !== seed && c2 !== target){ cand = c2; break; } }
+        if(cand){
+          target = cand;
+          showToast("目标词已自动换成词书内的「" + cand + "」，关联可能变弱，建议重新规划");
+        } else {
+          throw new Error("词书内找不到可替换目标词");
+        }
+      }
+      var local = buildLocalRoute(seed, target);
+      var note = "";
+      if(!local){
+        var cands = gardenCands(seed);
+        if(cands.length){
+          var t2 = cands[Math.floor(Math.random() * cands.length)];
+          var l2 = buildLocalRoute(seed, t2);
+          target = t2; tReason = (l2 ? l2.targetReason : "") + "（AI 目标词路线不可达，已换成本地可达词）";
+          local = l2; note = "AI 目标词没有可达过渡链，已换词";
+        }
+      }
+      if(!local) throw new Error("词书内找不到可达的过渡链，请换开头词");
+      var path = local.path || [];
+      var cleanPath = [];
+      var h = '<div class="gd-route-item"><span class="gd-route-rel">起点</span><span class="gd-route-w">' + esc(seed) + '</span></div>';
+      for(var i=0;i<path.length;i++){
+        var p = path[i];
+        if(!p.word || String(p.word).trim().toLowerCase() === target) continue;
+        var loose = inCurBookLoose(p.word);
+        if(!inCurBook(p.word) && !loose) continue;
+        cleanPath.push({word: p.word, rel: p.rel || "关联", why: p.why || "", loose: loose});
+        h += '<div class="gd-route-item"><span class="gd-route-rel">' + esc(p.rel || "关联") + '</span><span class="gd-route-w">' + esc(p.word) + (loose ? '<span class="gd-route-tag">词族</span>' : '') + '</span><span class="gd-route-why">' + esc(p.why || "") + '</span></div>';
+      }
+      if(cleanPath.length < 2){
+        h += '<div class="gd-route-item"><span class="gd-route-rel">提示</span><span class="gd-route-w">路线偏短</span><span class="gd-route-why">AI 选词连出的关联链较短，可换开头词让路线更长</span></div>';
+      }
+      var en = entryOf(target);
+      var inDict = !!(en && (en.m || en.p));
+      g.target = target;
+      if(!g.tree){
+        var seEn = entryOf(seed);
+        g.tree = {w: seed, zh: seEn ? seEn.m.split(String.fromCharCode(10))[0] : "", p: seEn ? seEn.p : "", kids: [], grown: false, depth: 0};
+      }
+      g.aiPlan = {seed: seed, target: target, targetReason: tReason, path: cleanPath, ts: Date.now()};
+      saveState();
+      renderGarden();
+      h += '<div class="gd-route-item"><span class="gd-route-rel">目标</span><span class="gd-route-w">' + esc(target) + '</span><span class="gd-route-why">' + (tReason ? esc(tReason) : (inDict ? "词库已有 · 可种出" : "")) + (note ? '<div style="color:#e6a23c;font-size:12px;margin-top:2px">' + esc(note) + '</div>' : '') + '</span></div>';
+      var nz = document.getElementById("gdZone");
+      if(nz) nz.innerHTML = '<div class="gd-plan-d" style="font-weight:700">规划路线完成，树已种下，目标词已设定：</div>' + h + '<div style="text-align:right;margin-top:6px"><button class="mini-btn" onclick="saveGdRoute()">💾 保存这条路线</button></div>';
+      showToast(inDict ? "路线规划完成 · 树已种下" : "目标词不在本地词库，建议换个词");
+    });
+  }
+  return gdRun().catch(function(e){
     state.settings.coins = (state.settings.coins || 0) + 3; saveState(); renderCoinUI();
     if(rt) rt.innerHTML = '<div class="gd-route-item" style="color:#e05555">AI 规划失败（' + esc(String(e && e.message || e)) + '），已退回 3 积分</div>';
   });
@@ -6003,11 +6431,27 @@ function inCurBook(w){
   if(grp === "wrong" || grp === "fav" || grp === "phrase" || grp === "confusable" || grp === "custom") return true;
   try{ return dictMap(grp).has(low); }catch(e){ return true; }
 }
+function inCurBookLoose(w){
+  if(inCurBook(w)) return false;
+  var low = String(w || "").toLowerCase();
+  var sfs = ["ation","tion","sion","ment","ness","ity","able","ible","al","ive","ly","ous","ize","ise","ful","less","er","or","ist","ism","ing","ed","y","age","hood","ship","ance","ence"];
+  for(var i=0;i<sfs.length;i++){
+    var sf = sfs[i];
+    if(low.length > sf.length + 3 && low.slice(-sf.length) === sf){
+      var base = low.slice(0, low.length - sf.length);
+      if(inCurBook(base)) return true;
+      if(base.slice(-1) === "e" && inCurBook(base.slice(0, -1))) return true;
+      if(base.slice(-1) === "i" && inCurBook(base.slice(0, -1) + "y")) return true;
+      if(base.slice(-2) === "ie" && inCurBook(base.slice(0, -2) + "y")) return true;
+    }
+  }
+  return false;
+}
 function gardenAI(node, kd, cost){
   var seed = node.w;
   if(!state.settings.aiKey){
     var lr = gardenLocal(seed, kd);
-    if(lr && lr.length){ gardenAttach(node, kd, lr, true); return; }
+    if(lr && lr.length){ gardenAttach(node, kd, gardenSurprise(lr, node, kd), true); return; }
     gardenFailRefund(cost);
     return;
   }
@@ -6025,6 +6469,7 @@ function gardenAI(node, kd, cost){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
     return r.json();
   }).then(function(d){
+    aiTick();
     var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
     var obj = null;
     try{ obj = JSON.parse(txt); }catch(e1){
@@ -6034,7 +6479,7 @@ function gardenAI(node, kd, cost){
     var list = (obj && obj.words && obj.words.length) ? obj.words : null;
     if(!list){
       var lr2 = gardenLocal(seed, kd);
-      if(lr2 && lr2.length){ gardenAttach(node, kd, lr2, true); return; }
+      if(lr2 && lr2.length){ gardenAttach(node, kd, gardenSurprise(lr2, node, kd), true); return; }
       gardenFailRefund(cost);
       return;
     }
@@ -6060,20 +6505,12 @@ function gardenAI(node, kd, cost){
     } else {
       out = out.slice(0, 4);
     }
-    // 目标词概率：越往深处概率越高
-    var childDepth = (node.depth || 0) + 1;
-    var prob = childDepth === 1 ? 0 : childDepth === 2 ? 0.15 : childDepth === 3 ? 0.25 : childDepth === 4 ? 0.35 : 0.5;
-    if(exTarget && inCurBook(exTarget) && Math.random() < prob){
-      var te = entryOf(exTarget);
-      var tzh = (te && te.m) ? te.m.split(String.fromCharCode(10))[0] : "";
-      var tp = (te && te.p) ? te.p : "";
-      var slot = Math.floor(Math.random() * Math.min(out.length, 4));
-      out[slot] = {w: exTarget, zh: tzh || "🎯 目标词", p: tp, local: !!te, isTarget: true};
-    }
+    // 目标词惊喜：匹配类型（近义/同根/形近等）50% 概率、不受层数限制；不匹配按深度递增
+    out = gardenSurprise(out, node, kd);
     gardenAttach(node, kd, out, false);
   }).catch(function(err){
     var lr4 = gardenLocal(seed, kd);
-    if(lr4 && lr4.length){ gardenAttach(node, kd, lr4, true); return; }
+    if(lr4 && lr4.length){ gardenAttach(node, kd, gardenSurprise(lr4, node, kd), true); return; }
     gardenFailRefund(cost);
   });
 }
@@ -6137,14 +6574,144 @@ function gardenFailRefund(cost){
   var zone = document.getElementById("gdZone");
   if(zone) zone.innerHTML = '<div class="ai-err">种植失败（AI 未响应且本地词库无关联词），积分已退还</div>';
 }
+function levDist(a, b){
+  a = String(a).toLowerCase(); b = String(b).toLowerCase();
+  if(a === b) return 0;
+  var m = a.length, n = b.length;
+  if(!m) return n; if(!n) return m;
+  var d = [];
+  for(var i2=0;i2<=m;i2++){ d[i2] = [i2]; }
+  for(var j2=0;j2<=n;j2++){ d[0][j2] = j2; }
+  for(var i2=1;i2<=m;i2++){
+    for(var j2=1;j2<=n;j2++){
+      var c = (a[i2-1] === b[j2-1]) ? 0 : 1;
+      d[i2][j2] = Math.min(d[i2-1][j2]+1, d[i2][j2-1]+1, d[i2-1][j2-1]+c);
+    }
+  }
+  return d[m][n];
+}
+function gardenTargetMatch(seed, target){
+  if(!seed || !target) return null;
+  var tw = String(target).toLowerCase();
+  var e = entryOf(seed);
+  var has = function(arr){
+    if(!arr) return false;
+    for(var i2=0;i2<arr.length;i2++){
+      var it = arr[i2];
+      var ww = (typeof it === "string") ? it : it.w;
+      if(ww && String(ww).toLowerCase() === tw) return true;
+    }
+    return false;
+  };
+  if(e && has(e.s)) return "syn";
+  if(e && has(e.rt)) return "root";
+  var sw = String(seed).toLowerCase();
+  if(sw.length >= 3 && Math.abs(sw.length - tw.length) <= 1 && levDist(sw, tw) <= 2) return "sim";
+  return null;
+}
+function gardenSurprise(list, node, kd, prob){
+  var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
+  var exTarget = (g.target && (g.achieved || []).indexOf(g.target) < 0) ? g.target : "";
+  if(!exTarget || !inCurBook(exTarget)) return list;
+  var childDepth = (node.depth || 0) + 1;
+  var base = childDepth <= 3 ? 0 : childDepth === 4 ? 0.08 : childDepth === 5 ? 0.12 : childDepth === 6 ? 0.18 : 0.25;
+  var p2 = (prob === undefined || prob === null) ? base : prob;
+  if(gardenTargetMatch(node.w, exTarget) === kd.k) p2 = Math.max(p2, 0.5);
+  if(Math.random() < p2){
+    var te = entryOf(exTarget);
+    var tzh = (te && te.m) ? te.m.split(String.fromCharCode(10))[0] : "";
+    var tp = (te && te.p) ? te.p : "";
+    var slot = Math.floor(Math.random() * Math.max(list.length, 1));
+    list = list.slice();
+    list[slot] = {w: exTarget, zh: tzh || "🎯 目标词", p: tp, local: !!te, isTarget: true};
+  }
+  return list;
+}
+function renderSynItems(items){
+  var h = "";
+  for(var i=0;i<items.length;i++){
+    var it = items[i] || {};
+    h += '<div class="ai-block" style="margin-bottom:8px"><div style="font-weight:700;font-size:15px">' + esc(it.w || "") + '</div>';
+    if(it.diff) h += '<div style="margin-top:3px;color:var(--text)">' + esc(it.diff) + '</div>';
+    if(it.ex) h += '<div class="ai-ex" style="margin-top:4px"><div class="ai-en">' + esc(it.ex) + '</div>' + (it.cn ? ('<div class="ai-cn">' + esc(it.cn) + '</div>') : '') + '</div>';
+    h += '</div>';
+  }
+  return h;
+}
+function showSynNote(i){
+  var g = state.garden;
+  var n = (g && g.synNotes && g.synNotes[i]) ? g.synNotes[i] : null;
+  if(!n) return;
+  var d = document.getElementById("gdHisD");
+  if(d) d.innerHTML = '<div style="font-weight:700;margin-bottom:6px">' + esc(n.seed || "") + ' → ' + esc((n.words || []).join("、")) + '</div>' + renderSynItems(n.items || []);
+}
+function showSynHistory(){
+  var g = state.garden;
+  if(!g || !g.synNotes || !g.synNotes.length){ showToast("还没有保存的辨析记录"); return; }
+  var mask = document.createElement("div");
+  mask.className = "modal-mask";
+  mask.style.display = "flex";
+  var listHtml = "";
+  for(var i=0;i<g.synNotes.length;i++){
+    var n = g.synNotes[i];
+    listHtml += '<div class="gd-his-item" onclick="showSynNote(' + i + ')">' + esc(n.seed || "") + ' → ' + esc((n.words || []).join("、")) + '</div>';
+  }
+  mask.innerHTML = '<div class="modal-box" style="max-width:440px;width:92%;max-height:84vh;overflow:auto;padding:0"><div class="modal-head"><span>辨析历史（' + g.synNotes.length + '）</span><button class="modal-close">×</button></div><div class="jr-body" style="padding:14px 16px">' + listHtml + '<div class="gd-his-d" id="gdHisD"></div></div></div>';
+  document.body.appendChild(mask);
+  mask.querySelector(".modal-close").addEventListener("click", function(){ mask.remove(); });
+  mask.addEventListener("click", function(ev){ if(ev.target === mask) mask.remove(); });
+}
+function gardenSynDiff(){
+  var g = state.garden;
+  if(!g || !g.lastSyn || !g.lastSyn.words || !g.lastSyn.words.length){ showToast("先长出一组近义词，再让 AI 辨析"); return; }
+  if(!state.settings.aiKey){ showToast("请先在「设置 → AI 智能讲解」中填写 DeepSeek API Key"); return; }
+  if(!coinCheck(2)) return;
+  var seed = g.lastSyn.seed || "";
+  var words = g.lastSyn.words.map(function(x){ return x.w; }).join("、");
+  var prompt = "你是英语词汇辨析老师。用户通过“近义词”生长得到一组词：" + words + "（源头词：" + seed + "）。请对组内每个词逐个讲解它与其他词在英语语境中的真实区别：使用场景、语感语气、常搭配对象，并给一个地道例句。严格只输出 JSON，不要任何其他文字，格式：{\"items\":[{\"w\":\"单词\",\"diff\":\"与组内其他词的区别（中文，1~2 句，通俗）\",\"ex\":\"地道英文例句\",\"cn\":\"例句中文翻译\"}]}。优先讲最常见考试义项的区别，不要编造冷僻用法。";
+  var mask = document.createElement("div");
+  mask.className = "modal-mask";
+  mask.style.display = "flex";
+  mask.innerHTML = '<div class="modal-box" style="max-width:440px;width:92%;max-height:84vh;overflow:auto;padding:0"><div class="modal-head"><span>近义词辨析 · ' + esc(seed) + '</span><button class="modal-close">×</button></div><div class="jr-body" style="padding:14px 16px"><div class="gd-growing">🤖 AI 正在辨析这组近义词…</div></div></div>';
+  document.body.appendChild(mask);
+  mask.querySelector(".modal-close").addEventListener("click", function(){ mask.remove(); });
+  mask.addEventListener("click", function(ev){ if(ev.target === mask) mask.remove(); });
+  var body = mask.querySelector(".jr-body");
+  fetch("https://api.deepseek.com/chat/completions", {
+    method: "POST",
+    headers: {"Content-Type": "application/json", "Authorization": "Bearer " + state.settings.aiKey},
+    body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 800, temperature: 0.7})
+  }).then(function(r){
+    if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
+    return r.json();
+  }).then(function(d){
+    aiTick();
+    var txt = (d.choices && d.choices[0] && d.choices[0].message) ? d.choices[0].message.content : "";
+    var obj = null;
+    try{ obj = JSON.parse(txt); }catch(e1){ var m2 = txt.match(/\{[\s\S]*\}/); if(m2){ try{ obj = JSON.parse(m2[0]); }catch(e2){ obj = null; } } }
+    if(!obj || !obj.items || !obj.items.length){
+      body.innerHTML = '<div class="ai-block ai-raw">' + esc(txt) + '</div>';
+      return;
+    }
+    body.innerHTML = renderSynItems(obj.items);
+    g.synNotes = g.synNotes || [];
+    g.synNotes.unshift({seed: seed, words: g.lastSyn.words.map(function(x){ return x.w; }), items: obj.items, t: Date.now()});
+    if(g.synNotes.length > 20) g.synNotes = g.synNotes.slice(0, 20);
+    saveState();
+  }).catch(function(err){
+    body.innerHTML = '<div class="ai-err">辨析失败：' + esc(err.message) + '<br>请检查网络连接与 API Key</div>';
+  });
+}
 function gardenAttach(node, kd, list, fromLocal){
   var g = state.garden || (state.garden = {tree:null, target:"", achieved:[], logs:[], aiPlan:null, achv:null, growSeq:0});
   if(!g.achv) g.achv = {growN:0, targets:0, maxDepth:0};
   var depth = (node.depth || 0) + 1;
   var hit = null;
+  var _exT = (g.target && (g.achieved || []).indexOf(g.target) < 0) ? g.target : "";
   node.kids = node.kids || [];
   for(var i=0;i<list.length;i++){
     var it = list[i];
+    if(!it.isTarget && it.w && _exT && String(it.w).toLowerCase() === String(_exT).toLowerCase()) it.isTarget = true;
     node.kids.push({w: it.w, zh: it.zh || "", p: it.p || "", kids: [], grown: !!it.isTarget, depth: depth, hit: !!it.isTarget});
     if(it.isTarget) hit = it.w;
   }
@@ -6161,20 +6728,34 @@ function gardenAttach(node, kd, list, fromLocal){
     g.target = "";
     newTarget = (g.achv.targets || 0) === 0;
     g.achv.targets = (g.achv.targets || 0) + 1;
-    coinAdd(30 + buffBonus(), "种植园目标词「" + hit + "」种出！");
+    var tReward = 30 + Math.floor(Math.random() * 31);
+    var gotBuff = Math.random() < 0.33;
+    var buffTxt = "";
+    if(gotBuff){
+      var bDays = 1 + Math.floor(Math.random() * 3);
+      var bAmt = 1 + Math.floor(Math.random() * 2);
+      state.discBuff = {until: dayOffset(bDays), amount: bAmt};
+      buffTxt = ' · 🎟️ 折扣 buff：各 AI 功能减免 ' + bAmt + ' 积分，持续 ' + bDays + ' 天';
+    }
+    coinAdd(tReward, "种植园目标词「" + hit + "」种出！");
     if(newTarget) coinAdd(10, "解锁成就「幸运农夫」：第一次种出目标词");
-    msg += '<div class="gd-hit">🎉 目标词 ' + esc(hit) + ' 种出！+30 积分' + (newTarget ? ' · 成就「幸运农夫」+10' : '') + '</div>';
+    msg += '<div class="gd-hit">🎉 目标词 ' + esc(hit) + ' 种出！+' + tReward + ' 积分' + buffTxt + (newTarget ? ' · 成就「幸运农夫」+10' : '') + '</div>';
   } else {
     msg += '<div class="gd-result-title">「' + esc(node.w) + '」长出了 ' + list.length + ' 个' + (kd ? kd.n : "") + '：</div>';
   }
   g.logs = g.logs || [];
   g.logs.push(node.w + "×" + (kd ? kd.n : "") + "×" + list.length + "词");
   if(g.logs.length > 5) g.logs = g.logs.slice(g.logs.length - 5);
+  if(kd && kd.k === "syn" && list && list.length){ g.lastSyn = {seed: node.w, words: list.slice(0, 4).map(function(x){ return {w: x.w, zh: x.zh || ""}; })}; }
   saveState();
   _gdSel = list.length ? list[0].w : "";
   renderGarden();
   var nz = document.getElementById("gdZone");
-  if(nz) nz.innerHTML = msg + '<div class="gd-tip">点击树上的「可生长」节点，继续向上长</div>';
+  var synBtn = "";
+  if(kd && kd.k === "syn" && list && list.length && !hit){
+    synBtn = '<div style="text-align:right;margin-top:6px"><button class="mini-btn" onclick="gardenSynDiff()">🤖 辨析这组近义词（-2）<span class="coin-rem" data-coin="2"></span></button></div>';
+  }
+  if(nz) nz.innerHTML = msg + '<div class="gd-tip">点击树上的「可生长」节点，继续向上长</div>' + synBtn;
 }
 function gardenToFav(w){
   w = String(w).toLowerCase();
@@ -6209,6 +6790,9 @@ window.gardenToFav = gardenToFav;
 window.gardenToWrong = gardenToWrong;
 window.openGardenPlan = openGardenPlan;
 window.gardenPlan = gardenPlan;
+window.gardenPlanLocal = gardenPlanLocal;
+window.gardenSynDiff = gardenSynDiff;
+window.showSynHistory = showSynHistory;
 window.gardenClear = gardenClear;
 window.toggleGdRoute = toggleGdRoute;
 window.toggleGdSaved = toggleGdSaved;
@@ -6227,13 +6811,20 @@ function coinRefreshAll(){
 }
 function renderCoinUI(){
   var el = document.getElementById("coinShow");
-  if(el) el.textContent = (state.settings.coins || 0);
+  if(el){
+    var bi = discBuffInfo();
+    el.textContent = (state.settings.coins || 0) + (bi ? (' · 🎟️ 剩 ' + bi.days + ' 天') : '');
+  }
   var sl = els.streakLine;
   if(sl){
     var sc = sl.querySelector(".sl-coins");
     if(sc) sc.textContent = "⭐ " + (state.settings.coins || 0);
   }
   coinRefreshAll();
+}
+function aiTick(){
+  state.aiUse = (state.aiUse || 0) + 1;
+  unlockBadges();
 }
 var BADGES = [
   {id:"b_first", n:"初出茅庐", d:"背完第一轮单词", c:function(){ return state.events.length >= 1; }},
@@ -6245,7 +6836,29 @@ var BADGES = [
   {id:"b_quiz", n:"出题高手", d:"AI 出题答对 10 道", c:function(){ return (state.quizTimes||0) >= 10; }},
   {id:"b_essay", n:"AI 作家", d:"生成并保存 1 篇短文", c:function(){ return (state.aiEssays||[]).length >= 1; }},
   {id:"b_jr", n:"接龙大师", d:"单词接龙一次接 10 个", c:function(){ return (state.jrBest||0) >= 10; }},
-  {id:"b_mp", n:"配对高手", d:"单词连连看通关一次", c:function(){ return (state.mpBest||0) >= 6; }}
+  {id:"b_mp", n:"配对高手", d:"单词连连看通关一次", c:function(){ return (state.mpBest||0) >= 6; }},
+  {id:"b_200", n:"词海拾贝", d:"累计背词 200 个", c:function(){ return state.events.length >= 200; }},
+  {id:"b_1000", n:"千词大关", d:"累计背词 1000 个", c:function(){ return state.events.length >= 1000; }},
+  {id:"b_2000", n:"词海霸主", d:"累计背词 2000 个", c:function(){ return state.events.length >= 2000; }},
+  {id:"b_cut200", n:"快刀如风", d:"累计斩掉 200 个词", c:function(){ var n=0; for(var i=0;i<state.events.length;i++){ if(state.events[i].k==="cut") n++; } return n>=200; }},
+  {id:"b_cut500", n:"斩词狂人", d:"累计斩掉 500 个词", c:function(){ var n=0; for(var i=0;i<state.events.length;i++){ if(state.events[i].k==="cut") n++; } return n>=500; }},
+  {id:"b_yes500", n:"拼写高手", d:"累计答对 500 次", c:function(){ var n=0; for(var i=0;i<state.events.length;i++){ if(state.events[i].k==="yes") n++; } return n>=500; }},
+  {id:"b_yes1000", n:"拼写战神", d:"累计答对 1000 次", c:function(){ var n=0; for(var i=0;i<state.events.length;i++){ if(state.events[i].k==="yes") n++; } return n>=1000; }},
+  {id:"b_quiz30", n:"出题达人", d:"AI 出题答对 30 道", c:function(){ return (state.quizTimes||0) >= 30; }},
+  {id:"b_quiz100", n:"出题宗师", d:"AI 出题答对 100 道", c:function(){ return (state.quizTimes||0) >= 100; }},
+  {id:"b_jr15", n:"接龙高手", d:"单词接龙一次接 15 个", c:function(){ return (state.jrBest||0) >= 15; }},
+  {id:"b_jr20", n:"接龙之王", d:"单词接龙一次接 20 个", c:function(){ return (state.jrBest||0) >= 20; }},
+  {id:"b_mp10", n:"配对达人", d:"单词连连看最高 10 关", c:function(){ return (state.mpBest||0) >= 10; }},
+  {id:"b_mp15", n:"连连看大师", d:"单词连连看最高 15 关", c:function(){ return (state.mpBest||0) >= 15; }},
+  {id:"b_essay5", n:"高产作家", d:"生成并保存 5 篇短文", c:function(){ return (state.aiEssays||[]).length >= 5; }},
+  {id:"b_essay20", n:"文海著者", d:"生成并保存 20 篇短文", c:function(){ return (state.aiEssays||[]).length >= 20; }},
+  {id:"b_qa1", n:"小问号", d:"AI 单词问答保存 1 条", c:function(){ return (state.aiQas||[]).length >= 1; }},
+  {id:"b_qa10", n:"问答达人", d:"AI 单词问答保存 10 条", c:function(){ return (state.aiQas||[]).length >= 10; }},
+  {id:"b_qa30", n:"百科全书", d:"AI 单词问答保存 30 条", c:function(){ return (state.aiQas||[]).length >= 30; }},
+  {id:"b_ai1", n:"初识 AI", d:"累计使用 AI 功能 5 次", c:function(){ return (state.aiUse||0) >= 5; }},
+  {id:"b_ai10", n:"AI 新秀", d:"累计使用 AI 功能 10 次", c:function(){ return (state.aiUse||0) >= 10; }},
+  {id:"b_ai50", n:"AI 大师", d:"累计使用 AI 功能 50 次", c:function(){ return (state.aiUse||0) >= 50; }},
+  {id:"b_ai100", n:"AI 宗师", d:"累计使用 AI 功能 100 次", c:function(){ return (state.aiUse||0) >= 100; }}
 ];
 function unlockBadges(){
   var got = state.badges || {};
@@ -7056,6 +7669,8 @@ function letterRain(line){
 els.btnJR.addEventListener("click", openJR);
 els.btnMP.addEventListener("click", openMP);
 els.btnGarden.addEventListener("click", openGarden);
+els.btnGardenGuide.addEventListener("click", function(){ els.gardenGuideModal.style.display = "flex"; });
+els.gardenGuideClose.addEventListener("click", function(){ els.gardenGuideModal.style.display = "none"; });
 els.btnRanch.addEventListener("click", openRanch);
 els.ranchClose.addEventListener("click", closeRanch);
 els.ranchCardClose.addEventListener("click", function(){
@@ -7598,6 +8213,7 @@ function showFlashView(){
   els.flashRun.style.display = "none";
   els.btnFlashExit.textContent = "退出";
   els.flashCheckBtns.style.display = "none";
+  var _fh2 = document.getElementById("flashHint"); if(_fh2) _fh2.style.display = "none";
   els.flashCheckCard.style.display = "none";
   renderFlashBook();
 }
@@ -7699,6 +8315,7 @@ function startFlashCheck(){
   els.flashFill.style.width = "0%";
   els.flashCheckCard.style.display = "none";
   els.flashCheckBtns.style.display = "flex";
+  var _fh = document.getElementById("flashHint"); if(_fh) _fh.style.display = "flex";
   els.btnFlashExit.textContent = "退出";
   showFlashCheckWord(0);
 }
@@ -7746,6 +8363,7 @@ function flashCheckJudge(known){
     if(state.settings.wrongSep) wrongModeRemove("flash", w);
   }
   els.flashCheckBtns.style.display = "none";
+  var _fh2 = document.getElementById("flashHint"); if(_fh2) _fh2.style.display = "none";
   renderFlashCheckCard(w);
   if(state.settings.flashCheckSpeak !== false) speakWord(1, w);
   els.flashCheckNext.textContent = flashCheckPos + 1 >= flashCheckQueue.length ? "查看结果" : "下一个";
@@ -7756,6 +8374,7 @@ function flashCheckNext(){
   if(flashCheckPos >= flashCheckQueue.length){
     // 检测结束
     els.flashCheckBtns.style.display = "none";
+  var _fh2 = document.getElementById("flashHint"); if(_fh2) _fh2.style.display = "none";
     els.flashLabel.textContent = "完成";
     els.flashFill.style.width = "100%";
     els.flashWord.textContent = "检测完成";
@@ -7781,6 +8400,7 @@ function flashCheckNext(){
     return;
   }
   els.flashCheckBtns.style.display = "flex";
+  var _fh = document.getElementById("flashHint"); if(_fh) _fh.style.display = "flex";
   showFlashCheckWord(flashCheckPos);
 }
 els.flashCheckYes.addEventListener("click", function(){ flashCheckJudge("yes"); });
@@ -8136,6 +8756,7 @@ applyNight();
 renderBookPicker();
 updateBookProgress();
 updateWrongCount();
+unlockBadges();
 showLearnHome();
 switchTab("learn");
 if(!state.settings.onboarded) setTimeout(showGuide, 400);
