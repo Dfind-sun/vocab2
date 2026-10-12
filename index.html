@@ -1691,6 +1691,19 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           </select>
         </div>
         <div class="set-item">
+          <div><div class="set-name">每日目标单词数</div><div class="set-desc">一天分多轮背完，达标前自动连续进行；主页显示今日进度</div></div>
+          <select class="set-select" id="setDay">
+            <option value="10">10 个</option>
+            <option value="20">20 个</option>
+            <option value="30">30 个</option>
+            <option value="40">40 个</option>
+            <option value="50">50 个</option>
+            <option value="80">80 个</option>
+            <option value="100">100 个</option>
+            <option value="150">150 个</option>
+          </select>
+        </div>
+        <div class="set-item">
           <div><div class="set-name">自动朗读</div><div class="set-desc">进入新卡片自动发音一次</div></div>
           <label class="switch"><input type="checkbox" id="setAutoSpeak"><span class="slider"></span></label>
         </div>
@@ -1995,7 +2008,7 @@ function groupOf(book){
 }
 var LS_KEY = "vocab_app_state_v1";
 var INTERVALS = [1, 2, 4, 7, 15]; // 艾宾浩斯复习间隔（天）
-var SET_DEFAULTS = {night:false, roundSize:10, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiFreeDate:"", aiFreeUsed:0, aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false, learnHint:false};
+var SET_DEFAULTS = {night:false, roundSize:10, dayTarget:20, showEx:true, showEn:true, showForm:true, showSyn:true, showRoot:true, ebbinghaus:true, autoSpeak:true, syllable:true, advanceMode:"auto", timeKnown:3, timeUnknown:6, flashSpeed:0.5, flashCount:20, flashCheckSpeak:true, showMnemonic:true, wrongSep:true, showSim:true, boostOnce:false, aiOn:true, aiKey:"sk-0991f531c857467cb07121041b8e6699", aiFreeDate:"", aiFreeUsed:0, aiEssayMode:"line", aiEssayAutoSave:true, quizMode:"instant", quizCount:6, jrTimer:15, mpTimer:20, lkPenalty:0, coins:50, lastCoinDay:"", onboarded:false, learnHint:false};
 
 var state = loadState();
 function findBookOf(w){
@@ -2009,7 +2022,7 @@ function findBookOf(w){
 function loadState(){
   var s = null;
   try{ s = JSON.parse(localStorage.getItem(LS_KEY)); }catch(e){}
-  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, vtStats:{}, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
+  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", session:null, customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, vtStats:{}, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
   if(s){
     for(var k in s){ base[k] = s[k]; }
     if(!s.version){
@@ -2123,7 +2136,7 @@ function dayOffset(n){ var d=new Date(); d.setDate(d.getDate()+n); return dstr(d
 var $ = function(id){ return document.getElementById(id); };
 var els = {
   bookPicker:$("bookPicker"), bookProgress:$("bookProgress"), learnEmpty:$("learnEmpty"), learnPanel:$("learnPanel"),
-  roundLabel:$("roundLabel"), progressFill:$("progressFill"), btnExitRound:$("btnExitRound"), wordCard:$("wordCard"),
+  roundLabel:$("roundLabel"), setDay:$("setDay"), progressFill:$("progressFill"), btnExitRound:$("btnExitRound"), wordCard:$("wordCard"),
   frontWord:$("frontWord"), frontPhon:$("frontPhon"), cardBody:$("cardBody"), cardTimer:$("cardTimer"),
   spk1:$("spk1"), spk3:$("spk3"), freqTag:$("freqTag"),
   starBtn:$("starBtn"), dueBanner:$("dueBanner"), dueNum:$("dueNum"),
@@ -2284,9 +2297,10 @@ function showBookSel(g){
       for(var k2=0;k2<arr.length;k2++){ if(lr[arr[k2].w]) lrn++; }
     }
     var dueN = (key === "wrong" || key === "fav") ? 0 : dueWords(key).length;
+    var daysL = (key !== "wrong" && key !== "fav" && total > lrn) ? Math.ceil((total - lrn) / (state.settings.dayTarget || 20)) : 0;
     html += '<button class="book-sel-item' + on + '" data-sub="' + key + '">' +
       '<span class="bs-name">' + subs[j][1] + '</span>' +
-      '<span class="bs-prog">' + lrn + ' / ' + total + (dueN > 0 ? (' · ' + dueN + ' 到期') : '') + '</span></button>';
+      '<span class="bs-prog">' + lrn + ' / ' + total + (dueN > 0 ? (' · ' + dueN + ' 到期') : '') + (daysL > 0 ? (' · 约 ' + daysL + ' 天') : '') + '</span></button>';
   }
   els.bookSelList.innerHTML = html;
 }
@@ -2302,6 +2316,7 @@ els.bookSelList.addEventListener("click", function(ev){
   saveState();
   renderBookPicker();
   if(!(VOCAB[key]||[]).length && !(state.customBooks && state.customBooks[key]) && key !== "wrong" && key !== "fav"){ showLearnHome(); return; }
+  if(restoreSession()) return;
   var pg2 = state.progress && state.progress[key];
   if(pg2 && pg2.queue && pg2.queue.length && pg2.qIdx >= 0 && pg2.qIdx < pg2.queue.length){
     state.queue = pg2.queue; state.qIdx = pg2.qIdx; state.review = false; state.reviewKind = "";
@@ -2317,9 +2332,93 @@ els.bookSelList.addEventListener("click", function(ev){
 });
 els.bookSelBack.addEventListener("click", showLearnHome);
 els.btnSwitchBook.addEventListener("click", function(){ showBookSel(groupOf(state.book)); });
+function saveSession(){
+  var st = state.session || (state.session = {});
+  st.book = state.book;
+  st.queue = state.queue.slice();
+  st.qIdx = state.qIdx;
+  st.review = !!state.review;
+  st.reviewKind = state.reviewKind || "";
+  st.pendingSpell = state.pendingSpell || [];
+  st.spellMetaNow = spellMetaNow || {};
+  st.spellTouched = spellTouched || {};
+  st.spellFailedAll = spellFailedAll || {};
+  st.spellRetest = (spellRetest || []).slice();
+  st.spellCorrect = spellCorrect || 0;
+  st.spellTotal = spellTotal || 0;
+  st.spellRound2 = !!spellRound2;
+  st.pendingEvs = pendingEvs.slice();
+  st.viewHistory = viewHistory.slice();
+  st.savedAt = Date.now();
+}
+function clearSession(){ state.session = null; saveState(); }
+function restoreSession(){
+  var s = state.session;
+  if(!s || s.book !== state.book) return false;
+  if(!s.savedAt || dstr(new Date(s.savedAt)) !== todayStr()){ state.session = null; saveState(); return false; }
+  state.queue = s.queue.slice(); state.qIdx = s.qIdx;
+  state.review = !!s.review; state.reviewKind = s.reviewKind || "";
+  state.pendingSpell = s.pendingSpell || [];
+  spellMetaNow = s.spellMetaNow || {};
+  spellTouched = s.spellTouched || {};
+  spellFailedAll = s.spellFailedAll || {};
+  spellRetest = (s.spellRetest || []).slice();
+  spellCorrect = s.spellCorrect || 0;
+  spellTotal = s.spellTotal || 0;
+  spellRound2 = !!s.spellRound2;
+  pendingEvs = (s.pendingEvs || []).slice();
+  viewHistory = (s.viewHistory || []).slice();
+  state.session = null;
+  saveState();
+  curWord = state.queue[state.qIdx];
+  if(state.reviewKind === "spell" || state.reviewKind === "phrasepick"){
+    showSpell();
+    if(state.reviewKind === "phrasepick") renderPhrasePick();
+    else renderSpell();
+  } else {
+    showPanel();
+    renderCard();
+    if(state.reviewKind === "boost"){
+      els.roundLabel.textContent = "加强记忆 · " + state.queue.length + " 个词";
+    }
+  }
+  return true;
+}
+function shouldAutoNext(){
+  if(state.book === "phrase" || state.book === "wrong" || state.book === "fav") return false;
+  var dt = state.settings.dayTarget || 20;
+  if(todayEventsN() >= dt) return false;
+  var arr = VOCAB[state.book] || (state.customBooks && state.customBooks[state.book]) || [];
+  var lr = state.learned[state.book] || {};
+  for(var i=0;i<arr.length;i++){
+    var wd3 = arr[i];
+    if(!lr[typeof wd3 === "string" ? wd3 : wd3.w]) return true;
+  }
+  return false;
+}
+function autoNextRound(){
+  var q2 = buildQueue();
+  if(!q2.length){
+    clearSession();
+    showDone();
+    showToast("本词书已全部背完 🎉");
+    return;
+  }
+  state.queue = q2; state.qIdx = 0; state.review = false; state.reviewKind = "";
+  state.pendingSpell = [];
+  spellCorrect = 0; spellTotal = 0; spellTouched = {}; spellFailedAll = {}; spellRetest = []; spellRound2 = false;
+  saveState();
+  curWord = state.queue[0];
+  showPanel();
+  renderCard();
+  showToast("本轮完成，进入下一轮（今日已背 " + todayEventsN() + " 词）");
+}
 function exitRound(){
   stopSpeak();
   clearTimer();
+  var inStudy = els.learnPanel.classList.contains("on");
+  if(inStudy && state.queue && state.queue.length){ saveSession(); }
+  else { state.session = null; }
   var base = jumpStack.length ? jumpStack[0] : null;
   var q = base ? base.q : state.queue;
   var i = base ? base.i : state.qIdx;
@@ -3236,6 +3335,8 @@ function renderCard(opts){
   var idx = Math.min(state.qIdx+1, total);
   if(viewing){
     els.roundLabel.textContent = "回看 " + (viewPos + 1) + " / " + viewHistory.length + " · 点 > 返回";
+  } else if(state.review && state.reviewKind === "boost"){
+    els.roundLabel.textContent = "加强记忆 · " + total + " 个词";
   } else {
     els.roundLabel.textContent = "第 " + idx + " / " + total + " 词";
   }
@@ -4496,7 +4597,7 @@ function endRound(){
   els.btnYes.style.display = "";
   els.btnCardBack.style.display = "none";
   var roundN = state.queue.length || 1;
-  var recent = state.events.slice(-roundN);
+  var recent = state.review ? state.events.slice(-roundN) : pendingEvs.slice();
   var knownN = 0;
   var noSet = [], spellSet = [], spellMeta = {};
   for(var i=0;i<recent.length;i++){
@@ -4560,6 +4661,8 @@ function endRound(){
   }
   saveState();
   coinAdd(2);
+  if(shouldAutoNext()){ autoNextRound(); return; }
+  clearSession();
   showDone();
   if(Math.random() < 0.15) showToast(QUOTES[Math.floor(Math.random()*QUOTES.length)]);
 }
@@ -4682,8 +4785,14 @@ function submitSpell(){
   els.spellNext.textContent = state.qIdx + 1 >= state.queue.length ? "查看结果" : "下一个";
 }
 function finishSpell(){
+  var wasPhrase = state.reviewKind === "phrasepick";
   var correct = spellCorrect;
   var total = spellTotal || 1;
+  if(pendingEvs.length){
+    for(var pe2=0;pe2<pendingEvs.length;pe2++){ state.events.push(pendingEvs[pe2]); }
+    pendingEvs = [];
+    if(state.events.length > 5000){ state.events.splice(0, state.events.length - 5000); }
+  }
   // 复习规则：仅"第一次点认识 且 拼写全程没错过"免复习；
   // 认识但拼写错 → 降回 step 0 进入复习；还行/不认识无论拼写结果都保留在复习队列
   for(var wk in spellTouched){
@@ -4705,8 +4814,11 @@ function finishSpell(){
   mystTryStart();
   els.donePct.textContent = Math.round(correct/total*100) + "%";
   els.donePct.style.fontSize = "";
-  els.doneSub.textContent = (state.reviewKind === "phrasepick" ? "短语检测 " : "拼写检验 ") + total + " 个，选对 " + correct + " 个";
+  els.doneSub.textContent = (wasPhrase ? "短语检测 " : "拼写检验 ") + total + " 个，选对 " + correct + " 个";
   els.btnReview.style.display = "none";
+  if(!wasPhrase){ coinAdd(2 + buffBonus(), "完成一轮核心背词"); }
+  if(!wasPhrase && shouldAutoNext()){ autoNextRound(); return; }
+  clearSession();
   showDone();
 }
 function onCut(){
@@ -4781,6 +4893,7 @@ els.spellNext.addEventListener("click", function(){
 });
 els.btnPhrase.addEventListener("click", function(){
   stopSpeak();
+  if(restoreSession()) return;
   var pg2 = state.progress && state.progress["phrase"];
   if(pg2 && pg2.queue && pg2.queue.length && pg2.qIdx >= 0 && pg2.qIdx < pg2.queue.length){
     state.book = "phrase";
@@ -4993,6 +5106,7 @@ els.btnStart.addEventListener("click", function(){
     showBookSel(g); return;
   }
   if(!(VOCAB[state.book]||[]).length && !(state.customBooks && state.customBooks[state.book])) return;
+  if(restoreSession()) return;
   var pg = state.progress && state.progress[state.book];
   if(pg && pg.queue && pg.queue.length && pg.qIdx >= 0 && pg.qIdx < pg.queue.length){
     state.queue = pg.queue; state.qIdx = pg.qIdx; state.review = false; state.reviewKind = "";
@@ -5604,11 +5718,12 @@ function renderStreakLine(){
   var todayN = todayEventsN();
   var s = calcStreak();
   checkDailyReward();
+  var dt = state.settings.dayTarget || 20;
   el.innerHTML = (todayN >= 100
     ? '<span class="sl-done">今日已背 ' + todayN + ' 词 · 全部档位达成</span>'
-    : todayN >= 50
-    ? '<span class="sl-done">今日已背 ' + todayN + ' 词</span>'
-    : '<span>今日已背 ' + todayN + ' / 20 词</span>')
+    : todayN >= dt
+    ? '<span class="sl-done">今日已背 ' + todayN + ' 词 · 今日目标已达成</span>'
+    : '<span>今日已背 ' + todayN + ' / ' + dt + ' 词</span>')
     + '<span class="sl-fire">连续 ' + s + ' 天</span>'
     + '<span class="sl-coins" id="coinShow" onclick="window.__openCoins && window.__openCoins()">⭐ ' + (state.settings.coins || 0) + (discBuffInfo() ? (' · 🎟️ 剩 ' + discBuffInfo().days + ' 天') : '') + '</span>'
     + '<div class="sl-extra">' + cycleInfoText() + '</div>';
@@ -8024,6 +8139,7 @@ function applyNight(){
 function renderSettings(){
   els.setNight.checked = state.settings.night;
   els.setRound.value = String(state.settings.roundSize);
+  els.setDay.value = String(state.settings.dayTarget || 20);
   els.setSyll.checked = !!state.settings.syllable;
   els.setEn.checked = state.settings.showEn !== false;
   els.setEx.checked = state.settings.showEx;
@@ -8060,6 +8176,7 @@ function onSetChange(){
 }
 els.setNight.addEventListener("change", function(){ state.settings.night = els.setNight.checked; onSetChange(); });
 els.setRound.addEventListener("change", function(){ state.settings.roundSize = parseInt(els.setRound.value, 10) || 10; onSetChange(); });
+els.setDay.addEventListener("change", function(){ state.settings.dayTarget = parseInt(els.setDay.value, 10) || 20; onSetChange(); });
 els.setSyll.addEventListener("change", function(){ state.settings.syllable = els.setSyll.checked; onSetChange(); });
 els.setEn.addEventListener("change", function(){ state.settings.showEn = els.setEn.checked; onSetChange(); });
 els.setEx.addEventListener("change", function(){ state.settings.showEx = els.setEx.checked; onSetChange(); });
@@ -9107,14 +9224,7 @@ if(!state.settings.onboarded) setTimeout(showGuide, 400);
 var _bm = document.getElementById("bootMask"); if(_bm) _bm.style.display = "none";
 setTimeout(function(){ var _b2 = document.getElementById("bootMask"); if(_b2) _b2.style.display = "none"; }, 30000);
 setTimeout(function(){ mystTryStart(); }, 800);
-try{
-  var df = document.createElement("div");
-  df.id = "diagFloat";
-  df.style.cssText = "position:fixed;right:8px;bottom:64px;z-index:99999;background:rgba(20,20,20,.82);color:#7CFC9A;font-size:11px;padding:5px 9px;border-radius:12px;font-family:Consolas,monospace;cursor:pointer;pointer-events:auto;box-shadow:0 2px 8px rgba(0,0,0,.3);line-height:1.4";
-  df.textContent = "v1.8 JS\u2713 \u2B50\u2192\u79EF\u5206";
-  df.addEventListener("click", function(){ showCoinIntro(); });
-  document.body.appendChild(df);
-}catch(e){}
+
 })();
 </script>
 </body>
