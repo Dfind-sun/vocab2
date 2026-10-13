@@ -753,7 +753,7 @@ html.dark .start-btn{box-shadow:0 8px 22px rgba(0,0,0,.35)}
 .hc-ic svg{width:18px;height:18px}
 .hc-t{font-size:14.5px;font-weight:600;color:var(--ink)}
 .hc-cost{font-size:11px;color:var(--brand-deep,#e6a23c);font-weight:800;margin-left:6px;background:rgba(230,162,60,.12);border:1px solid rgba(230,162,60,.35);border-radius:6px;padding:0 5px;line-height:1.6;vertical-align:1px}
-.coin-rem{color:var(--ink2);font-size:10px;font-weight:600;margin-left:3px;white-space:nowrap}
+.coin-rem{color:#E6A23C;font-size:11px;font-weight:800;margin-left:3px;white-space:nowrap;background:rgba(230,162,60,.14);border:1px solid rgba(230,162,60,.38);border-radius:7px;padding:0 6px;line-height:1.7;vertical-align:1px}
 .ai-cost{font-size:11px;color:var(--brand-deep,#e6a23c);font-weight:800;margin-left:5px;background:rgba(230,162,60,.12);border:1px solid rgba(230,162,60,.35);border-radius:6px;padding:0 5px;line-height:1.5}
 .hc-d{font-size:11.5px;color:var(--ink2);line-height:1.4}
 .home-card.wide{grid-column:1/-1;flex-direction:row;align-items:center;gap:14px}
@@ -811,6 +811,11 @@ html.dark .learn-panel.on .actions-col{background:linear-gradient(180deg, rgba(2
 .book-progress{background:var(--picker);padding:3px 11px;border-radius:10px;font-weight:600;letter-spacing:.3px}
 /* 功能模块图标差异化配色 */
 #btnPhrase .hc-ic{background:#E8F1FB;color:#1E5FA8}
+.browse-search{padding:2px 4px 8px}
+.search-hist-label{padding:9px 14px 5px;font-size:11px;color:var(--ink2);font-weight:600;border-bottom:1px solid var(--line)}
+.sh-item{padding:10px 14px;cursor:pointer;display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-bottom:1px solid var(--line)}
+.sh-clear{padding:9px 14px;font-size:12px;color:var(--brand-deep);cursor:pointer;text-align:center;font-weight:600}
+.sh-clear:active{opacity:.7}
 #btnBrowse .hc-ic{background:var(--brand-soft);color:var(--brand-deep)}
 #btnQuick .hc-ic{background:#FBEEDC;color:#9A6116}
 #btnConfuse .hc-ic{background:#F1EAF9;color:#6A3FA8}
@@ -839,7 +844,7 @@ html.dark .review-badge{background:rgba(61,176,156,.16);color:var(--brand-deep)}
 .streak-line .sl-extra{display:block;width:100%;font-size:11px;color:var(--ink2);text-align:center;margin-top:3px;line-height:1.5}
 .sl-fire{color:#F5A623;font-weight:600}
 .streak-line .sl-done{color:var(--brand);font-weight:600}
-.sl-coins{color:var(--brand-deep);font-weight:800;font-size:13px;cursor:pointer;padding:2px 6px;border-radius:8px;transition:transform .08s;position:relative;z-index:300}
+.sl-coins{color:var(--brand-deep);font-weight:800;font-size:13px;cursor:pointer;padding:2px 6px;border-radius:8px;transition:transform .08s;position:relative;z-index:5}
 .sl-coins:active{transform:scale(.92);background:rgba(128,128,128,.12)}
 .lk-streak{color:var(--brand-deep);font-weight:600;font-size:12px;margin:4px 0 0}
 .pp-opts{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:10px}
@@ -1162,6 +1167,12 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
           返回列表
         </button>
+        <div class="browse-search" id="browseSearch" style="display:none">
+          <div class="search-box" style="margin-bottom:6px">
+            <input id="browseSearchInput" placeholder="搜索单词，如 absorb" autocomplete="off">
+            <div class="search-res" id="browseSearchRes" style="display:none"></div>
+          </div>
+        </div>
         <div class="due-banner" id="dueBanner">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
           <span>艾宾浩斯 · <span class="due-num" id="dueNum">0</span> 个词待复习</span>
@@ -1822,7 +1833,7 @@ html.dark #btnJR .hc-ic{background:rgba(139,92,246,.15);color:#C4B0F5}
           <label class="switch"><input type="checkbox" id="setAIOn" checked><span class="slider"></span></label>
         </div>
         <div class="set-item">
-          <div style="flex:1"><div class="set-name">接入自己的 DeepSeek API</div><div class="set-desc">留空则使用内置演示 Key（消耗积分），填自己的 Key 走自己额度</div></div>
+          <div style="flex:1"><div class="set-name">接入自己的 DeepSeek API</div><div class="set-desc">留空使用内置 Key（经云端代理调用，消耗积分），填自己的 Key 则直连走自己额度</div></div>
           <div class="key-wrap">
             <input class="set-input" type="password" id="setAIKey" placeholder="留空使用内置 Key" style="text-align:left">
             <button type="button" class="key-eye" id="btnKeyEye" title="显示/隐藏 API Key">
@@ -2022,9 +2033,9 @@ function findBookOf(w){
 function loadState(){
   var s = null;
   try{ s = JSON.parse(localStorage.getItem(LS_KEY)); }catch(e){}
-  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", session:null, customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, vtStats:{}, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null};
+  var base = {book:"cet4", learned:{}, wrong:[], favorites:[], events:[], queue:[], qIdx:0, review:false, reviewKind:"", bookSub:{}, progress:{}, version:3, phrasePick:{}, phraseCollapsed:{}, lastRoundBook:"", session:null, customBooks:{}, customData:{}, aiEssays:[], aiQas:[], aiUse:0, vtStats:{}, badges:{}, quizTimes:0, jrBest:0, mpBest:0, lkStreak:0, lkCoinDay:"", lkCoinGain2:0, lkTier:null, jrCoinDay:"", jrCoinGain:0, jrTier:null, garden:null, lastCoinDay:"", lastCoinDay50:"", addTier:null, stk8:null, discBuff:null, searchHist:[]};
   if(s){
-    for(var k in s){ base[k] = s[k]; }
+    for(var k in s){ base[k] = s[k]; } if(!base.aiKey || base.aiKey === "sk-0991f531c857467cb07121041b8e6699") base.aiKey = "builtin"; 
     if(!s.version){
       // 旧版迁移：learned 扁平 {w:{k,t}} -> 嵌套 {book:{w:{k,t,step}}}
       var old = s.learned || {};
@@ -2148,7 +2159,7 @@ var els = {
   spellZone:$("spellZone"), spellMe:$("spellMe"), spellSlots:$("spellSlots"), spellInput:$("spellInput"), spellResult:$("spellResult"), spellNext:$("spellNext"), spellHintBtn:$("spellHintBtn"),
   learnDone:$("learnDone"), donePct:$("donePct"), doneSub:$("doneSub"),
   wrongCount:$("wrongCount"), btnWrongList:$("btnWrongList"), wrongView:$("wrongView"),
-  searchInput:$("searchInput"), searchRes:$("searchRes"),
+  searchInput:$("searchInput"), searchRes:$("searchRes"), browseSearch:$("browseSearch"), browseSearchInput:$("browseSearchInput"), browseSearchRes:$("browseSearchRes"),
   btnWrongBack:$("btnWrongBack"), wrongList:$("wrongList"), wrongEmpty:$("wrongEmpty"), wrongHeadCount:$("wrongHeadCount"),
   favView:$("favView"), btnFavBack:$("btnFavBack"), btnFavStart:$("btnFavStart"),
   favList:$("favList"), favEmpty:$("favEmpty"), favHeadCount:$("favHeadCount"),
@@ -2440,13 +2451,44 @@ function exitRound(){
 els.btnExitRound.addEventListener("click", function(){ exitRound(); });
 function clearRoundProgress(){ if(state.progress) delete state.progress[state.book]; }
 var searchTimer = null;
-function doSearch(q){
-  if(!q){ els.searchRes.style.display = "none"; els.searchRes.innerHTML = ""; return; }
+function pushSearchHist(w){
+  if(!w) return;
+  state.searchHist = state.searchHist || [];
+  state.searchHist = state.searchHist.filter(function(x){ return x !== w; });
+  state.searchHist.unshift(w);
+  if(state.searchHist.length > 15) state.searchHist.length = 15;
+  saveState();
+}
+function renderSearchHist(resEl, inpEl){
+  var hist = (state.searchHist || []).slice(0, 10);
+  if(!hist.length){ resEl.style.display = "none"; resEl.innerHTML = ""; return; }
+  var html = '<div class="search-hist-label">搜索历史</div>';
+  for(var h=0;h<hist.length;h++){
+    var w2 = hist[h];
+    var e2h = entryOf(w2);
+    var me2 = e2h && e2h.m ? e2h.m.split("\n")[0] : "";
+    if(me2.length > 40) me2 = me2.slice(0,40) + "…";
+    html += '<div class="sh-item" data-w="'+esc(w2)+'"><span class="sw">'+esc(w2)+'</span><span class="sm">'+esc(me2)+'</span></div>';
+  }
+  html += '<div class="sh-clear">清空历史</div>';
+  resEl.innerHTML = html;
+  resEl.style.display = "block";
+  var clr = resEl.querySelector(".sh-clear");
+  if(clr) clr.addEventListener("click", function(){
+    state.searchHist = [];
+    saveState();
+    renderSearchHist(resEl, inpEl);
+  });
+}
+function doSearch(q, which){
+  var resEl = which === "browse" ? els.browseSearchRes : els.searchRes;
+  var inpEl = which === "browse" ? els.browseSearchInput : els.searchInput;
+  if(!q){ renderSearchHist(resEl, inpEl); return; }
   if(String(q).toLowerCase() === "dfind666"){
     var okM = mystSearchCode();
     if(okM){
-      els.searchInput.value = "";
-      els.searchRes.style.display = "none"; els.searchRes.innerHTML = "";
+      inpEl.value = "";
+      resEl.style.display = "none"; resEl.innerHTML = "";
       return;
     }
   }
@@ -2464,8 +2506,8 @@ function doSearch(q){
   pre.sort(); inc.sort();
   var hits = pre.concat(inc).slice(0, 15);
   if(!hits.length){
-    els.searchRes.innerHTML = '<div class="search-empty">没有找到匹配的单词</div>';
-    els.searchRes.style.display = "block";
+    resEl.innerHTML = '<div class="search-empty">没有找到匹配的单词</div>';
+    resEl.style.display = "block";
     return;
   }
   var html = "";
@@ -2475,24 +2517,36 @@ function doSearch(q){
     if(me.length > 40) me = me.slice(0,40) + "…";
     html += '<div class="search-item" data-w="'+esc(hits[j])+'"><span class="sw">'+esc(hits[j])+'</span><span class="sm">'+esc(me)+'</span></div>';
   }
-  els.searchRes.innerHTML = html;
-  els.searchRes.style.display = "block";
+  resEl.innerHTML = html;
+  resEl.style.display = "block";
 }
+function updateBrowseSearch(){
+  var bs = els.browseSearch;
+  if(bs) bs.style.display = (browseMode === true) ? "block" : "none";
+}
+els.searchInput.addEventListener("focus", function(){
+  if(!this.value.trim()){ clearTimeout(searchTimer); doSearch("", "home"); }
+});
 els.searchInput.addEventListener("input", function(){
   clearTimeout(searchTimer);
   var q = this.value.trim().toLowerCase();
-  searchTimer = setTimeout(function(){ doSearch(q); }, 200);
+  searchTimer = setTimeout(function(){ doSearch(q, "home"); }, 200);
 });
 els.searchInput.addEventListener("keydown", function(ev){
   if(ev.key === "Enter"){
-    var first = els.searchRes.querySelector(".search-item");
+    var first = els.searchRes.querySelector(".search-item, .sh-item");
     if(first) first.click();
   }
 });
+var searchFromHome = false;
 function searchOpen(w){
   var e2 = entryOf(w);
   if(!e2.m && !e2.ex && !(e2.s && e2.s.length) && !(e2.rt && e2.rt.length)) return;
-  jumpStack.push({w:curWord, q:state.queue.slice(), i:state.qIdx, ov:curOverride, bm:browseMode});
+  if(browseMode || jumpStack.length){
+    jumpStack.push({w:curWord, q:state.queue.slice(), i:state.qIdx, ov:curOverride, bm:browseMode});
+  } else {
+    searchFromHome = true;
+  }
   browseMode = true;
   state.queue = [w]; state.qIdx = 0;
   curWord = w;
@@ -2500,11 +2554,35 @@ function searchOpen(w){
   renderCard();
 }
 els.searchRes.addEventListener("click", function(ev){
-  var item = ev.target.closest ? ev.target.closest(".search-item") : null;
+  var item = ev.target.closest ? ev.target.closest(".search-item, .sh-item") : null;
   if(!item) return;
   var w = item.getAttribute("data-w");
   els.searchRes.style.display = "none";
   els.searchInput.value = "";
+  pushSearchHist(w);
+  searchOpen(w);
+});
+els.browseSearchInput.addEventListener("focus", function(){
+  if(!this.value.trim()){ clearTimeout(searchTimer); doSearch("", "browse"); }
+});
+els.browseSearchInput.addEventListener("input", function(){
+  clearTimeout(searchTimer);
+  var q = this.value.trim().toLowerCase();
+  searchTimer = setTimeout(function(){ doSearch(q, "browse"); }, 200);
+});
+els.browseSearchInput.addEventListener("keydown", function(ev){
+  if(ev.key === "Enter"){
+    var first = els.browseSearchRes.querySelector(".search-item, .sh-item");
+    if(first) first.click();
+  }
+});
+els.browseSearchRes.addEventListener("click", function(ev){
+  var item = ev.target.closest ? ev.target.closest(".search-item, .sh-item") : null;
+  if(!item) return;
+  var w = item.getAttribute("data-w");
+  els.browseSearchRes.style.display = "none";
+  els.browseSearchInput.value = "";
+  pushSearchHist(w);
   searchOpen(w);
 });
 function showLearnHome(){
@@ -2514,6 +2592,7 @@ function showLearnHome(){
   els.learnPanel.classList.remove("on");
   els.learnEmpty.style.display = "block";
   if(els.searchRes) els.searchRes.style.display = "none";
+  if(els.browseSearch) els.browseSearch.style.display = "none";
   updateWrongCount();
   updateDueBanner();
   updateReviewBanner();
@@ -2530,6 +2609,7 @@ function showPanel(){
   els.spellZone.style.display = "none";
   els.actionsBar.style.display = "flex";
   els.wrongLinkBar.style.display = "";
+  updateBrowseSearch();
   updateDueBanner();
 }
 function showSpell(){
@@ -2542,6 +2622,7 @@ function showSpell(){
   els.spellZone.style.display = "flex";
   els.actionsBar.style.display = "none";
   els.wrongLinkBar.style.display = "none";
+  if(els.browseSearch) els.browseSearch.style.display = "none";
   updateDueBanner();
 }
 function showDone(){
@@ -2885,7 +2966,7 @@ function openCardFromPreview(w){
 els.btnBrowse.addEventListener("click", showPreviewView);
 els.btnPrevBack.addEventListener("click", showLearnHome);
 els.btnCardBack.addEventListener("click", function(){
-  if(jumpStack.length){ cardBackLevel(); } else if(confCardFrom === "confuse"){ confCardFrom = ""; browseMode = false; showConfuseView(); } else if(confCardFrom === "mp"){ confCardFrom = ""; browseMode = false; els.mpModal.style.display = "flex"; mpReset(); } else { browseMode = false; showPrevContent(); }
+  if(jumpStack.length){ cardBackLevel(); } else if(confCardFrom === "confuse"){ confCardFrom = ""; browseMode = false; showConfuseView(); } else if(confCardFrom === "mp"){ confCardFrom = ""; browseMode = false; els.mpModal.style.display = "flex"; mpReset(); } else if(searchFromHome){ searchFromHome = false; browseMode = false; showLearnHome(); } else { browseMode = false; showPrevContent(); }
 });
 els.btnBackLevel.addEventListener("click", cardBackLevel);
 els.btnBackRoot.addEventListener("click", cardBackRoot);
@@ -3255,6 +3336,7 @@ function renderCard(opts){
   if(!opts.keepPending) state.pending = null;
   clearTimer();
   var linked = jumpStack.length > 0 || browseMode === true;
+  updateBrowseSearch();
   els.btnSwitchBook.style.display = (state.book === "phrase") ? "none" : "";
   els.syllRow.style.display = "none";
   els.synTag.style.display = "none";
@@ -3267,7 +3349,7 @@ function renderCard(opts){
   els.btnYes.style.display = hideAct ? "none" : "";
   els.btnCut.style.display = (hideAct || state.review) ? "none" : "";
   els.learnHint.style.display = (!hideAct && !state.review && !state.settings.learnHint) ? "flex" : "none";
-  els.linkNav.style.display = (jumpStack.length > 0 && !viewing) ? "" : "none";
+  els.linkNav.style.display = ((jumpStack.length > 0 || searchFromHome) && !viewing) ? "" : "none";
   els.roundLabel.style.display = linked ? "none" : "";
   if(viewing) els.btnSwitchBook.style.display = "none";
   var histLen = viewHistory.length;
@@ -3383,9 +3465,9 @@ function aiExplainFromTag(){
   btn.disabled = true;
   var ot = btn.textContent;
   btn.textContent = "讲解中…";
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 400, temperature: 0.7})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -3519,9 +3601,9 @@ function aiEssayGenerate(words, force){
   if(!coinCheck(5)) return;
   body.innerHTML = '<div class="ai-err">AI 正在写文章，请稍候…</div>';
   var prompt = "你是英语写作老师。请用下面这些英文单词写一篇 60~90 词的小故事（约 6~9 句，有简单的人物和情节，读起来像真实的小故事而不是单词串烧）。要求：1）每个目标词在全文只出现 1~2 次，不要反复使用同一个词；2）一律使用每个单词最常见的含义，不要用偏僻义项；3）尽量让每个句子包含 1~2 个目标词，单词可以变形使用。单词：" + words.join(", ") + "。严格只输出 JSON，不要任何其他文字，格式：" + String.fromCharCode(123) + "\"title\":\"英文标题\",\"sentences\":[{\"en\":\"一个英文句子（自然包含目标词）\",\"cn\":\"该句对应的中文翻译\"},{\"en\":\"...\",\"cn\":\"...\"}...]" + String.fromCharCode(125) + "，sentences 数组按文章顺序排列，每个句子都配逐句中文翻译。中文翻译中，把英文句里目标词所对应的中文翻译词用一对星号 *...* 包裹起来（例如 *前景*），便于读者对照。";
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 1400, temperature: 0.8})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -3739,9 +3821,9 @@ function aiAnalysisRun(force){
     {role: "system", content: "你是英语学习规划师，擅长从数据里发现问题和给建议。"},
     {role: "user", content: "以下是用户的学习数据简报（近7天每天学习量格式 日期=次数）：\n当前词书：" + b.book + "；今日学习 " + b.todayCount + " 词，正确率 " + b.todayAcc + "%；连续打卡 " + b.streak + " 天；累计记录 " + b.totalEvs + " 条。\n当前词书进度：已学 " + b.learned + " / " + b.total + " 词（" + b.pct + "%）。\n生词本共 " + b.wrongN + " 个（前10：" + (b.wrongTop || "无") + "）。\n艾宾浩斯到期 " + b.dueN + " 个（前10：" + (b.dueTop || "无") + "）。\n近7天学习量：" + b.week + "\n\n请输出 JSON：{\"summary\":\"1句话总体评价（60字内）\",\"highlights\":[\"3~5条中文，指出做得好的，可点名具体做法\"],\"weaks\":[\"3~5条中文，指出薄弱点与易错风险，具体到单词或习惯\"],\"tips\":[\"3~5条中文，明日可执行的复习建议，具体到词或策略\"]}"}
   ];
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", temperature: 0.6, max_tokens: 1200, messages: msgs})
   }).then(function(r){ return r.json(); }).then(function(d){
     aiTick();
@@ -3813,9 +3895,9 @@ function aiQAAsk(){
   var res = els.aiQaRes;
   res.innerHTML = '<div class="gd-growing">🤖 AI 正在回答…</div>';
   var prompt = "你是英语学习助手。判定规则（最高优先级）：只有问题属于英语学习范畴才回答——背单词、词义辨析、语法、阅读理解、写作表达、发音口语、英语考试等。若问题与英语无关（数学、编程、美食、闲聊、翻译等），只回复一句话「这个问题与英语学习无关，我只回答英语相关问题」并立即结束，绝不多写一个字。若相关，请用清楚、分点、口语化的中文讲解，可以包含词源拆解、常见搭配、地道例句、近义词辨析对比；回答不超过 400 字，不要编造词源或含义。用户的问题是：" + q;
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 600, temperature: 0.7})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -3886,9 +3968,9 @@ function openAIQuiz(){
   var key = (state.settings.aiKey || "").trim();
   if(!key){ showToast("请先在设置里填写 AI Key"); return; }
   if(!coinCheck(5)) return;
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({
       model: "deepseek-chat",
       temperature: 0.5,
@@ -4069,9 +4151,9 @@ function aiExtractRun(){
   else if(g === "phrase") lvl = "词组短语学习阶段";
   var res = els.aiExtractRes;
   res.innerHTML = '<div class="ai-loading">AI 正在分析文章，筛选生词…</div>';
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({
       model: "deepseek-chat",
       temperature: 0.3,
@@ -4326,6 +4408,7 @@ function openWordFromCard(w, fb){
   renderCard();
 }
 function cardBackLevel(){
+  if(searchFromHome){ searchFromHome = false; browseMode = false; showLearnHome(); return; }
   if(!jumpStack.length) return;
   var top = jumpStack.pop();
   state.queue = top.q; state.qIdx = top.i;
@@ -4334,6 +4417,7 @@ function cardBackLevel(){
   renderCard();
 }
 function cardBackRoot(){
+  if(searchFromHome){ searchFromHome = false; browseMode = false; showLearnHome(); return; }
   if(!jumpStack.length) return;
   var root = jumpStack[0];
   jumpStack = [];
@@ -5729,6 +5813,22 @@ function renderStreakLine(){
     + '<div class="sl-extra">' + cycleInfoText() + '</div>';
   coinRefreshAll();
 }
+var AI_WORKER = "https://vocab-prxy.2581215144-c35.workers.dev/chat/completions";
+var AI_DIRECT = "https://api.deepseek.com/chat/completions";
+var AI_FALLBACK_KEY = "builtin";
+function aiUrl(){
+  if(state.settings.aiKey && state.settings.aiKey !== AI_FALLBACK_KEY) return AI_DIRECT;
+  return AI_WORKER;
+}
+function aiHeaders(){
+  var h = {"Content-Type": "application/json"};
+  if(state.settings.aiKey && state.settings.aiKey !== AI_FALLBACK_KEY){
+    h["Authorization"] = "Bearer " + state.settings.aiKey;
+  } else {
+    h["X-Worker-Key"] = "877195027Ssy";
+  }
+  return h;
+}
 function aiFreeRemain(){
   var stt = state.settings;
   var today = new Date().toLocaleDateString("en-CA");
@@ -6476,9 +6576,9 @@ function gardenPlan(){
     return obj;
   }
   function gdRun(){
-    return fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+    return fetch(aiUrl(), {
       method: "POST",
-      headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+      headers: aiHeaders(),
       body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: gdPlanPrompt()}], max_tokens: 800, temperature: 0.9})
     }).then(function(r){
       if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -6643,9 +6743,9 @@ function gardenAI(node, kd, cost){
   var lvName = grpLv === "cet6" ? "六级" : grpLv === "kaoyan" ? "考研" : "四级";
   var prompt = "你是英语词汇教学助手。种子词：" + seed + "。请给出 4 个" + kd.aiDesc + "。要求：1）全部是真实存在、拼写正确的英文单词；2）不能包含种子词本身；3）每个词只给最常见的 1~2 个中文释义，不要用偏僻义项；4）所有词必须属于当前词书范围（" + lvName + "考纲词），必须是常见考试词汇，严禁生僻词和超纲词；"
     + (exTarget ? "5）绝对不要输出目标词「" + exTarget + "」。严格只输出 JSON，不要输出任何其他文字，格式：{\"words\":[{\"w\":\"单词\",\"zh\":\"中文释义\"}]}" : "严格只输出 JSON，不要输出任何其他文字，格式：{\"words\":[{\"w\":\"单词\",\"zh\":\"中文释义\"}]}");
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 600, temperature: 0.8})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -6859,9 +6959,9 @@ function gardenSynDiff(){
   mask.querySelector(".modal-close").addEventListener("click", function(){ mask.remove(); });
   mask.addEventListener("click", function(ev){ if(ev.target === mask) mask.remove(); });
   var body = mask.querySelector(".jr-body");
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 800, temperature: 0.7})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -6991,6 +7091,7 @@ function coinRefreshAll(){
   var crs = document.querySelectorAll(".coin-rem");
   for(var i=0;i<crs.length;i++) crs[i].textContent = "· 剩 " + n;
 }
+
 function renderCoinUI(){
   var el = document.getElementById("coinShow");
   if(el){
@@ -8005,9 +8106,9 @@ function mpwAiExplain(w, btn){
   btn.disabled = true;
   btn.textContent = "讲解中…";
   body.innerHTML = '<div class="mp-ai-load">正在生成讲解…</div>';
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 400, temperature: 0.7})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
@@ -8047,9 +8148,9 @@ function mpAi(w){
   var _enT = (window.EN || {})[String(w).toLowerCase()];
   if(_enT) info += "权威英英释义：" + _enT.slice(0,280) + "。";
   var prompt = "你是英语学习助手。为单词「" + w + "」生成学习讲解，严格只输出 JSON，不要任何其他文字，格式：{\"explain\":\"用一句话通俗解释这个词在语境中的含义（中文）\",\"examples\":[{\"en\":\"简单贴近生活的英文例句\",\"cn\":\"中文翻译\"},{\"en\":\"第二个简单例句\",\"cn\":\"中文翻译\"}],\"mnemonic\":\"一条简短记忆联想，用中文谐音或词根词缀拆解\"}。单词背景：" + info + "你必须严格以单词背景中给出的本地权威释义和英英释义为准，不得超出或编造其他含义，也不得把别的词的释义安到这个词上；优先采用该词最常用、考试常考的核心含义来讲解，冷僻义不展开；要求例句口语化、长度适中、语义完整，不要专业腔，不要重复单词释义原句。";
-  fetch("https://vocab-prxy.2581215144-c35.workers.dev/chat/completions", {
+  fetch(aiUrl(), {
     method: "POST",
-    headers: {"Content-Type": "application/json", "X-Worker-Key": "877195027Ssy"},
+    headers: aiHeaders(),
     body: JSON.stringify({model: "deepseek-chat", messages: [{role: "user", content: prompt}], max_tokens: 400, temperature: 0.7})
   }).then(function(r){
     if(!r.ok) return r.json().then(function(d){ throw new Error((d && d.error && d.error.message) || ("HTTP " + r.status)); });
