@@ -14885,7 +14885,30 @@ var vq2PoolCache = null, vq2BfCache = null, vq2TierWordCache = null, vq2Ctx = "h
 
 function vq2$(id){ return document.getElementById(id); }
 function vq2Data(){ return window.VQ2DATA || {tiers:[], basic:"", except:"", counts:{}, overlap:{}}; }
-var VQ5_CORE_CACHE = null;function vq2Bank(){  if(VQ5_CORE_CACHE) return VQ5_CORE_CACHE;  try{    if(window.__VQ5COREZ){      var _vq = JSON.parse(pako.ungzip(Uint8Array.from(atob(window.__VQ5COREZ), function(c){ return c.charCodeAt(0); }), {to:'string'}));      VQ5_CORE_CACHE = (_vq && _vq.core) ? _vq.core : [];      return VQ5_CORE_CACHE;    }  }catch(e){ }  VQ5_CORE_CACHE = window.VQ2_QUESTION_BANK || [];  return VQ5_CORE_CACHE;}
+var VQ5_CORE_CACHE = null;
+function vq2NormBank(core){
+  var arr = [], i, k, it;
+  if(!core) return arr;
+  if(Object.prototype.toString.call(core) === "[object Array]"){
+    for(i=0;i<core.length;i++){ it = core[i]; if(it && it.w) arr.push(it); }
+  } else {
+    for(k in core){
+      it = core[k];
+      if(!it || typeof it !== "object") continue;
+      if(!it.w) it.w = k;
+      arr.push(it);
+    }
+  }
+  /* 兼容两种题库格式：c/senses/alt 为出题消费字段，core/allSenses/coreAlt 为数据生成字段 */
+  for(i=0;i<arr.length;i++){
+    it = arr[i];
+    if(it.c === undefined && it.core !== undefined) it.c = it.core;
+    if(!it.senses && it.allSenses) it.senses = it.allSenses;
+    if(!it.alt && it.coreAlt) it.alt = it.coreAlt;
+  }
+  return arr;
+}
+function vq2Bank(){  if(VQ5_CORE_CACHE) return VQ5_CORE_CACHE;  try{    if(window.__VQ5COREZ){      var _vq = JSON.parse(pako.ungzip(Uint8Array.from(atob(window.__VQ5COREZ), function(c){ return c.charCodeAt(0); }), {to:'string'}));      VQ5_CORE_CACHE = vq2NormBank(_vq && _vq.core);      return VQ5_CORE_CACHE;    }  }catch(e){ }  VQ5_CORE_CACHE = vq2NormBank(window.VQ2_QUESTION_BANK || []);  return VQ5_CORE_CACHE;}
 var vq2BankIdx = null;
 function vq2BankIndex(){
   if(vq2BankIdx) return vq2BankIdx;
